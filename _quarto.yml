@@ -1,0 +1,83 @@
+project:
+  type: book
+  output-dir: "C:/Users/christopher.smith/OneDrive - Cook County Health/General/Admin/Epi_Unit_Employee_Handbook"
+
+book:
+  title: "CCDPH Epidemiology Unit Employee Handbook"
+  subtitle: "Organizational information and standard procedures for Epidemiology Unit employees"
+  cover-image: handbook_cover.png
+  author: "CCDPH Epidemiology Unit"
+  date: "last updated: 3/9/2023"
+  # search: true
+  # repo-url: https://github.com/jjallaire/hopr/
+  # repo-actions: [edit]
+  # downloads: [pdf, epub]
+  chapters:
+    - index.qmd
+    - part: background.qmd
+      chapters:
+        - organization.qmd # cook county; cch; ccdph; epi unit
+        - strategy.qmd # strategic plans, mission, vision
+        - people.qmd # ccdph org chart; job descriptions; cvs
+        - geography.qmd # cook county; ccdph; scc
+        - partners.qmd # external partners, links and descriptions
+    - part: administration.qmd # cch; ccdph
+      chapters:
+        - calendar.qmd # activity calendar, holidays
+        - onboarding.qmd # resources/guide for incoming staff
+        - offboarding.qmd # resources/guide for outgoing staff
+        - employees.qmd # resources for current staff
+        - grants.qmd # application and administration of grants
+        - fellowships.qmd # hiring and mentorship of fellows
+    - part: project_management.qmd # regular projects
+      chapters:
+        - programs.qmd # regular/mandated programs (i.e., PHAB reporting; CHA-CHIP)
+        - approvals.qmd # project/activity approval process
+        - documentation.qmd # description; process; resources
+    - part: data_management.qmd # data management lifecycle
+      chapters:
+        - storage.qmd # epi unit datasets, storage, access (database)
+        - collection.qmd # secondary data sources and datasets
+        - surveys.qmd # primary data collection
+        - agreements.qmd # data use agreements (DUAs)
+        - processing.qmd # data importing, processing and cleaning
+        - analysis.qmd # data analysis; standard calculations/formulas
+        - suppression.qmd # data privacy, suppression, rules for reporting
+        - dissemination.qmd # health atlas; dashboards; requests; schedules
+        - indicators.qmd # standard indicators
+    - part: documents.qmd # categories of documents
+      chapters:
+        - databriefs.qmd # characteristics; templates; links
+        - reports.qmd # characteristics; templates; links (CHSA)
+        - manuscripts.qmd # characteristics; templates; links
+        - presentations.qmd # characteristics; templates; links
+    - part: software.qmd # software types, descriptions, installation process
+      chapters:
+        - github.qmd # github repositories
+        - sqlserver.qmd # sql server resources
+        - posit.qmd # rstudio resources; code
+        - gis.qmd # ArcGIS data, resources; templates
+        - sas.qmd # sas resources
+        - excel.qmd # excel resources
+    - part: learning.qmd # professional development courses, resources
+      chapters:
+        - training.qmd # required CCH and CCDPH trainings
+        - development.qmd # professional development opportunities (linkedin, etc.)
+  appendices:
+    - definitions.qmd
+    - acronyms.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: [journal, "handbook.scss"]
+    favicon: "https://cookcountypublichealth.org/wp-content/uploads/2018/12/cropped-favicon-32x32.png"
+    include-in-header: "header.html"
+    anchor-sections: true
+    smooth-scroll: true
+    link-external-icon: true
+    link-external-newwindow: true
+    page-navigation: true
+
+editor: source

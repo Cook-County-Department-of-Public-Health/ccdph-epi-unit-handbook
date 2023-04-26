@@ -1,0 +1,37 @@
+
+
+
+
+# Processing
+This section 
+
+
+## Vital Statistics
+
+### Mortality
+
+### Natality
+
+## Hospitalization 
+The Illinois Department of Public Health (IDPH) makes available to CCDPH inpatient and outpatient (or emergency department visits) hospital discharge data. These data can exceed many million records per year and therefore requires substantial processing prior to data analysis. The first challenge concerns classification the discharges into meaningful categories. For this, we use the primary diagnosis information for each patient. The primary diagnosis is assigned using ICD-10 categorization schema. 
+
+These principal diagnoses are then further aggregated into categories using four conventional systems of grouping: (1) the ICD-10-CM (Clinical Modification) system; (3) the Clinical Classifications Software Refined (CCSR) categories; (2) Diagnostic Related Groups (DRG); and (4) Major Diagnostic Categories (MDCs).
+
+### International Classification of Disease (ICD-10) codes
+However it will take time for the health care system to fully implement the new standard, which is why the Epidemiology Unit uses ICD-10-CM definitions.
+
+### International Classification of Disease Clinical Modification (ICD-10-CM)
+
+### Clinical Classifications Software Refined (CCSR) Categories
+The [Clinical Classifications Software Refined](https://hcup-us.ahrq.gov/toolssoftware/ccsr/dxccsr.jsp) (CCSR) for ICD-10-CM Diagnoses is one in a family of databases and software tools developed as part of the [Healthcare Cost and Utilization Project](https://www.ahrq.gov/data/hcup/index.html) (HCUP), a Federal-State-Industry partnership sponsored by the [Agency for Healthcare Research and Quality](https://www.ahrq.gov/) (AHRQ). HCUP databases, tools, and software inform decision making at the national, State, and community levels. 
+
+The Clinical Classifications Software Refined (CCSR) for ICD-10-CM diagnoses aggregates more than 70,000 ICD-10-CM diagnosis codes into over 530 clinically meaningful categories. The CCSR is based on the International Classification of Diseases, 10th Revision, Clinical Modification (ICD-10-CM). The categories are organized across 22 body systems, which generally follow the structure of the ICD-10-CM diagnosis chapters.
+
+The CCSR for ICD-10-CM diagnoses provides a means by which to identify specific clinical conditions using ICD-10-CM diagnosis codes. The CCSR for ICD-10-CM capitalizes on the specificity of the ICD-10-CM coding scheme by creating new clinical categories that did not exist in previous versions of the CCS tool and allowing ICD-10-CM codes to be classified in more than one category. *The CCSR is intended to be used analytically to examine patterns of healthcare in terms of cost, utilization, and outcomes; rank utilization by diagnoses; and risk adjust by clinical condition*.
+
+### Diagnostic Related Groups (DRGs)
+https://www.cms.gov/Medicare/Coding/ICD10/ICD-10-MS-DRG-Conversion-Project
+
+### Major Diagnostic Categories (MDCs)
+A three-digit numeric code that groups beneficiary diagnosis codes into broad categories based on condition type and body region.
+

@@ -1,0 +1,53 @@
+# Grants and awards
+
+The Epidemiology Unit has been fortunate to receive various grants and awards to support initiatives and programs aimed at improving the health and well-being of individuals and communities within CCDPH's jurisdiction. The grant and funding opportunities have come from a variety of sources, including government agencies (Centers for Disease Control and Prevention [CDC](https://www.cdc.gov/)), non-profit organizations (e.g., Council for State and Territorial Epidemiologists [CSTE](https://www.cste.org/), National Association of County Health Officials [NACCHO](https://www.naccho.org)), foundations(e.g., Chicago Community Trust [CCT](https://www.cct.org/)), and corporations.
+
+Public health grants may support a range of public health activities, such as research, education, prevention, treatment, and policy development. Some common areas of focus for public health grants include:
+
+-   Disease prevention and control
+-   Health equity and disparities
+-   Environmental health
+-   Behavioral and mental health
+-   Nutrition and physical activity
+-   Injury prevention and safety
+-   Maternal and child health
+-   Emergency preparedness and response
+
+Grants and awards can vary in size, scope, and eligibility requirements, and may be awarded on a one-time or ongoing basis.
+
+## Past and present grant awards 
+A list of current and past grants from which the Epidemiology Unit has directly benefited is below. Links to application materials are also provided.
+
+### CSTE Applied Epidemiology Fellowship (AEF) program
+The Council of State and Territorial Epidemiologists (CSTE) Applied Epidemiology Fellowship (AEF) program is a competitive, two-year fellowship program that provides on-the-job training and experience in applied epidemiology to recent graduates with a master's or doctoral degree in epidemiology or related fields. The program is designed to provide fellows with opportunities to apply epidemiologic methods to public health problems, develop skills in leadership and communication, and build relationships with public health professionals and agencies.
+
+During the fellowship, AEF fellows work on projects related to surveillance, outbreak investigations, program evaluation, and other public health activities in state or local health departments, federal agencies, or other public health organizations. Fellows receive mentorship from experienced epidemiologists and have opportunities for professional development and training.
+
+The AEF program has a competitive application process, and applicants must demonstrate strong analytical skills, experience in data analysis, and a commitment to public health. Fellows receive a stipend, health insurance, and travel support to attend training and conferences.
+
+The CSTE AEF program is a prestigious opportunity for recent graduates to gain hands-on experience in applied epidemiology and advance their careers in public health.
+
+#### Past AEF fellows 
+Below is a list of fellows who have worked in the Epidemiology Unit, along with their respective tenures and projects.
+
+-   Stephanie Shosanya (2022-2024)
+-   Kyla Quigley (2021-2023)
+
+### CSTE Data Science Team Training (DSTT) program
+The Council of State and Territorial Epidemiologists (CSTE) Data Science Team Training (DSTT) program is a training opportunity designed to improve the data science skills of epidemiologists and other public health professionals. The program is a collaboration between CSTE and the Centers for Disease Control and Prevention (CDC) and is designed to provide training in the use of data science techniques to analyze and interpret public health data.
+
+The DSTT program is a one-year program that covers topics such as data wrangling, data visualization, machine learning, and statistical modeling. The mentor-based training is delivered through a mix of lectures, hands-on exercises, and group projects. Participants are also provided to virtual learning environments (e.g., Coursera) and online resources 9e.g., Basecamp) to support their continued learning after the training.
+
+The DSTT program is open to state and local public health agencies in the United States, and participants are typically selected through a competitive application process. Participants are expected to have some experience working with public health data and to have a basic understanding of statistical concepts.
+
+### Past DSTT awards
+
+-   2022 DSTT Program. The Epidemiology and Communicable Disease Unit worked together...
+
+### CDC Crisist Grant
+
+### NACCHO community-based grant
+
+### NACCHO
+
+### NACTO MENDS

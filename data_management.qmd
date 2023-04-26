@@ -1,0 +1,54 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+```{r}
+
+library(chatgpt)
+library(keyring)
+
+Sys.setenv(OPENAI_API_KEY = key_get("chatgpt"))
+
+```
+
+# Data Management {.unnumbered}
+
+This chapter summarizes data management documentation for the Epidemiology Unit. Data management involves organizing, storing, manipulating, and retrieving data in a way that allows efficient and effective use of the data. It includes tasks such as creating and maintaining databases, cleaning and preparing data for analysis, transforming data formats, and ensuring data quality and integrity. Effective data management is essential for accurate and reliable analysis results, as well as for efficient collaboration and sharing of data both within CCDPH and externally.
+
+## storage and access
+data storage practices and how to access data managed by the Epidemiology Unit.
+
+## collection
+secondary datasets used by Epidemiology Unit includes:
+
+### hospitalization discharge
+
+### vital statistics
+
+## surveys
+Primary data collection including
+
+### Youth Risk Behavioral Survey
+The CCDPH collects race and ethnicity data for younger populations via its [Youth Risk Behavior Survey (YRBS)](https://cookcountypublichealth.org/epidemiology-data-reports/yrbs-youth-risk-behavioral-survey/). Administered in 2010 and 2020 with plans to administer every two years going forward, the survey assesses health risk behaviors among students (grade 9-12) in participating high schools throughout suburban Cook County. The survey is used to monitor and evaluate a variety of health-related behaviors and conditions among adolescents, including physical activity, sexual behavior, nutrition, alcohol and drug use, and mental health. Survey results can be used to inform the development of health policies and programs that address the needs of adolescents. The Epidemiology Unit carried out this survey in 2020 and 2022 and, as of spring 2023, has plans to administer the survey on an annual basis.
+
+### Cook County Health Survey
+The [Cook County Health Survey (CCHS)](https://cookcountypublichealth.org/health-survey/) is a cross-sectional survey with a sample of approximately 32,000 randomly selected adults aged 18 and older suburban Cook County residents. The paper and web-based versions of the survey are available in English and Spanish. All data collected are self-reported and used to help the CCDPH assess the health-related needs of the county population and to guide the Department in planning programs to improve the health and well being of county residents. The design of the survey including question phrasing and structure closely follows [CDC's national Behavioral Risk Factor Surveillance System](https://www.cdc.gov/brfss/data_documentation/index.htm) (BRFSS) and the [Illinois County Behavioral Risk Factor Surveys](http://www.idph.state.il.us/brfss/countydata.asp?selTopicCounty=R6Overview&areaCounty=Cook_90.1&show=freq&yrCounty=6&form=county&yr=&area=&selTopic=) (ICBRFS) programs. The CCDPH has traditionally sought to align its survey with validated questions asked in the BRFSS, ICBRFS, as well as the similarly structured [Healthy Chicago Survey](https://www.chicago.gov/city/en/depts/cdph/supp_info/healthy-communities/healthy-chicago-survey.html) (HCS) via a broader collaborative effort with the Chicago Department of Public Health (CDPH).
+
+## data use agreements (DUAs)
+agreements with source agencies
+
+## data processing
+data importing, processing and cleaning
+
+## data analysis
+standard calculations/formulas
+
+## data suppression
+suppression
+
+## data dissemination
+health atlas; dashboards; requests; schedules
+
+## indicators
+master list of indicators by category

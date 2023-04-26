@@ -1,0 +1,5 @@
+# Software {.unnumbered}
+
+The Epidemiology Unit makes 
+
+R, RStudio, R tools, SAS, Git, Notepad++, MikTex, ArcPro, Python, Chrome, Firefox, SQL Server Management Studio, SatScan, 64 bit Java, Docker Zotero; NoteTab Light; QGIS; Teams Desktop; OneDrive Desktop; MS Office Suite Desktop;

@@ -1,0 +1,16 @@
+# Data Storage
+
+Data storage refers to the methods and technologies used to store, manage, and preserve digital data for the Epidemiology Unit. It involves the use of various hardware and software components that work together to ensure that data is organized, accessible, and secure.
+
+The Epi-Unit has multiple forms of data storage:
+
+- Cloud storage: This involves storing data on remote servers accessed over the internet. Cloud storage is becoming increasingly popular due to its flexibility and scalability.
+
+- SQL Server: SQL Server is a relational database management system (RDBMS) developed by Microsoft. It is designed to store and manage large amounts of data and is used by organizations of all sizes for a wide range of applications. SQL Server supports the Structured Query Language (SQL), which is a standard language used to manage relational databases. SQL Server provides a wide range of features and services, including: (1) Data storage and management: SQL Server provides efficient storage and retrieval of data, allowing for quick access to large amounts of data: (2) Security: SQL Server provides robust security features, including authentication, authorization, and encryption, to protect data from unauthorized access; (3) Integration with other Microsoft technologies: SQL Server integrates seamlessly with other Microsoft technologies such as Excel, OneDrive, and SharePoint.
+
+## CCDPH SQL Server
+The SQL Server database 
+
+### Permissions
+Database users are granted access by assigning roles. By default, new users are granted access as "public" users, refers to the lowest level of permissions. People, 
+

@@ -1,0 +1,5 @@
+# Acronyms
+
+## ICD
+The International Classification of Disease (ICD) system was created for the consistent and accurate tracking of diseases within and across places and languages. The World Health Organization (WHO) took charge of the classification system in 1948 and renamed it the International Classification of Disease (ICD), which has undergone eleven formal revisions. [The latest version of the ICD](https://www.who.int/standards/classifications/classification-of-diseases), ICD-11, was adopted by the 72nd World Health Assembly in 2019 and came into effect in January 2022. [This eleventh revision](https://www.who.int/standards/classifications/classification-of-diseases), which is now the standard in over 30 countries around the world, contains nearly 17,000 unique disease codes and 120,000 codable terms. Across the years, the ICD has become an important part of the US health care system as it provides standard coding for payment and medical procedures.
+

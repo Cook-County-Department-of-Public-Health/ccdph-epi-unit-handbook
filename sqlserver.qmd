@@ -1,0 +1,87 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(DBI)
+library(dplyr)
+library(tidyverse)
+library(keyring)
+library(stringr)
+```
+
+# CCDPH SQL Server
+
+The CCDPH SQL Server refers to a full-featured public health database management system built on Microsoft SQL Server. The server is installed and managed internally on CCDPH network servers (i.e., It is not a cloud service).
+
+The Health Information Services (HIS) Department established the [HIPAA-compliant](https://www.hhs.gov/hipaa/index.html) server in summer 2022 at the request of the CD and Epi units as part of an effort to centralize and coordinate efficient and secure data storage and sharing within and between the units. Server data are backed up nightly by HIS staff.
+
+## CCDPH SQL Server contents
+
+The CCDPH SQL Server includes patient-level vital statistics, hospital discharge, communicable disease cases and other data used by CCDPH epidemiologists in their surveillance activities. Information stored on the server change regularly as databases and tables are created and modified.
+
+### Databases and tables
+
+\[add information about database, table names including descriptions, columns and content.\]
+
+## How to access
+
+Only select CD and Epi unit employees and interns have access to information stored on the CCDPH SQL Server (Server). Permissions to read and/or edit data objects on the server are set by data owners and are limited to staff who have Windows authenticated access to the Cook County Health and Hospital System (CCHHS) network domain (i.e., staff who have a CCHHS user name and password).
+
+The first step to gaining access to the server is to *send an email request to a data owner.* CD staff should request access from [Kelley Bemis](mailto:kbemis@cookcountyhealth.org) (Program Manager) and Epi staff should request access from [Scott Smith](mailto:christopher.smith@cookcountyhealth.org) (Project Coordinator). The email should specify the particular datasets needed (e.g., death certificate records). The data owner will respond with the server name and names of databases, tables, and/or columns to which the requester has been granted access.
+
+Users may access server data via different platforms. Instructions for access via select protocols are provided below.
+
+### R via DBI package
+
+To protect server security, it is advised that R users encrypt the server name using the [keyring](https://cran.r-project.org/web/packages/keyring/index.html) package. For example, the below code *key_set("ccdph_sql_server")* will prompt the user to type in and "set" the server name in keyring. Once set, the user may access the encrypted key using the command, *key_get("ccdph_sql_server")*.
+
+```{r}
+#| label: encrypt server name using keyring
+#| eval: false
+
+# activate keyring package
+library(keyring)
+
+# set server name "password" as "ccdph_sql_server"
+# when prompted type in/copy protected server name "password" into dialog box 
+key_set("ccdph_sql_server")
+
+# retrieve/get server name in code
+key_get("ccdph_sql_server")
+
+```
+
+Use the following code to connect to the server using stored keyring password/secret. Databases and tables to which you have been granted access will appear in the RStudio Connections tab. Refer to instructions in subsequent sections in this document to go about importing, exporting, and editing objects on the server.
+
+```{r}
+#| label: access database content
+#| eval: false
+
+con_ccdph_sql_server <- dbConnect(odbc::odbc(),
+                        Driver   = "SQL Server",
+                        Server   = key_get("ccdph_sql_server"))
+```
+
+### Microsoft applications via ODBC
+
+To access server data using Microsoft applications, it is necessary to first install the SQL Server ODBC driver. Follow the steps below.
+
+-   Type "ODBC Data Sources" into the Windows search prompt to open the ODBC Data Source Administrator dialog.
+-   Click "New" in the dialog and select "SQL Server" as the driver type.
+
+::: {#fig-odbc layout-ncol="2"}
+![Add SQL Server ODBC connection](/images/sqlserver_add_odbc_connection.png){#fig-odbc01}
+
+![Set SQL Server ODBC data source](/images/sqlserver_set_odbc_data_source.png){#fig-odbc02}
+:::
+
+## Setting permissions
+
+Third parties outside of the Cook County Health & Hospitals System (CCHHS) do not have access to the service. Access to the service, databases, tables and particular table columns are granted to employees on a must-need basis. The server name and IP address are shared with staff upon access approval. Data are managed by designated data owners and editors.
+
+## Importing data
+
+## Exporting data
