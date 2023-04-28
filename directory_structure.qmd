@@ -1,0 +1,126 @@
+# Directory Structure
+
+## Epidemiology Unit Storage Options
+
+The Epidemiology Unit has several options available for its members in regard to data storage and version control. Depending on the purpose, type of project, and dissemination of results, one project might be located in multiple places at once.
+
+While most of the storage options are located in the cloud (private CCHHS server), there is a personal drive that comes with the laptop (or PC) that is private to the user. On the other hand, there are two version control software applications used in the Unit.
+
+The four storage options are:
+
+-   One Drive
+
+-   SharePoint
+
+-   Public Health Folder
+
+-   SQL Server
+
+The two version control software are:
+
+-   One Drive
+
+-   GitHub
+
+## Data Flow
+
+```{r directory_structure, echo=FALSE, out.width="100%", fig.cap="Data Flow in and out of One Drive through the Epi Unit's Directory"}
+knitr::include_graphics("images/direct_structure.png")
+```
+
+The diagram shows how the One Drive **\textcolor{purple}{(where personal or individual projects live)}** interacts with other parts of the directory.
+
+Usually, the flow of data depends on the type of data used. Most of projects involved in management or administration (these might also include research, briefs, reports, or presentations) have their data input internally (using SharePoint, Outlook, etc.), along with web-based browsing and data gathering.
+
+For projects that are analysis-focused, the data flow dynamics change depending on the source of data, type of data received, data use agreements, sharing, archiving, and destruction policies. For such projects, the Shared Public Health Folder serves as the place where raw data lives and is considered the directory for importing the data for handling **\textcolor{purple}{(Please review the Analysis Ready Data Set Guidelines)}**.
+
+## Uses of Storage Directory
+
+-   Personal Storage Directories
+
+-   Team and Collaborative Storage Directories
+
+-   Version Control
+
+# Personal Storage Directories
+
+```{r project_directory, echo=FALSE, out.width="100%", fig.cap="Project directory organized according to attributes with documentation"}
+knitr::include_graphics("images/project_structure.png")
+```
+
+## One Drive
+
+The Epidemiology Unit's One Drive is hosted by CCH. The drive is mainly used for developing individual projects. It is where most of projects are developed and drafted. This is where project directory measures and standards are applied. Establishing a good project management and structure is important for consistency and reproducibility **\textcolor{purple}{(Please review the Project Structuring Guidelines)}**.
+
+## Personal Drive
+
+This drive is available to members on their CCH machines (laptop or/and PC). Mainly, it is used for personal project development. The advantage of this drive that it is ***\textcolor{purple}{Not Accessible to Higher Management}***.
+
+# Teams and Collaborative Storage Directories
+
+## SharePoint
+
+```{r share_point, echo=FALSE, out.width= "100%", fig.cap="Sharing process utilizing Share Point"}
+knitr::include_graphics("images/share_point.png")
+```
+
+SharePoint is a web-based Microsoft application used by CCH as a secure sharing platform, directory management tool, and version control software (along with One Drive). After completing the drafts of ongoing projects, Share Point serves as the collaborative platform where these projects can be shared with other team members, internal stakeholders, or external stakeholders (*in certain situations*). The sharing process is governed by the **\textcolor{purple}{Sharing Policies}** and **\textcolor{purple}{Data Use Agreements}**.
+
+\newpage
+
+## Public Health Shared Folder (*Arc GIS Folder*)
+
+```{r public_folder_sql, echo=FALSE, out.width="100%", fig.cap="Public health shared folder and data handling process with archiving"}
+knitr::include_graphics("images/ph_sql.png")
+```
+
+The Public Health Shared Folder (*Arc GIS Folder*) is the drive that hosts the raw data sets. In this drive, data that were shared with the Epidemiology Unit are stored and archived. The folder is important for using Arc GIS Pro when importing data into the software (*i.e., spatial data*). Some clean data sets and most of final GIS maps are also archived in the folder.
+
+\newpage
+
+## SQL Server
+
+```{r sql, echo=FALSE, out.width="100%", fig.cap="SQL database interconnectedness with other directories in the Epi Unit"}
+knitr::include_graphics("images/sql.png")
+```
+
+The SQL database is being developed to store the clean, aggregate, and/or analysis-ready data sets. The dynamics between One Drive, SQL server, and Statistical software can be summarized as follows:
+
+1- After cleaning the raw data and preparing it for analysis, it is stored in the SQL server.
+
+2- Importing the clean data sets from the SQL server into the statistical software (SAS studio or R Studio).
+
+3- Preliminary results produced ought to be stored in One Drive.
+
+4- Completed drafts are shared on Share Point.
+
+5- Final analyses products are stored in SQL server (*to ensure reproducibility*)
+
+\newpage
+
+# Version Control
+
+```{r version_control, echo=FALSE, out.width="100%", fig.cap="Examples of Version control used in project management by the Epi Unit"}
+knitr::include_graphics("images/version_control.png")
+```
+
+## One Drive
+
+One of the built-in features of One Drive is its ability to save and restore versions of (an) ongoing document(s). For that reason, it is recommended to be utilized as version control for individual projects,and certain projects in which there is no emphasis on coding or that are not data analysis-focused.
+
+## Git / GitHub
+
+This is one of the most popular version control software applications used by data scientists (more recently epidemiologists). It is recommended to be used on all projects that involve coding or/and data analysis-focused projects. It is especially emphasized in projects that are collaborative in nature (*please review the [GitHub Guide](https://githubtraining.github.io/training-manual/#/01_getting_ready_for_class)*).
+
+\newpage
+
+# Directory Interactions
+
+```{r ms_interaction, echo=FALSE, out.width="100%", fig.cap="Microsoft Office 365 and Project Directory"}
+knitr::include_graphics("images/microsoft_interaction.png")
+```
+
+## SharePoint Interactions with Microsoft Office 365 Applications
+
+As the version control applications of *Microsoft Office 365 (MS)*, SharePoint interacts with all of MS applications. All files and/or folders created by the user can be accessed via \textcolor{purple}{SharePoint}. The reason for this structure is that every file and/or folder created using MS applications will have a path route automatically generated in **\textcolor{purple}{SharePoint}**. The *Epidemiology Unit's* projects are mainly located in either **\textcolor{purple}{One Drive}** and/or **\textcolor{purple}{Teams}**. Permission to access projects in *One Drive* and/or *Teams* can be set up to limited \textcolor{purple}{team members} or made \textcolor{purple}{Public}. 
+

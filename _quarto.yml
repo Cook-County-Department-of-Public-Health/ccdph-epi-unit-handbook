@@ -1,13 +1,14 @@
 project:
   type: book
-  output-dir: "C:/Users/christopher.smith/OneDrive - Cook County Health/General/Admin/Epi_Unit_Employee_Handbook"
+  output-dir: "C:/Users/christopher.smith/OneDrive - Cook County Health/General - Illinois Crisis Grant/Epi_Unit_Employee_Handbook"
 
 book:
   title: "CCDPH Epidemiology Unit Employee Handbook"
   subtitle: "Organizational information and standard procedures for Epidemiology Unit employees"
   cover-image: handbook_cover.png
   author: "CCDPH Epidemiology Unit"
-  date: "last updated: 3/9/2023"
+  date: "last updated: 4/26/2023"
+  page-navigation: true # true by default (adds previous/next page at bottom of page)
   # search: true
   # repo-url: https://github.com/jjallaire/hopr/
   # repo-actions: [edit]
@@ -34,11 +35,11 @@ book:
         - programs.qmd # regular/mandated programs (i.e., PHAB reporting; CHA-CHIP)
         - approvals.qmd # project/activity approval process
         - documentation.qmd # description; process; resources
-    - part: data_management.qmd # data management lifecycle
+    - part: data_management.qmd # data management
       chapters:
         - storage.qmd # epi unit datasets, storage, access (database)
-        - collection.qmd # secondary data sources and datasets
-        - surveys.qmd # primary data collection
+        - secondary_data.qmd # secondary data sources and datasets
+        - primary_data.qmd # primary data collection
         - agreements.qmd # data use agreements (DUAs)
         - processing.qmd # data importing, processing and cleaning
         - analysis.qmd # data analysis; standard calculations/formulas
@@ -64,6 +65,7 @@ book:
         - training.qmd # required CCH and CCDPH trainings
         - development.qmd # professional development opportunities (linkedin, etc.)
   appendices:
+    - references.qmd
     - definitions.qmd
     - acronyms.qmd
 

@@ -1,15 +1,51 @@
-# Data Storage
+# Storage and Access
 
 Data storage refers to the methods and technologies used to store, manage, and preserve digital data for the Epidemiology Unit. It involves the use of various hardware and software components that work together to ensure that data is organized, accessible, and secure.
 
-The Epi-Unit has multiple forms of data storage:
+The Epi-Unit has access to multiple forms of data storage. Outlined below is a general description of each category of data storage, how data are accessed and managed, along with associated usage best practices.
+
+## Personal laptop and/or desktop/tower drive
+This drive is available to members on their CCH machines (laptop or/and PC). Mainly, it is used for personal project development. The advantage of this drive that it is (NOT Accessible to Higher Management). 
+
+### Management and access
+Managed internally by HIS.
+
+### Usage best practices
+Capacity limitations.
+
+## CCDPH network drive
+### Management and access
+Managed internally by HIS.
+
+### Usage best practices
+Capacity limitations.
+
+## Personal OneDrive
+Microsoft OneDrive is a cloud-based data storage utility.
+
+### Management and access
+The Epidemiology Unit’s OneDrive is hosted by CCH. The drive is mainly used for developing individual projects. It is where most of projects are developed and drafted. This is where project directory measures and standards are applied. Establishing a good project management and structure is important for consistency and reproducibility (Please review the Project Structuring Guide). 
+
+### Usage best practices
+
+## Teams SharePoint files
+
+### Usage best practices
+### Management and access
+
+## CCDPH SQL Server
+
+## CCDPH GitHub
+
+### Management and access
+### Usage best practices
 
 - Cloud storage: This involves storing data on remote servers accessed over the internet. Cloud storage is becoming increasingly popular due to its flexibility and scalability.
 
 - SQL Server: SQL Server is a relational database management system (RDBMS) developed by Microsoft. It is designed to store and manage large amounts of data and is used by organizations of all sizes for a wide range of applications. SQL Server supports the Structured Query Language (SQL), which is a standard language used to manage relational databases. SQL Server provides a wide range of features and services, including: (1) Data storage and management: SQL Server provides efficient storage and retrieval of data, allowing for quick access to large amounts of data: (2) Security: SQL Server provides robust security features, including authentication, authorization, and encryption, to protect data from unauthorized access; (3) Integration with other Microsoft technologies: SQL Server integrates seamlessly with other Microsoft technologies such as Excel, OneDrive, and SharePoint.
 
 ## CCDPH SQL Server
-The SQL Server database 
+SQL Server Management Studio (SSMS) is a software application used to manage and administer the CCDPH Microsoft SQL Server. The software provides a graphical user interface (GUI) for managing Epi Unit database objects, running and creating dtabase queries, designing and editing database schemas, creating and executing stored procedures, among other data management tasks.
 
 ### Permissions
 Database users are granted access by assigning roles. By default, new users are granted access as "public" users, refers to the lowest level of permissions. People, 
