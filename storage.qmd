@@ -2,51 +2,98 @@
 
 Data storage refers to the methods and technologies used to store, manage, and preserve digital data for the Epidemiology Unit. It involves the use of various hardware and software components that work together to ensure that data is organized, accessible, and secure.
 
-The Epi-Unit has access to multiple forms of data storage. Outlined below is a general description of each category of data storage, how data are accessed and managed, along with associated usage best practices.
+Epidemiology Unit staff has access to multiple forms of data storage that serve different functions including personal, temporary file storage, local network and cloud-based team and collaborative project file storage. Outlined below is a general description of each category of data storage, how data are accessed and managed, along with associated usage best practices. 
 
-## Personal laptop and/or desktop/tower drive
-This drive is available to members on their CCH machines (laptop or/and PC). Mainly, it is used for personal project development. The advantage of this drive that it is (NOT Accessible to Higher Management). 
+## Hard drive on personal laptop or desktop
 
-### Management and access
-Managed internally by HIS.
+Each employee receives a personal laptop or desktop machine. The local hard drive on these devices is available for personal data storage. Given their limited storage capacity, these drives should be used only for small, short-term projects prior to transfer to OneDrive or Shared file folders and other miscellaneous or temporary file storage related to work activities. The contents of these local hard drives are not, by default, backed up on the department network or cloud. Data are on these drives are also not readily accessible to management.
 
-### Usage best practices
-Capacity limitations.
+## CCDPH network storage
 
-## CCDPH network drive
-### Management and access
-Managed internally by HIS.
+CCH has an internal network that was originally designed for sharing data across the organization. Epidemiology Unit staff can request access to the *ArcGIS* network folder. Content of this folder is securely stored in a HIPAA-compliant fashion and is useful for archiving raw datasets that have protected health information (e.g., vital statistics, hospital discharge, survey results), related documentation and conventional spatial datasets (e.g., CCDPH jurisdiction, zip code, census tract and municipal boundary files) as well as ArcGIS maps and templates. File storage capacity on this network is relatively large. 
 
-### Usage best practices
-Capacity limitations.
+Access to the network drive is limited to CCH staff who have Windows authenticated access to the Cook County Health and Hospital System (CCHHS) network domain (i.e., staff who have a CCHHS user name and password). The network drive can only be accessed via a computer that is either directly connected to the network via a LAN or ethernet cable or through a virtual or VPN-based remote desktop service. Files and folders stored exclusively on the network drive cannot be shared directly with external partners.
 
 ## Personal OneDrive
-Microsoft OneDrive is a cloud-based data storage utility.
 
-### Management and access
-The Epidemiology Unit’s OneDrive is hosted by CCH. The drive is mainly used for developing individual projects. It is where most of projects are developed and drafted. This is where project directory measures and standards are applied. Establishing a good project management and structure is important for consistency and reproducibility (Please review the Project Structuring Guide). 
+Microsoft OneDrive is a cloud-based data management utility. Each staff person has their own OneDrive which is linked to their CCHHS account. OneDrive files and folders can be accessed via a web-based OneDrive application, the Windows 365 environment and or through synchronized folders and files on Windows File Explorer.
 
-### Usage best practices
+The personal OneDrive is mainly used for managing individual project folders and files. It is where most of projects are developed and drafted. This is where project directory measures and standards are applied. Establishing a good project management and structure is important for consistency and reproducibility. (Please review the Project Structuring Guide).
 
 ## Teams SharePoint files
 
-### Usage best practices
-### Management and access
+SharePoint is a cloud-based Microsoft application that can syncronizes with OneDrive. used by CCH as a secure sharing platform, directory management tool, and version control software (along with One Drive). After completing the drafts of ongoing projects, Share Point serves as the collaborative platform where these projects can be shared with other team members, internal stakeholders, or external stakeholders (*in certain situations*). The sharing process is governed by the **\textcolor{purple}{Sharing Policies}** and **\textcolor{purple}{Data Use Agreements}**.
 
 ## CCDPH SQL Server
+
+SQL Server refers to a relational database management system (RDBMS) developed by Microsoft. It is designed to store and manage large amounts of data and is used by organizations of all sizes for a wide range of applications. SQL Server supports the Structured Query Language (SQL), which is a standard language used to manage relational databases. SQL Server provides a wide range of features and services, including: (1) Data storage and management: SQL Server provides efficient storage and retrieval of data, allowing for quick access to large amounts of data: (2) Security: SQL Server provides robust security features, including authentication, authorization, and encryption, to protect data from unauthorized access; (3) Integration with other Microsoft technologies: SQL Server integrates seamlessly with other Microsoft technologies such as Excel, OneDrive, and SharePoint. 
+
+The CCDPH SQL Server was established by the Health Information Services (HIS) Department server in summer 2022 at the request of the Communicable Disease and Epidemiology Units as part of an effort to centralize and coordinate efficient and secure data storage and sharing within and between the units. The CCDPH SQL Server includes patient-level vital statistics, hospital discharge, communicable disease cases and other data used by CCDPH epidemiologists in their surveillance activities. Information stored on the server change regularly as databases and tables are created and modified.
+
+The CCDPH SQL Server is [HIPAA-compliant](https://www.hhs.gov/hipaa/index.html) and therefore can securely store PHI. And while data stored on the server are archived regularly, it is not a cloud service and does not readily support versioning. 
+
+Only select CD and Epi unit employees and interns have access to information stored on the CCDPH SQL Server. Permissions to read and/or edit data objects on the server are set by data owners and are limited to staff who have Windows authenticated access to the Cook County Health and Hospital System (CCHHS) network domain (i.e., staff who have a CCHHS user name and password). Third parties outside of CCHHS do not have access to the service. Access to the service, databases, tables and particular table columns are granted to employees on a must-need basis. The server name are shared with staff upon access approval. Data are managed by designated data owners and editors.
+
+The first step to gaining access to the server is to *send an email request to a data owner.* CD staff should request access from [Kelley Bemis](mailto:kbemis@cookcountyhealth.org) (Program Manager) and Epidemiology Unit staff should request access from [Scott Smith](mailto:christopher.smith@cookcountyhealth.org) (Project Coordinator). The email should specify the particular datasets needed (e.g., death certificate records). The data owner will respond with the server name and names of databases, tables, and/or columns to which the requester has been granted access.
+
+The type of contents stored in SQL Server database tables are identified by schema. The schema that tables belong to are noted using a standard prefix.
+
+- dbo = default "database owner" schema for raw, uncleaned datasets. used exclusively by db owners (contains phi)
+- phi = "protected health information" schema used for cleaned datasets (contains phi)
+- epi = non-suppressed aggregated "epidemiology" data (does not contain phi) 
+- sup = aggregated and "suppressed" data that can be disseminated more broadly (does not contain phi)
+
+Users may access server data via different platforms. Instructions for access via select protocols are provided below.
+
+### R via DBI package
+
+To protect server security, it is advised that R users encrypt the server name using the [keyring](https://cran.r-project.org/web/packages/keyring/index.html) package. For example, the below code *key_set("ccdph_sql_server")* will prompt the user to type in and "set" the server name in keyring. Once set, the user may access the encrypted key using the command, *key_get("ccdph_sql_server")*.
+
+```{r}
+#| label: encrypt server name using keyring
+#| eval: false
+
+# activate keyring package
+library(keyring)
+
+# set server name "password" as "ccdph_sql_server"
+# when prompted type in/copy protected server name "password" into dialog box 
+key_set("ccdph_sql_server")
+
+# retrieve/get server name in code
+key_get("ccdph_sql_server")
+
+```
+
+Use the following code to connect to the server using stored keyring password/secret. Databases and tables to which you have been granted access will appear in the RStudio Connections tab. Refer to instructions in subsequent sections in this document to go about importing, exporting, and editing objects on the server.
+
+```{r}
+#| label: access database content
+#| eval: false
+
+con_ccdph_sql_server <- dbConnect(odbc::odbc(),
+                        Driver   = "SQL Server",
+                        Server   = key_get("ccdph_sql_server"))
+```
+
+### Microsoft applications via ODBC
+
+To access server data using Microsoft applications, it is necessary to first install the SQL Server ODBC driver. Follow the steps below.
+
+- Type "ODBC Data Sources" into the Windows search prompt to open the ODBC Data Source Administrator dialog.
+- Click "New" in the dialog and select "SQL Server" as the driver type.
+- Type in a name (e.g., "CCDPH SQL Server") and description ("Centralized storage and management of Inter-Epi datasets") for ODBC connection along with server name received from SQL Server data owner.
+
+#### Excel
+
+- In the "Get & Transform Data" tab, click the "Get Data" option
+- Choose the "From Other Sources", then "From ODBC" click the CCDPH SQL Server connection you created.
+- From here, you should be able to see the databases and tables to which you have access. Double-click a table to import a copy of the data into Excel.
+
+### Microsoft SQL Server Management Studio
+
+Microsoft SQL Server Management Studio (SSMS) is a software application developed by Microsoft that is used for configuring, managing, and administering all components within Microsoft SQL Server. CCDPH uses the . If you don't have the latest SQL Management Studio general availability (GA) version installed on your CCDPH machine, request installation by submitting a ticket through [Cook County's online help system](https://help.cookcountyhealth.org/support/home). 
+
+Once installed, open SQL Management Studio on a laptop or tower computer that is directly connected (via LAN not WIFI) to the CCHHS network. It is possible to use a remote desktop connection to log into a computer that is lined into the CCHHS network. The tower machines at Bridgeview, for example, are connected directly to the network via LAN cables. Refer to the [Epi Handbook](#) for information concerning how to log in remotely to an office computer. 
 
 ## CCDPH GitHub
-
-### Management and access
-### Usage best practices
-
-- Cloud storage: This involves storing data on remote servers accessed over the internet. Cloud storage is becoming increasingly popular due to its flexibility and scalability.
-
-- SQL Server: SQL Server is a relational database management system (RDBMS) developed by Microsoft. It is designed to store and manage large amounts of data and is used by organizations of all sizes for a wide range of applications. SQL Server supports the Structured Query Language (SQL), which is a standard language used to manage relational databases. SQL Server provides a wide range of features and services, including: (1) Data storage and management: SQL Server provides efficient storage and retrieval of data, allowing for quick access to large amounts of data: (2) Security: SQL Server provides robust security features, including authentication, authorization, and encryption, to protect data from unauthorized access; (3) Integration with other Microsoft technologies: SQL Server integrates seamlessly with other Microsoft technologies such as Excel, OneDrive, and SharePoint.
-
-## CCDPH SQL Server
-SQL Server Management Studio (SSMS) is a software application used to manage and administer the CCDPH Microsoft SQL Server. The software provides a graphical user interface (GUI) for managing Epi Unit database objects, running and creating dtabase queries, designing and editing database schemas, creating and executing stored procedures, among other data management tasks.
-
-### Permissions
-Database users are granted access by assigning roles. By default, new users are granted access as "public" users, refers to the lowest level of permissions. People, 
-

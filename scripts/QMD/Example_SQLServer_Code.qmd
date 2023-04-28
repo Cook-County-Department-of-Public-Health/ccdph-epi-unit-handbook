@@ -1,0 +1,91 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| label: activate scripts
+
+library(DBI)
+library(dplyr)
+library(tidyverse)
+library(keyring)
+
+```
+
+
+```{r}
+#| label: encrypt server name using keyring
+#| eval: false
+
+# activate keyring package
+library(keyring)
+
+# set server name "password" as "ccdph_sql_server"
+# when prompted type in/copy protected server name "password" into dialog box 
+key_set("ccdph_sql_server")
+
+# retrieve/get server name in code
+key_get("ccdph_sql_server")
+
+```
+
+
+```{r}
+#| label: connect to ccdph sql server
+
+con_epi_discharge <- dbConnect(odbc::odbc(),
+                        Driver   = "SQL Server",
+                        Server   = key_get("ccdph_sql_server"),
+                        Database = "epi-discharge")
+
+```
+
+
+```{r}
+#| label: import inpatient hospital discharge data
+
+in_phi_2016_2020 <- dbGetQuery(con_epi_discharge, 
+                               read_file("C:/Users/christopher.smith/OneDrive - Cook County Health/git_repos/justenvirons/ccdph-epi_unit_handbook/scripts/SQL/query_inpatient_discharges.sql"))
+
+```
+
+```{r}
+#| label: create custom table
+
+custom_table_example <- in_phi_2016_2020 %>%
+  mutate(age_order = case_when(patient_age<5 ~ 1,
+                               patient_age>=5 & patient_age<15 ~ 2,
+                               patient_age>=15 & patient_age<25 ~ 3,
+                               patient_age>=25 & patient_age<35 ~ 4,
+                               patient_age>=35 & patient_age<45 ~ 5,
+                               patient_age>=45 & patient_age<55 ~ 6,
+                               patient_age>=55 & patient_age<65 ~ 7,
+                               patient_age>=65 & patient_age<75 ~ 8,
+                               patient_age>=75 & patient_age<85 ~ 9,
+                               patient_age>=85 ~ 10)) %>%
+  mutate(patient_race_ethnicity = case_when(patient_ethnicity == "E1" ~ "Hispanic",
+                                            patient_race == "R2" & patient_ethnicity == "E2" ~ "NH Asian",
+                                            patient_race == "R3" & patient_ethnicity == "E2" ~ "NH Black",
+                                            patient_race == "R5" & patient_ethnicity == "E2" ~ "NH White",
+                                            patient_race == "R6" & patient_ethnicity == "E2" ~ "NH Multiracial",
+                                            (patient_race == "R1" | 
+                                               patient_race == "R4" | 
+                                               patient_race == "R9") & patient_ethnicity == "E2" ~ "NH Other",
+                                            patient_race == "R7" | patient_ethnicity == "E7" ~ "Unknown"))
+```
+
+
+```{r}
+#| label: write dataframe to database table
+
+dbWriteTable(conn = con_epi_discharge, 
+             name = "custom_table_example", 
+             schema="epi", 
+             value = custom_table_example, 
+             overwrite=TRUE)
+
+```
+
+
