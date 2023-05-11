@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Storage and Access
 
 Data storage refers to the methods and technologies used to store, manage, and preserve digital data for the Epidemiology Unit. It involves the use of various hardware and software components that work together to ensure that data is organized, accessible, and secure.
@@ -68,12 +73,58 @@ key_get("ccdph_sql_server")
 Use the following code to connect to the server using stored keyring password/secret. Databases and tables to which you have been granted access will appear in the RStudio Connections tab. Refer to instructions in subsequent sections in this document to go about importing, exporting, and editing objects on the server.
 
 ```{r}
-#| label: access database content
+#| label: access and manipulate database content
 #| eval: false
 
+# activate packages
+library(keyring)
+library(DBI)
+library(dbplyr)
+library(dplyr)
+library(odbc)
+
+# connect to server
 con_ccdph_sql_server <- dbConnect(odbc::odbc(),
                         Driver   = "SQL Server",
                         Server   = key_get("ccdph_sql_server"))
+
+# connect to database
+con_epi_database <- dbConnect(odbc::odbc(),
+                        Driver   = "SQL Server",
+                        Server   = key_get("ccdph_sql_server"),
+                        Database = "database-name")
+
+# execute SQL code/script on server
+# execute from SQL file
+dbExecute(conn = con_epi_database, 
+          statement =  read_file("file/path/name.sql"))
+
+# executive SQL from character string
+dbExecute(conn = con_epi_database, 
+          statement =  "SELECT TOP 10 * INTO [schema_name].[table_name] FROM [schema_name].[table_name] ")
+
+# import/read table from server
+# execute using dbGetQuery
+imported_data <- dbGetQuery(conn = con_epi_database,
+                            statement =  "SELECT TOP 10 * FROM [schema_name].[table_name]")
+
+# execute using dbplyr
+imported_data <- con_epi_database %>%
+  tbl(in_schema("schema_name","table_name")) %>%
+  collect()
+
+# write R data frame to SQL Server database in specified schema
+table_id <- DBI::Id(
+  schema = "schema_name",
+  table = "table_name"
+)
+
+dbWriteTable(conn =  con_epi_database,
+             name = table_id, 
+             value = data_frame_name, 
+             overwrite = TRUE,
+             append = FALSE)
+
 ```
 
 ### Microsoft applications via ODBC
