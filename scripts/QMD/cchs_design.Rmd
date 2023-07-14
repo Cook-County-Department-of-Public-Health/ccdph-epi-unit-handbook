@@ -1,0 +1,400 @@
+---
+title: "CCHS Program Design"
+author: "CCDPH - Epidemiology Unit"
+date: "`r Sys.Date()`"
+urlcolor: blue
+knit: (function(data_security.Rmd, encoding) {
+    rmarkdown::render(data_security.Rmd, output_file = "C:/Users/zain.qusair/OneDrive - Cook County Health/Cook County Health Survey/working drafts/CCHS Program Design.docx")})
+output:
+  word_document:
+    toc: true
+    reference_docx: resources/epi_style.docx
+#    toc_float: true
+#    theme: cerulean
+editor_options:
+  chunk_output_type: console
+bibliography: cchs_bibliography.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+\newpage
+
+## Background
+
+Understanding disease conditions and their risk factors of any given population helps in developing successful evidence based prevention programs [@ncoa2022]. Disease risk factors are divided into modifiable and non-modifiable, furthermore, they are divided to direct determinants and indirect determinants of health [@santella2020]. In order to explore such determinants and risk factors, a proper understanding of endemic diseases distribution is necessary. For that purpose, identifying the prevalence of health conditions in any given population is an integral part of any effort that aims to guide prevention programs development [@santella2020].
+
+Prevalent health conditions in a population have adverse outcomes personally, financially, and socially. These health conditions can be physical, mental, and / or behavioral in nature. According to the International Classification of Diseases-11 (ICD-11), health conditions can be divided into chronic and acute [@bmc2021]. Diseases such as ischemic heart diseases, malignant neoplasms, COVID-19, cerebrovascular accidents, diabetes mellitus (types 1 and 2), hypertension, hypercholesterolemia, chronic respiratory diseases, influenza / pneumonia and kidney disease account for more than 80% of morbidity and mortality in Cook County, IL, USA [@ccdph2020].
+
+In 2020, mental health conditions and / or their related symptoms, especially, major depressive disorder, general anxiety disorder, and post-traumatic disorder are one the most prevalent disorders in the US. The Centers for Disease Control and Prevention (CDC), has been reporting a significant increase in self-reported mental health disorders' symptoms. This increase in reported mood and anxiety symptoms were more noticeable during COVID-19 pandemic [@gordon2021]. During the same year, the CCDPH reported a 14.4% prevalence of depression among adults of the suburban Cook County population [@ccdphatlas2020].
+
+In addition to mood and anxiety disorders, the reporting of substance abuse has increased over the past decades. More specifically, opioid and prescription drugs such as oxycodone and hydrocodone. The use of such addictive substances, not only has adverse health outcomes such as cardiovascular, cognitive, metabolic, and others but in many instances it leads to permanent disabilities and in some cases death. The effects of substance abuse disorder extend through the family and social fabric of any community. CCDPH reported a 487 opioid-related overdose deaths in 2020, which is a 36% increase from 2019 [@ccdphopioid2022].
+
+Since the beginning of the COVID-19 pandemic in March 2020, there were more than 30,000 per 100,000 people diagnosed with COVID-19 [@ccdphcovid2023]. CCDPH has developed several programs to minimize the effects of the pandemic ranging from vaccination campaigns and prevention awareness programs [@ccdphboost2023a ; @ccdphboost2023b]. Although the COVID-19 national emergency has ended in April, 2023, the long term impacts of SARS-cov-2 infection are still being studied in terms of its physical, mental, and social effects.
+
+The above mentioned health conditions have direct and indirect determinants, and modifiable and non-modifiable risk factors. Health determinants and disease risk factors are best explained using the Social Ecologic Model. When applying the SEM, health determinants and risk factors are divided into four levels (i.e., intrapersonal, interpersonal, community, and societal) [@secmodel2022]. The social ecologic model is also used as an intervention framework to induce individual and organizational change [@secmodel2022].
+
+Periodic cross-sectional surveys are the most commonly used tool in epidemiology. Such surveys have several advantages not only limited to being cost-efficient and easy accessibility, but their benefits extend to serve as important assets in guiding the development of evidence-based prevention programs [@safdar2016]. In compliance with its vision, mission, and goals, the CCDPH - Epidemiology unit aims to advance public health surveillance, assessments, policy, initiatives and programs in suburban Cook County. This also helps communities and leaders in developing initiatives and policies. This aids in addressing existing structural inequities that drive disease prevalence in suburban Cook County communities and municipalities.
+
+## Intervention
+
+### Ecologic Model Levels
+
+The intervention is based on the social ecologic model constructs to increase the utilization of the CCHS data, more specifically, at the organizational and institutional level. The SEM is composed of four levels (as previously described) and each level contains its associated health determinants and risk factors. Individual and organizational behavior can be changed by relating specific activities to each of the model's level. The intrapersonal level and to some extent the interpersonal level based interventions are closely related to inducing individual behaviors. While the community and societal levels based interventions are focused on inducing organizational change, which the intervention will mainly be focused on.
+
+The intrapersonal level includes determinants and risk factors that are either biologic, intrinsic, or genetic in nature. The majority of these determinants are considered non-modifiable (e.g., demographics). Some factors included in the intrapersonal level, although can be mediated by other determinants in different levels they are included in this level because they are related to one's personal history (e.g., educational attainment and self-reported general health assessment). Including these factors and determinants in the survey would allow the epidemiology unit to identify different groups within communities and municipalities. This inclusion will help in proper understanding of health behaviors and conditions distributions in the population which aims to easily identify existing inequities.
+
+The intrapersonal level addresses determinants and factors that are impacted by personal relationships. Most of these determinants are modifiable and can be addressed with primary and secondary prevention programs (e.g., cigarette smoking, alcohol drinking, physical exercise, and diet). The epidemiology unit will be able to provide evidence-based recommendations for communities, community-based organizations, and other CCDPH units on how to address risk behaviors and promote public health in suburban Cook County.
+
+The community and societal levels include determinants that are more broader and related to built-in environment, institutions, social norms and local and national policies [@secmodel2022]. Interventions related to these two levels include recommendations for stakeholders engagement which include identifying and establishing future partnerships with local community leaders, community based organizations and other CCDPH units. The identification of built-in structural and systemic determinants can facilitate the development and promotion of local policies in order to advance public health in the county.
+
+### Activities
+
+The CCHS aims to increase the utilization of survey data by public health programs in suburban Cook County. In which, survey data will serve as a cornerstone guidance for the development and implementation of said programs. The activities involved in the survey are divided into four domains: 1) Survey development, 2) Data collection, 3) Data analysis, 4) Data reporting and utilization. Each activity of the intervention aligns with at least two levels of the ecologic model, as shown in Table 1.
+
+At the intrapersonal level, the development of the survey, data collection, analysis and reporting will include questions that address demographics, educational attainment, marital status, etc. The interpersonal level is included in the development phase, and data collection, analysis, reporting, and utilization. At this level, inclusion of questions such as household income, number of children in a household, health related behaviors, the presence of chronic illness and others. Finally, the community and societal levels are the most utilized in the Cook County Health Survey. Inclusion of community-based and neighborhood-related questions in the survey will aid in the analysis process and properly guide the reporting activities. Data collection activity takes into consideration the community and societal levels by properly classifying suburban Cook County municipalities and townships under the jurisdiction of the department. Selected municipalities were grouped into strata due to their very low populations.
+
+: **Table 1:** Cook County Health Survey Plan Based on the Social Ecological Model.
+
+|**Model Component**|**Intervention Component**|
+|:-|:-|
+|1. Intrapersonal level|Survey development|
+||Data analysis of associated variables|
+||Data reporting by demographic stratification|
+|2. Interpersonal level|Survey development|
+||Data analysis of associated variables|
+||Data reporting evidence-based bivariate results|
+|3. Community level|Survey development|
+||Data collection targeting suburban Cook County municipalities under the jurisdiction of CCDPH|
+||Data analysis of associated variables|
+||Data reporting at the strata level|
+|4. Societal level|Survey development|
+||Data collection efforts with considerations of societal determinants|
+||Data analysis of societal level factors and creating associated indicators|
+||Data reporting of briefs, reports and recommendations|
+
+## Program Logic
+
+Based on the logic model (Figure 1) each program activity yields certain outputs which results in expected outcomes divided into short, medium, and long-term. The first step in the Cook County Health Survey program is identifying the inputs from which activities will be depending on. Inputs include CCDPH - Epidemiology team members (i.e., unit's director, program coordinator, epidemiologist III data management, epidemiologist III population health, CSTE fellow) for each specifics roles and responsibilities are assigned (as detailed in the program team section). The unit has identified the need for an external contractor to be responsible for the data collection activity of the program (which includes creating web-based and paper-based surveys) . The program requires resources such as web-based data reporting platforms, analytic software packages and applications, and advertisement and promotion material.
+
+Activities are organized in a sequential order which start with survey development which yields several outputs. These outputs are (no.) feedback sessions, engagement of other CCDPH units (i.e., # of sessions participants, and recommended resources inventory), a feedback analysis report, and final version of the survey that is ready for deployment. Survey development activity's outputs will be used in the development of an evaluation plan and as metrics for ongoing progress. The development of the survey evaluation plan will aid in the continuous development of the survey which will result in a yearly deployment and evaluation of the survey.
+
+An external contractor (i.e., RTI) will be assigned to develop data collection and management plans. RTI will deploy the survey and start the collection process with a targeted number of 8000 completed survey participants. In addition to the number of survey participants, the yield and response rates will be calculated accordingly. The proportion of municipalities and number of their survey participants in suburban Cook County covered by the survey will be calculated to determine how representative the sampling is. Several analysis ready datasets will be created in addition to the raw dataset. Weighting of the data will be calculated by RTI in order for the Epidemiology Unit to be able to report the results to the public and other stakeholders.
+
+The next activity involves data analysis, in which analysis-ready datasets will be used to conduct descriptive statistics. In descriptive statistics, the weighted counts and percentages will be calculated to explore the prevalence of variables among suburban Cook County population. Geographical coding and spatial analysis will be conducted to map the variables in the county. Bivariate analysis include Pearson, Spearman, Chi-square tests, etc.,. Correlation analyses will be conducted to explore whether there is a significant relationship between variables of interests. While Chi-square tests are conducted to identify whether there is a significant differences in the distribution of prevalence across variables of interest. Finally, regression analysis (linear, logistic, etc.,) is conducted to explore if there is a significant association between the independent and dependent variables of interest.
+
+The last activity is to report the data results and promote their utilization to and by the public, and internal and external stakeholders. The unit will report the results via multiple platforms i.e., Cook County Health Atlas, Cook County Department of Public Health website, and Cook County data portal website. Outputs of this activity include data briefs, Cook County Health Atlas indicators, data reports and recommendations. Reports will address multiple aspects of health conditions and determinants among suburban Cook County population. These domains initially will include structural inequities, chronic diseases, risk behaviors, COVID-related, substance-related, maternal health, government trust and services, and others that will be determined according to needs and requests.
+
+```{r cchs_logic, echo=FALSE,out.width="150%", fig.cap="Figure 1: Cook County Health Survey Logic Model"}
+knitr::include_graphics("C:/Users/zain.qusair/OneDrive - Cook County Health/Cook County Health Survey/resources/CCHS_logic_model.png")
+```
+
+## Program Team
+
+The team that is responsible for implementing the program is the CCDPH - Epidemiology Unit and RTI. The epidemiology unit is responsible for developing the survey and ensuring the security of the data. In addition, the unit is responsible for conducting statistical analyses and prepare data briefs and reports. Afterwards, the unit will report and share the results with the public and stakeholders. While RTI is responsible for deploying the survey and sampling the participants according the strata developed by the unit. RTI will create data collection and managements plans in addition to developing the weighting system in which the unit will be able to report the weighted counts and percentages.  
+
+## Program Implementation
+
+### Survey Development Plan
+
+The intervention starts with *Survey Development*, in which feedback sessions, feedback analysis report, and survey draft is conducted. This process includes review of the BRFS survey questions, associated literature and reports, and the proper selection of questions for the survey, taking into consideration the feedback from different units in the department. The process ensures that questions selected address the needs of suburban Cook County residents. The number of attendees will be recorded to assess engagement with other CCDPH units. The intended outcome of this activity is to have a yearly basis deployment of the survey in which there is a developmental evaluation implemented.
+
+#### Process
+
+There are four steps during the development of the survey which are as follows:
+
+1- Crosswalk development between the survey, the IL BRFSS 2020, and Healthy Chicago Survey (HCS) 2021. Considerations include:
+
+  - Creation of a list that includes BRFSS 2020 and HCS 2021 that are excluded from the CC Health Survey.
+    
+  - Review of language of questions included in the survey and ensuring they are targeting suburban Cook County.
+    
+2- Determination which questions to be included in the survey:
+
+  - Questions from the Bureau of Justice Statistics.
+    
+  - Health literacy questions.
+    
+3- Seek final approval of the survey instrument.
+
+4- Deliver to RTI for distribution.
+
+### Data Collection Plan
+
+Following the development of the survey, RTI will deploy the survey and start the *Data Collection* activity. Expected outputs of data collection include number of participants, calculation of yield and response rate, calculation of the proportion of municipalities in suburban Cook County. A data analysis plan will be developed by the Unit and analysis-ready datasets number will be reported. An outcome to be foresighted from these outputs is to guide specific community engagement efforts and to establish collaborations with different community-based organizations and stakeholders.
+
+RTI is tasked with the development of the data collection plan, statistical methodologies, calculation of sample weights, etc, (please refer to RTI Scope of Work document). The target number of completed survey responses is 8000 respondents. Suburban Cook County municipalities and townships are stratified into strata based on the population of each area. Along with CCDPH, RTI will develop a mixed-mode address-based sampling (ABS) data collection plan. Therefore, ensuring adequate representation and reliable prevalence estimates for the population(s), including specific demographic groups or geographic areas. RTI will develop and implement a Quality Management Plan (QMP). The quality plan aims to mitigate risks of failure, ensure that CCDPH's expectations for performance are clear, and enable proper understanding of the quality control mechanisms and compliance requirements associated with any given activity. The survey will be translated to Spanish by RTI to address the language barrier difficulties.
+
+### Data Analysis Plan
+
+The next activity is *Data Analysis* which follows the data analysis plan that was developed during the previous step. The analysis follows the ecologic model as an exploratory framework. There are four pillars to the analysis which are as follows: 1) Descriptive analysis, 2) Bivariate analysis (e.g., cross-tabulation and correlation), 3) Spatial analysis and mapping, and 4) Regression analysis. Outcomes of data analysis include data analysis framework plan, analysis review report, and standardization of the CCHS data analysis.
+
+#### Purpose
+
+The CCHS intends to guide the development and implementation of public health interventions, policies, and academic research that would address health concerns and inequities in suburban Cook County. The survey aims to increase community and institutional utilization of epidemiological data reported by the Epidemiology Unit.
+
+#### Methods
+
+##### Design
+
+The CCHS is a cross sectional study that is deployed yearly in two rounds of data collection which examines behavioral risk factors, disease prevalence, and adverse outcomes suburban Cook County residents. The survey aims to understands the health concerns of suburban Cook County residents.
+
+#### Process
+
+The following steps will be implemented as soon as the raw weighted data is received from RTI:
+
+1- Store in the *Network Drive* under the (Raw_Data/CCHS/2022/) sub directory.
+
+2- Run the format_labels syntax in SAS and export two excel spreadsheets (i.e., unformatted and formatted)
+
+3- Make a copy of the raw file and apply the *file naming conventions* (i.e., cchs_2022_final_weighted_raw & cchs_2022_final_weighted_formatted).
+
+4- Upload the copy to the CCDPH - SQL Server to a specific database named *epi-cchs*.
+
+5- Apply the established *schema* after aggregation of data using RStudio.
+
+6- Commit changes to the GitHub repository.
+
+##### Analysis Inclusion Criteria
+
+\ref@Table 2 shows the inclusion criteria necessary to conduct analysis:
+
+Table: **Table 2**: Inclusion Criteria of the Cook County Health Survey Data Analysis.
+
+|**Criteria**|
+|:-|
+|Complete records of the survey|
+|Spatial geographical IDs for suburban Cook County, IL|
+|Indicators and variables that are aligned with the social ecological model|
+|Indicators that are aligned with Cook County Health Atlas|
+|Observations linked to a stratum and a municipality|
+
+##### Statistical Methods
+
+###### Data Cleaning and Aggregation
+
+In this step, several data sets will be created that reflect the cleaning and aggregation 
+
+###### Descriptive Analysis
+
+Descriptive analysis will be conducted to report frequencies and rates as measures of central tendency and dispersion. The reported measures are weighted and the 2020 American Community Survey counts were used as denominators for the calculation. Rates will vary depending on the indicator being calculated (i.e., some variables will be per 100 while others can be per 100,000 population).
+
+###### Bivariate Analysis
+
+Chi-square bivariate analysis will be conducted to explore if there are significant differences in prevalence distribution between variables of the same domain. Cross-tabulation across multiple domains will be conducted if and only if there are established relationships in the literature.
+
+###### Mapping
+
+Descriptive and bivariate analyses will be mapped to suburban Cook County using spatial datasets stored in the CCDPH - SQL server. Multiple layers of mapping will be applied to report frequencies, rates, and cross-tabulations.
+
+###### Statistical Software and Tools
+
+A data dictionary will be developed which will include the indicators and variables and their definitions. It will also include methods of calculations for each variable and indicator. Some indicators (e.g., body mass index) will be calculated based on standardized formulas. Multiple software applications will be utilized to conduct the analyses and mapping. Microsoft office applications will be used to handle the data and to review it. SQL management studio will be used to manage the datasets in the SQL server. SAS Studio 3.8 and R Studio software applications will be utilized for the analytic procedures. Finally, ArcGIS pro will be used to produce maps.
+
+###### Indicators and Variables of Interest
+
+The variables to be analyzed and reported are those that align with the Cook County Health Atlas. The domains follow the social ecological model. Each level contains several categories. From each category, several variables and indicators will be identified and created accordingly. Values and sub-values can also be presented as separate variables and indicators. 
+
+*Note: Please refer to Appendix A.*
+
+##### Key Table Shells
+
+Reported measures will be stratified according to the criteria listed in Table 3:
+
+: **Table 3**: Stratification Criteria of Reported Indicators and Measures.
+
+|**Criteria**|**Stratification**|
+|:-|:-|
+|1. Gender|Male|
+||Female|
+|2. Age|18-24|
+||25-29|
+||30-44|
+||45-64|
+||65 or older|
+|3. Ethnicity / Race|Hispanic|
+||Non-Hispanic|
+||Asian|
+||White|
+||Black or African American|
+||American Indian or Alaska Native|
+||Native Hawaiian or Pacific Islander|
+||Other|
+|4. Geographical Location |Strata|
+||Municipalities counts|
+
+### Data Reporting Plan
+
+The final activity is to *report and utilize the data results* to the public and to external and internal stakeholders. Results will be reported using several platforms available to the Unit, and these include the CCDPH website data portal, the Cook County Health Atlas (CC Health Atlas), and the Cook County Government Data Portal. Following the steps of the Chicago Department of Public Health (CDPH) in reporting its Healthy Chicago Survey [@chicagosurvey2014], the Unit will create indicators from the CC Health Survey and report them on the CC Health Atlas. In addition to these indicators, the Unit will try to generate other indicators whenever possible depending on peer-reviewed literature (detailed in the data analysis and reporting plans sections).
+
+\newpage
+
+## Appendices
+
+Table: **Appendix A:** Intrapersonal Domains of Interest and its Corresponding Variables for the Cook County Health Survey Data Analysis.
+
+|**Level**| **Categories**| **Variables**| **Values**| **Sub-Values**|
+|:-|:-|:-|:-|:-|
+|**Intrapersonal**|Demographics|Gender|1. Male||
+||||2. Female||
+|||Age Category|1. 18-24||
+||||2. 25-29||
+||||3. 30-44||
+||||4. 45-64||
+||||5. 65 or older||
+|||Ethnicity|Hispanic Ethnicity subcategories|1. Mexican|
+|||||2. Puerto Rican|
+|||||3. Cuban|
+|||||4. Another Hispanic|
+|||Race|1. Asian|1. Asian Indian|
+|||||2. Chinese|
+|||||3. Filipino|
+|||||4. Japanese|
+|||||5. Korean|
+|||||6. Vietnamese|
+|||||7. Another Asian Origin|
+||||2. White||
+||||3. Black or African American||
+||||4. American Indian or Alaska Native||
+||||5. Native Hawaiian or Pacific Islander||
+||||6. Some other Race||
+|||Sexual Orientation|||
+|||Transgender|||
+|||Marital Status|1. Married||
+||||2. Divorced||
+||||3. Widowed||
+||||4. Separated||
+||||5. Never married||
+||||6. A member of an unmarried couple||
+||||7. A member of a civil union||
+|||Educational Attainment|||
+|||Combined Gross Annual Income|||
+|||Employment|||
+|||Body Mass Index|1. Overweight||
+||||2. Obesity||
+|||Pregnancy|||
+||Personal Diet|Drinking soda|||
+||General Health|Self-reported Overall Health Assessment|||
+|||Annual Dental Cleaning|||
+|||Physical Activities|1. Aerobic exercise||
+||||2. Use of bicycle, tricycle, or adaptive cycle||
+||||3. Use of wheelchair or scooter||
+||Chronic Health Conditions|Hypertension|1. Gestational Hypertension||
+||||Hypercholesterolemia||
+||||Ischemic Heart Disease||
+||||Cerebrovacular Accident||
+||||Diabetes Mellitus|1. Prediabetic|
+|||||2. Gestational Diabetes|
+||||Chronic Obstructive Pulmonary Disease||
+||||Asthma|1. Persistent Asthma|
+||||Rheumatic Disease||
+||||Skin Cancer||
+||||Other type of Cancer||
+||||Hepatitis B Infection||
+||||Hepatitis C Infection|1. Chronic Hepatitis C Infection |
+||||Kidney Disease||
+
+\newpage
+
+Table: **Appendix B:** Interpersonal Domains of Interest and its Corresponding Variables for the Cook County Health Survey Data Analysis.
+
+|**Level**| **Categories**| **Variables**| **Values**| **Sub-Values**|
+|:-|:-|:-|:-|:-|
+| **Interpersonal** |Physical Activities Built in environment|Access to physical activities utilities|||
+||Risk Behaviors|Tobacco Use|1. Ever smoked||
+||||2. Current smoker||
+||||3. Menthol smoker||
+|||E-cigarette|1. Frequency of use||
+|||Cannabis Use|1. Ever used||
+||||2. Frequency of use||
+||||3. Reason for use||
+||||4. Methods of use||
+||||5. Related COVID||
+|||Alcohol Use|1. Current use||
+||||2. Frequency of use|1. Male|
+|||||2. Female|
+||||3. Related to COVID||
+||Prescription Drugs|Prescribed Oxycodone or Hydrocodone|1. Higher dose than prescribed||
+|||Not prescribed Oxycodone or Hydrocodone|||
+||Heroin use| Last time used|1. Within the past 30 days||
+||||2. More than 30 days but within the past 12 months||
+||||3. More than 12 months||
+||Mental Health| Anxiety|||
+|||Depression|||
+|||Treatment for a mental health disorder|1. Received treatment||
+|||Access to mental health services|||
+
+\newpage
+
+Table: **Appendix C:** Community Domains of Interest and its Corresponding Variables for the Cook County Health Survey Data Analysis.
+
+|**Level**| **Categories**| **Variables**| **Values**| **Sub-Values**|
+|:-|:-|:-|:-|:-|
+| **Community**| Healthcare| Primary healthcare provider| 1\. Primary health provider||
+||||2\. Routine check up| 1. Within past year|
+|||||2\. One or more years ago|
+|||||3\. Never|
+||||3\. Health insurance coverage||
+||||4\. Access to healthcare||
+|||Screening programs| 1\. Breast cancer| Mammogram|
+||||2\. Cervical cancer| Pap smear|
+||||3\. Colorectal cancer| 1\. Stool occult blood|
+|||||2\. Colonoscopy|
+|||||3\. Sigmoidoscopy|
+|||| 4\. Hysterectomy||
+|||| 5\. Satisfaction with healthcare services| 1\. Likert Scale|
+|||| 6\. Influenza annual vaccination||
+|||| 7\. Related to COVID| 1\. Access to healthcare|
+||||| 2\. Use of Telehealth|
+||||| 3\. Delayed receipt of healthcare |
+|| Diet| Access to fresh fruits and vegetables| 1\. Distance||
+|||| 2\. Poor Quality||
+|||| 3\. Expensive||
+|||| 4\. EBT/SNAP Store does not sell fresh fruits and vegetables ||
+||| Food Security| 1\. Worry that food will run out||
+|| Drinking water quality|| 1\. Unfiltered tap water||
+|||| 2\. Filtered tap water||
+|||| 3\. Bottled water||
+|||| 4\. Water from another source||
+|| Neighborhood| Safety|||
+||| Violence|||
+||| Impact on neighborhood|||
+||| Built in environment| Sidewalks maintenance||
+|||| Access to transit||
+|||| Clean||
+|| Home| Type of residence|| 1\. Own|
+||||| 2\. Rent|
+||||| 3\. Some other arrangement|
+||| Floods| Frequency||
+||| Internet access|||
+||| Number of people in household|||
+||| Home Violence|||
+
+\newpage
+
+Table: **Appendix D:** Societal Domains of Interest and its Corresponding Variables for the Cook County Health Survey Data Analysis.
+
+|**Level**| **Categories**| **Variables**| **Values**| **Sub-Values**|
+|:-|:-|:-|:-|:-|
+|**Societal**|Trust in government| Law enforcement agency| Trust||
+|||| Ever arrested||
+|||| Face to face contact||
+||||| Threatened|
+||||| Physical force|
+|| Services used by household| Services for victims of violent crimes|||
+||| Domestic violence services|||
+||| Crisis intervention and/or mental health services |||
+||| Employment or job training services|||
+||| Youth services|||
+||| Social services|||
+||| Legal services|||
+||| Educational or school supports|||
+||| SNAP / EBT card|||
+
+\newpage
+
+## References
