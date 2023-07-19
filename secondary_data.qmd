@@ -16,3 +16,25 @@ The process begins by receiving a data use agreement (DUA) made available from I
 
 
 ## Vital statistics
+
+## Census data
+Demographic data, standardized population data
+
+```{r}
+
+library(sf)
+library(DBI)
+library(odbc)
+library(dplyr)
+library(tidyverse)
+library(keyring)
+
+```
+
+
+```{r}
+"C:/Users/christopher.smith/OneDrive - Cook County Health/git_repos/justenvirons/ccdph-data-sets"
+
+
+```
+

@@ -1,4 +1,7 @@
+# Folders
 _book/*
+slide_decks/*
+resources/*
 
 # History files
 .Rhistory

@@ -3,6 +3,7 @@ output: html_document
 editor_options: 
   chunk_output_type: console
 ---
+
 # Storage and Access
 
 Data storage refers to the methods and technologies used to store, manage, and preserve digital data for the Epidemiology Unit. It involves the use of various hardware and software components that work together to ensure that data is organized, accessible, and secure.
@@ -11,7 +12,7 @@ Epidemiology Unit staff has access to multiple forms of data storage that serve 
 
 ## Hard drive on personal laptop or desktop
 
-Each employee receives a personal laptop or desktop machine. The local hard drive on these devices is available for personal data storage. Given their limited storage capacity, these drives should be used only for small, short-term projects prior to transfer to OneDrive or Shared file folders and other miscellaneous or temporary file storage related to work activities. The contents of these local hard drives are not, by default, backed up on the department network or cloud. Data are on these drives are also not readily accessible to management.
+Each employee receives a personal laptop or desktop machine. The local hard drive on these devices is available for personal data storage. Given their limited storage capacity, these drives should be used only for small, short-term projects prior to transfer to OneDrive or Shared file folders and other miscellaneous or temporary file storage related to work activities. The contents of these local hard drives are not, by default, backed up on the department network or cloud. Data on these drives are also not readily accessible to management.
 
 ## CCDPH network storage
 
@@ -41,12 +42,13 @@ Only select CD and Epi unit employees and interns have access to information sto
 
 The first step to gaining access to the server is to *send an email request to a data owner.* CD staff should request access from [Kelley Bemis](mailto:kbemis@cookcountyhealth.org) (Program Manager) and Epidemiology Unit staff should request access from [Scott Smith](mailto:christopher.smith@cookcountyhealth.org) (Project Coordinator). The email should specify the particular datasets needed (e.g., death certificate records). The data owner will respond with the server name and names of databases, tables, and/or columns to which the requester has been granted access.
 
-The type of contents stored in SQL Server database tables are identified by schema. The schema that tables belong to are noted using a standard prefix.
+Data stored in SQL Server tables are identified using schema. The particular schema that tables belong to are noted using a standard prefix. Schema, together with standard table naming conventions, indicate the type and stage of data. Schema also indicate whether data contain protected health information (PHI) and are therefore useful when granting permissions to data users.
 
--   dbo = default "database owner" schema for raw, uncleaned datasets. used exclusively by db owners (contains phi)
--   phi = "protected health information" schema used for cleaned datasets (contains phi)
--   epi = non-suppressed aggregated "epidemiology" data (does not contain phi)
--   sup = aggregated and "suppressed" data that can be disseminated more broadly (does not contain phi)
+-   dbo = default "database owner" used exclusively by db owners for temporary storage (may contain phi)
+-   raw = "raw", uncleaned data tables imported directly from source (may contain phi)
+-   frm = "formatted", cleaned, value-added datasets (may contain phi)
+-   pub = "publishable" data suitable for public dissemination (does not contain phi)
+-   ref = "reference" data including census counts, look up tables, geographic boundaries (does not contain phi)
 
 Users may access server data via different platforms. Instructions for access via select protocols are provided below.
 
@@ -56,7 +58,6 @@ To protect server security, it is advised that R users encrypt the server name u
 
 ```{r}
 #| label: encrypt server name using keyring
-#| eval: false
 
 # activate keyring package
 library(keyring)
@@ -74,7 +75,6 @@ Use the following code to connect to the server using stored keyring password/se
 
 ```{r}
 #| label: access and manipulate database content
-#| eval: false
 
 # activate packages
 library(keyring)
@@ -82,6 +82,7 @@ library(DBI)
 library(dbplyr)
 library(dplyr)
 library(odbc)
+library(sf)
 
 # connect to server
 con_ccdph_sql_server <- dbConnect(odbc::odbc(),
@@ -108,12 +109,17 @@ dbExecute(conn = con_epi_database,
 imported_data <- dbGetQuery(conn = con_epi_database,
                             statement =  "SELECT TOP 10 * FROM [schema_name].[table_name]")
 
-# execute using dbplyr
+# import/read geometry table from server
+# execute using dbGetQuery and simple feature package
+imported_data <- st_read(dsn = con_epi_database,
+                         query =  "SELECT [geometry column name].STAsBinary() as geometry FROM [schema_name].[table_name]")
+
+# read table from server using dbplyr
 imported_data <- con_epi_database %>%
   tbl(in_schema("schema_name","table_name")) %>%
   collect()
 
-# write R data frame to SQL Server database in specified schema
+# write R dataframe to SQL Server database using specified schema
 table_id <- DBI::Id(
   schema = "schema_name",
   table = "table_name"

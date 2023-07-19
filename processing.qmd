@@ -1,10 +1,10 @@
-
-
-
-
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Processing
 This section 
-
 
 ## Vital Statistics
 
@@ -34,4 +34,110 @@ https://www.cms.gov/Medicare/Coding/ICD10/ICD-10-MS-DRG-Conversion-Project
 
 ### Major Diagnostic Categories (MDCs)
 A three-digit numeric code that groups beneficiary diagnosis codes into broad categories based on condition type and body region.
+
+#Spatial data
+
+## Adding spatial data to database
+Most of the foundational boundary layers used by the Epidemiology Unit are stored in the SQL Server *inter-spatial* database.
+
+```{r}
+# activate libraries
+#| eval: false
+#| 
+library(sf)
+library(dplyr)
+library(tidyverse)
+library(spData)
+library(tigris)
+library(units)
+library(keyring)
+
+# connect to inter-spatial
+con_ccdph_sql_server <- dbConnect(odbc::odbc(),
+                        Driver   = "SQL Server",
+                        Server   = key_get("ccdph_sql_server"),
+                        Database = "inter-spatial")
+
+# process ZCTAs
+counties_il <- counties(state="IL", resolution="500k", cb=TRUE, year=2020)
+
+counties_il_crs3435 <- counties_il %>%
+  st_transform(3435) %>%
+  st_as_sf() %>%
+  select(geoid_state=STATEFP,
+         geoid_county = COUNTYFP,
+         geoid_state_county = GEOID,
+         name_county = NAME,
+         area_land = ALAND,
+         area_water = AWATER) %>%
+  mutate(area_land = set_units(area_land,ft^2),
+         area_water = set_units(area_water,ft^2),
+         area_land_sqmi = set_units(area_land, mi^2),
+         area_water_sqmi = set_units(area_water,mi^2)) %>%
+  select(-c(area_land,area_water))
+
+counties_il_crs3435_db2 <- fx_spatial_data_output(counties_il_crs3435,"counties_il_crs3435_2")
+
+counties_il_crs3435_df <- as.data.frame(counties_il_crs3435) # convert to data frame
+counties_il_crs3435_geom <- counties_il_crs3435_df$geometry # isolate geometry column
+counties_il_crs3435_df[,"geom"]<-st_as_text(st_transform(counties_il_crs3435_geom,crs = 3435))# convert geometry format
+
+# write data frame to database
+dbWriteTable(con_ccdph_sql_server, 
+             Id(schema="dbo", table="counties_il_crs3435"), 
+             counties_il_crs3435_df %>% select(-geometry))
+
+# add new geometry column to database table
+dbSendQuery(conn = con_ccdph_sql_server, 
+            statement = "ALTER TABLE dbo.counties_il_crs3435 ADD geom2 geometry")
+
+# transform and copy existing text-based geometry into new geometry column
+dbSendQuery(conn = con_ccdph_sql_server,
+            statement = "UPDATE dbo.counties_il_crs3435 Set geom2 = geometry::STGeomFromText(geom, 3435)")
+
+# drop text-based geometry column
+dbSendQuery(conn = con_ccdph_sql_server, 
+            statement = "ALTER TABLE dbo.counties_il_crs3435 DROP COLUMN geom")
+
+# read table
+counties_il_crs3435_db<-st_read(con_ccdph_sql_server, 
+                      query = "SELECT NAME, geom2.STAsBinary() AS geom FROM dbo.counties_il_crs3435")
+
+zctas_cc <- st_read("C:/Users/christopher.smith/OneDrive - Cook County Health/git_repos/justenvirons/ccdph-shapefiles/epsg-3435-illinois-stateplane-east/cook_county_zctas_epsg3435.shp") %>%
+  st_transform(crs=3435)
+
+st_crs(zctas_cc)
+plot(zctas_cc['zcta'])
+
+data("us_states") # retrieve us states from spdata package
+us_states <- as.data.frame(us_states) # convert to data frame
+us_states_geom <- us_states$geometry # isolate geometry column
+us_states[,"geom"]<-st_as_text(st_transform(us_states_geom,"+init=epsg:2992")) # convert geometry format
+
+# write data frame to database as new table without geography column
+dbWriteTable(con_spatial, 
+             Id(schema="dbo", table="us_states"), 
+             us_states %>% select(-geometry))
+
+# drop us_states table from database
+# dbSendQuery(conn = con_spatial, 
+#             statement = "DROP TABLE dbo.us_states")
+
+# add new geometry column to database table
+dbSendQuery(conn = con_spatial, 
+            statement = "ALTER TABLE dbo.us_states ADD geom2 geometry")
+
+# transform and copy existing text-based geometry into new geometry column
+dbSendQuery(conn = con_spatial,
+            statement = "UPDATE dbo.us_states Set geom2 = geometry::STGeomFromText(geom, 2992)")
+
+# drop text-based geometry column
+dbSendQuery(conn = con_spatial, 
+            statement = "ALTER TABLE dbo.us_states DROP COLUMN geom")
+
+# read database geometry table into R
+us_states_db<-st_read(con_spatial, 
+                      query = "SELECT NAME, geom2.STAsBinary() AS geom FROM dbo.us_states")
+
+```
 
