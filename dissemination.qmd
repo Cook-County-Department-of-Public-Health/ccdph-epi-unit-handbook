@@ -1,4 +1,4 @@
-# Data Dissemination
+# Data Dissemination {.unnumbered}
 
 
 ## Cook County Health Atlas

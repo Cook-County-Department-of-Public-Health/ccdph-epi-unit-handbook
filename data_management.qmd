@@ -1,20 +1,6 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-```{r}
+# Part 3. Data Management
 
-library(chatgpt)
-library(keyring)
-
-Sys.setenv(OPENAI_API_KEY = key_get("chatgpt"))
-
-```
-
-# Data Management {.unnumbered}
-
-This chapter summarizes data management documentation for the Epidemiology Unit. Data management involves organizing, storing, manipulating, and retrieving data in a way that allows efficient and effective use of the data. It includes tasks such as creating and maintaining databases, cleaning and preparing data for analysis, transforming data formats, and ensuring data quality and integrity. Effective data management is essential for accurate and reliable analysis results, as well as for efficient collaboration and sharing of data both within CCDPH and externally.
+This part summarizes data management for the Epidemiology Unit. Data management involves organizing, storing, manipulating, and retrieving data in a way that allows efficient and effective use of the data. It includes tasks such as creating and maintaining databases, cleaning and preparing data for analysis, transforming data formats, and ensuring data quality and integrity. Effective data management is essential for accurate and reliable analysis results, as well as for efficient collaboration and sharing of data both within CCDPH and externally.
 
 ## storage and access
 data storage practices and how to access data managed by the Epidemiology Unit.

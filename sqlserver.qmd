@@ -1,18 +1,4 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-
-```{r}
-library(DBI)
-library(dplyr)
-library(tidyverse)
-library(keyring)
-library(stringr)
-```
-
-# CCDPH SQL Server
+# CCDPH SQL Server {.unnumbered}
 
 The CCDPH SQL Server refers to a full-featured public health database management system built on Microsoft SQL Server. The server is installed and managed internally on CCDPH network servers (i.e., It is not a cloud service).
 

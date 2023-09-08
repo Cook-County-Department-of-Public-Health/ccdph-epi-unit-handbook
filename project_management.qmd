@@ -1,1 +1,19 @@
-# Project Management {.unnumbered}
+# Part 4. Project Management
+
+Project management concerns the approach that the Epidemiology Unit uses for planning, organizing, and controlling resources to achieve specific goals and objectives within a defined timeframe. It is a systematic approach used to complete projects efficiently and effectively while meeting the project's requirements and constraints.
+
+Key components of project management include:
+
+-   *Project approval and initiation*: This is the initial phase where the project's purpose, scope, and objectives are defined and approved and a project manager is assigned.
+
+-   *Project planning*: In this phase, the project manager, together with the team, develops a detailed project plan. The plan outlines tasks, timelines, resources, and, if applicable, budgets. Stakeholder--i.e., those who directly benefit from project goals and objectives--expectations are also identified and managed.
+
+-   *Project execution*: This is the implementation phase, where the project plan is put into action. Tasks are assigned to team members, and work is carried out according to the schedule and project requirements.
+
+-   *Project tracking, monitor and control*: Throughout the project, progress is tracked, and performance is monitored against the project plan. Any deviations from the plan are identified, and corrective actions are taken to keep the project on track.
+
+-   *Communication*: Effective communication is crucial for project success. Regular updates, status reports, and communication with stakeholders help ensure everyone is informed about the project's progress and any changes.
+
+-   *Quality management*: Ensuring that the project delivers a high-quality output is essential. Quality standards and processes are defined and adhered to throughout the project's lifecycle.
+
+-   *Project closure*: Once the project's objectives are met, the project is closed out. This involves a review of the project's performance, documentation of lessons learned, and the release of resources.

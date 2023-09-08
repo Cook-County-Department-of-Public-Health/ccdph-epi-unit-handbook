@@ -1,2 +1,2 @@
-# Geographic Information Systems (GIS)
+# Geographic Information Systems (GIS) {.unnumbered}
 

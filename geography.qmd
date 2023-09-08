@@ -1,386 +1,141 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-# Geography
-
-CCDPH's jurisdiction is within the largely urban Bellwood health region, one of [seven health regions within the state of Illinois](https://dph.illinois.gov/contact-us/regional-health-departments.html). The Bellwood health region, which corresponds with the Cook County boundary, is the smallest of the state's health regions in terms of area, although it has the most residents, comprising over 40 percent of the total population of Illinois.
-
-CCDPH is one of six local health departments within the Bellwood health region. The other five local health departments are the [Chicago Department of Public Health](https://www.chicago.gov/city/en/depts/cdph.html), the [City of Evanston Department of Health and Human Services](https://www.cityofevanston.org/government/departments/health-human-services), the [Village of Oak Park Department of Public Health](https://www.oak-park.us/village-services/department-public-health), the [Stickney Township Public Health District](http://stickneypublichealthdistrict.org/) and the [Village of Skokie Health Department](https://www.skokie.org/158/Health). The [latest contact information for local health departments in Illinois](https://idph.illinois.gov/IDPHPrograms/v_LHDDirectory/Show-V-LHDDirectory-Public.aspx?RegionServed=7) can be found on the Illinois Department of Public Health website.
-
-# CCDPH-relevant boundary shapefiles
-The remainder of this document describes the geographic boundary layers that are critical to CCDPH's epidemiology work. The described layers are available in the *inter-spatial* database on the CCDPH SQL Server. All spatial data in the database are stored with the epsg 3435 coordinate reference system (CRS).
-
-Below is code that was used to process CCDPH-relevant cartographic boundary shapefiles made available in the CCDPH *inter-spatial* database. The geographic data represent both political and analytical boundaries derived from the US Census Bureau via its [TIGER/Line](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) program. By default, census-derived shapes are generalized to 1:500K. Set "cb=FALSE" to acquire more detailed TIGER/Line files.
-
-# R functions for reading/writing spatial data from/to database
-The below functions can be used to efficiently read/write spatial data from/to the CCDPH SQL Server database using native SQL Server geometry types. The function is also available on the [ccdph-functions GitHub repository](https://github.com/Cook-County-Department-of-Public-Health/ccdph-functions).
-
-# Required packages
-Activate the following packages if it is necessary to read, modify or re-create any of the boundary files. Also remember that the SQL Server name is to be encrypted in order to improve privacy of databases.
-
 ```{r}
-#| label: required packages
+#| eval: true
+#| echo: false
 
-library(sf)
-library(DBI)
-library(odbc)
 library(dplyr)
+library(dbplyr)
 library(tidyverse)
-library(spData)
+library(sf)
+library(sp)
+library(leaflet)
+library(leaflet.providers)
 library(keyring)
-library(tigris)
-library(units)
+
+source("https://raw.githubusercontent.com/Cook-County-Department-of-Public-Health/ccdph-functions/master/spatial-database-functions.R")
 ```
 
-###Read spatial data from inter-spatial database
-
-```{r}
-# read in latest spatial data functions
- source("https://raw.githubusercontent.com/Cook-County-Department-of-Public-Health/ccdph-functions/master/spatial-database-functions.R")
-
-# example
-test <- fx_read_spatial_layer_fr_database(sf_layer_name = "counties_il_new",
-                                  db_table_name = "counties_illinois",
-                                  crs_id = 4326)
-```
-
-###Write spatial data from inter-spatial database
-
-```{r}
-# write latest spatial data functions
- source("https://raw.githubusercontent.com/Cook-County-Department-of-Public-Health/ccdph-functions/master/spatial-database-functions.R")
-
-test <- fx_read_spatial_layer_fr_database(sf_layer_name = "counties_il_new",
-                                  db_table_name = "counties_illinois",
-                                  crs_id = 4326)
-
-```
-
-###Create, format and write boundary data to inter-spatial database
-## Illinois county boundaries file
-There are 102 counties in Illinois. The code below imports, formats and writes county boundaries (including Cook County [geoid = "17031"]) to the inter-spatial database.
-
-```{r}
-#| label: Illinois counties
-
-# download latest data from US Census TIGER/Line files
-counties_il <- counties(state="17", cb=TRUE)
-
-# reformat data, standardize column names
-counties_il <- counties_il %>%
-  st_transform(3435) %>%
-  st_as_sf() %>%
-  select(geoid_county = GEOID,
-         name_county = NAME,
-         area_land = ALAND,
-         area_water = AWATER) %>%
-  mutate(area_land = set_units(area_land,ft^2),
-         area_water = set_units(area_water,ft^2),
-         area_land_sqmi = set_units(area_land, mi^2),
-         area_water_sqmi = set_units(area_water,mi^2),
-         area_sqmi = area_land_sqmi + area_water_sqmi) %>%
-  select(-c(area_land,area_water))
-
-# write data to database
-counties_il_db <- fx_spatial_layer_to_database(
-  sf_layer_name = counties_il,
-  schema_name = "ref",
-  db_table_name = "counties_illinois",
-  crs_id = 3435)
-
-```
-
-## ZCTAs in Cook County
-Zip code tabulation areas (ZCTAs) in Cook County.
-```{r}
-#| label: ZCTas in Cook County
-
-# download latest data from US Census TIGER/Line files 
-# (2020 data not stratified by state)
-zctas_us <- zctas(cb=TRUE, year=2020) %>%
-  st_drop_geometry() %>%
-  select(geoid_zcta = GEOID20,
-         area_land = ALAND20,
-         area_water = AWATER20)
-
-# download latest data from ccdph-shapefiles GitHub 
-zctas_cook_county <- st_read("C:/Users/christopher.smith/OneDrive - Cook County Health/git_repos/justenvirons/ccdph-shapefiles/epsg-3435-illinois-stateplane-east/cook_county_zctas_epsg3435.shp") %>%
-  select(geoid_zcta = zcta,
-         primary_city = prmry_c,
-         partial_ccdph = prtl_pp,
-         percent_ccdph = prcnt_d,
-         notes) %>%
-  drop_na(geoid_zcta) %>%
-  left_join(zctas_us, by="geoid_zcta") %>%
-  st_as_sf() %>%
-  mutate(area_land = set_units(area_land,ft^2),
-         area_water = set_units(area_water,ft^2),
-         area_land_sqmi = set_units(area_land, mi^2),
-         area_water_sqmi = set_units(area_water,mi^2),
-         area_sqmi = area_land_sqmi + area_water_sqmi) %>%
-  select(-c(area_land, area_water)) %>%
-  st_transform(crs = 3435) %>%
-  st_make_valid()
-
-# write simple feature layer to database
-zctas_cook_county_db <- fx_spatial_layer_to_database(
-  sf_layer_name = zctas_cook_county,
-  schema_name = "ref",
-  db_table_name = "zctas_cook_county",
-  crs_id = 3435)
-
-munis_cook_county_db <- fx_write_spatial_layer_to_database(
-  sf_layer_name = zctas_cook_county,
-  db_table_name = "zctas_cook_county")
-
-```
-
-## ZCTAs in Cook County (clipped)
-```{r}
-# clip zctas_cook_county data in ArcGIS Pro 
-
-zctas_cook_county_clipped <- st_read("C:/Users/christopher.smith/OneDrive - Cook County Health/git_repos/justenvirons/ccdph-jurisdictions/layers/zctas_cook_county_clipped.shp") 
-
-zctas_cook_county_clipped_db <- fx_write_spatial_layer_to_database(
-  sf_layer_name = zctas_cook_county_clipped,
-  db_table_name = "zctas_cook_county_clipped")
-```
-
-
-## Municipalities in Cook County
-
-```{r}
-#| label: municipalities in Cook County
-
-# download latest data from US Census TIGER/Line files
-places_il <- places(state = "17", cb=TRUE) %>% 
-  st_as_sf() %>%
-  st_transform(crs = 3435)
-
-# download latest data from ccdph-shapefiles GitHub 
-munis_cook_county <- st_read("C:/Users/christopher.smith/OneDrive - Cook County Health/git_repos/justenvirons/ccdph-shapefiles/epsg-3435-illinois-stateplane-east/ccdph-cook-county-munis.shp") %>%
-  st_drop_geometry() %>%
-  drop_na(muni_name) %>%
-  left_join(places_il %>% 
-              select(NAME,geoid_place = GEOID,area_land = ALAND,area_water= AWATER), 
-            by=c("muni_name"="NAME")) %>%
-  st_as_sf() %>%
-  mutate(area_land = set_units(area_land,ft^2),
-         area_water = set_units(area_water,ft^2),
-         area_land_sqmi = set_units(area_land, mi^2),
-         area_water_sqmi = set_units(area_water,mi^2),
-         area_sqmi = area_land_sqmi + area_water_sqmi,
-         location = case_when(district=="OOJ" & muni_name!="Chicago" ~ "SCC",
-                              district=="OOJ" & muni_name=="Chicago" ~ "Chicago",
-                              district != "OOJ" ~ "CCDPH")) %>%
-  select(name_place = muni_name,
-         geoid_place,
-         location,
-         district,
-         partial_ccdph = partial,
-         exclude,
-         area_land_sqmi,
-         area_water_sqmi,
-         area_sqmi) %>%
-  arrange(name_place) %>%
-  st_make_valid()
-
-# write simple feature layer to database
-munis_cook_county_db <- fx_write_spatial_layer_to_database(
-  sf_layer_name = munis_cook_county,
-  db_table_name = "munis_cook_county")
-
-```
-
-## Municipalities in Cook County (clipped)
-```{r}
-# clip munis_cook_county data in ArcGIS Pro 
-
-munis_cook_county_clipped <- st_read("C:/Users/christopher.smith/OneDrive - Cook County Health/git_repos/justenvirons/ccdph-jurisdictions/layers/munis_cook_county_clipped.shp") 
-
-munis_cook_county_clipped_db <- fx_write_spatial_layer_to_database(
-  sf_layer_name = munis_cook_county_clipped,
-  db_table_name = "munis_cook_county_clipped")
-```
+# Geography {.unnumbered}
+This chapter summarizes the geography of CCDPH's jurisdiction and the geographies *within* CCDPH's jurisdiction. Many of the legally defined geographic boundaries discussed in this chapter change over time due to annexations by cities, delineation of political districts, accuracy updates, or other reasons. The Epidemiology and Communicable Disease units develop and share code used to produce and manage geographic layers via the [cchdph-shapefiles](https://github.com/Cook-County-Department-of-Public-Health/ccdph-shapefiles) GitHub repository. Zipped versions of output geographic shapefiles are available in the GitHub repository as well as the CCDPH SQL Server *inter-spatial* database. For more information on how to access geographic data, refer to the [Storage and Access chapter][storage.qmd] section of the handbook. 
 
 ## CCDPH jurisdiction
+Cook County Department of Public Health (CCDPH) was established in 1945 and is the state-certified public health agency for most of suburban Cook County (SCC). CCDPH’s jurisdiction is within the largely urban Bellwood health region, one of [seven health regions within the state of Illinois](https://dph.illinois.gov/contact-us/regional-health-departments.html). CCDPH has an approximate area of 693 square miles and serves 2.3 million residents (Census Bureau 2020).
+
+# Geographic boundaries as units of analysis
+The Epidemiology Unit reports public health information for many geographic units of analysis or boundaries beyond CCDPH's jurisdiction. Selecting an appropriate geographic unit depends on the scope and focus of the given analysis. For example, a coarse-grained assessment of death rates may report mortality trends for CCDPH's jurisdiction as whole, whereas a fine-grained study of morbidity, for example, may examine variations in emergency department visits by municipality or census tract.
+
+What follows are brief descriptions of the most commonly used geographic units or boundaries employed by Epidemiology Unit staff beyond the CCDPH's jurisdiction. For the most part, boundaries are arranged in descending order by size (i.e., area). Refer to the interactive boundaries map to visually compare differences between the various geographic layers [link to interactive map].
+
+## Interactive map of CCDPH-related geographies
+
+@fig-geographies provides an interactive display of the most commonly used geographic units or boundaries used by Epidemiology Unit staff. 
+
 ```{r}
-#| label: CCDPH jurisdiction boundary
+#| label: fig-geographies
+#| fig-cap: CCDPH-Related Geographies
+#| eval: true
+#| echo: true
 
-# download latest data from US Census TIGER/Line files
-IL_Places_geom <- places(c("IL"), cb=TRUE, class="sf", year=2020)
-IL_Counties_geom <- counties(c("IL"), cb=TRUE, class="sf", year=2020)
-IL_MCDs_geom <- county_subdivisions(c("IL"), cb=TRUE, class="sf", year=2020)
-IL_Places_geom <- st_transform(IL_Places_geom, crs = 3435, year=2020)
-IL_Counties_geom <- st_transform(IL_Counties_geom, crs = 3435, year=2020)
-IL_MCDs_geom <- st_transform(IL_MCDs_geom, crs = 3435, year=2020)
+# import GIS layers from inter-spatial
+ccdph_boundary <- fx_read_spatial_layer_fr_database(db_table_name = "ccdph_boundary", crs_id = 4326)
+scc_boundary <- fx_read_spatial_layer_fr_database(db_table_name = "scc_boundary", crs_id = 4326)
+counties_illinois <- fx_read_spatial_layer_fr_database(db_table_name = "counties_illinois", crs_id = 4326) %>% dplyr::filter(geoid_county=="17031")
+munis_cook_county_clipped <- fx_read_spatial_layer_fr_database(db_table_name = "munis_cook_county_clipped", crs_id = 4326)
+ccdph_districts <- fx_read_spatial_layer_fr_database(db_table_name = "ccdph_district_boundaries_muni", crs_id = 4326)
 
-# Select out of jurisdiction (OOJ) places
-ooj_places <- IL_Places_geom %>% 
-  filter(#NAME=="Chicago" |
-           # NAME=="Bedford Park" |
-           # NAME=="Stickney" |
-           # NAME=="Burbank" |
-           # NAME=="Forest View" |
-           NAME=="Evanston" | 
-           NAME=="Oak Park" | 
-           NAME=="Skokie"
-           ) %>%
-  select(GEOID_place = GEOID,
-         NAME_place = NAME)
+# labels_districts <- sprintf(
+#   "<strong>%s</strong><br/>
+#   %s mi<sup>2</sup>",
+#   paste0(studyarea_counties_acs$name_county," County"),
+#   paste0("Area: ", prettyNum(studyarea_counties_acs$sqmi_county,digits=2, big.mark = ","))) %>% lapply(htmltools::HTML)
+# 
+# labels_scc <- sprintf(
+#   "<strong>%s</strong><br/>
+#   %s mi<sup>2</sup>",
+#   paste0(studyarea_counties_acs$name_county," County"),
+#   paste0("Area: ", prettyNum(studyarea_counties_acs$sqmi_county,digits=2, big.mark = ","))) %>% lapply(htmltools::HTML)
+# 
+# labels_ccdph <- sprintf(
+#   "<strong>%s</strong><br/>
+#   %s mi<sup>2</sup>",
+#   paste0(studyarea_counties_acs$name_county," County"),
+#   paste0("Area: ", prettyNum(studyarea_counties_acs$sqmi_county,digits=2, big.mark = ","))) %>% lapply(htmltools::HTML)
+# 
+# labels_muni <- sprintf(
+#   "<strong>%s</strong><br/>
+#   %s mi<sup>2</sup>",
+#   paste0(studyarea_counties_acs$name_county," County"),
+#   paste0("Area: ", prettyNum(studyarea_counties_acs$sqmi_county,digits=2, big.mark = ","))) %>% lapply(htmltools::HTML)
 
-# Select Minor Civil Divisions (MCD) Stickney Township, Cook County
-ooj_mcds <- IL_MCDs_geom %>% 
-  filter(COUNTYFP=="031" &
-           (NAME=="Stickney" |
-           NAME=="Chicago")) %>%
-  select(NAME_mcd = NAME,
-         GEOID_mcd = GEOID)
-
-# Create mask from union of OOJ places and Minor Civil Divisions --------
-ooj_mask <-  ooj_places %>% 
-  st_union(ooj_mcds, by_feature = FALSE) %>% 
-  st_union(by_feature = FALSE) %>% st_as_sf()
-
-# Select Cook County boundary
-cc_boundary <- IL_Counties_geom %>% 
-  filter(STATEFP=="17" & COUNTYFP=="031") %>%
-  select(GEOID_county = GEOID,
-         NAME_county = NAME)
-
-# Use mask to clip from Cook County and produce final CCDPH boundary
-ccdph_boundary <- st_difference(cc_boundary,
-                                        ooj_mask) %>%
-  mutate(NAME_ccdph="CCDPH boundary") %>%
-  select(NAME_ccdph) %>%
-  mutate(area_sqmi = st_area(geometry),
-         area_sqmi = set_units(area_sqmi, ft^2),
-         area_sqmi = set_units(area_sqmi, mi^2))
-
-
-# write simple feature layer to database
-ccdph_boundary_db <- fx_spatial_layer_to_database(
-  sf_layer_name = ccdph_boundary,
-  schema_name = "ref",
-  db_table_name = "ccdph_boundary",
-  crs_id = 3435)
+leaflet() %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addPolygons(group = "Cook County",
+              data=counties_illinois,
+              fillColor = "orange",
+              weight = 2,
+              opacity = 0.5,
+              color = "white",
+              dashArray = "3",
+              fillOpacity = 0.7) %>%
+  addPolygons(group = "CCDPH",
+              data = ccdph_boundary,
+              weight = 2,
+              opacity = 0.5,
+              color = "white",
+              dashArray = "3",
+              fillColor = "darkblue",
+              fillOpacity = 0.7) %>%
+  addPolygons(group = "SCC",
+              data = scc_boundary,
+              weight = 2,
+              opacity = 0.5,
+              color = "white",
+              dashArray = "3",
+              fillColor = "lightblue",
+              fillOpacity = 0.7) %>%
+  addPolygons(group = "Munis",
+              data = munis_cook_county_clipped,
+              weight = 2,
+              opacity = 0.5,
+              color = "white",
+              dashArray = "1",
+              fillColor = "lightyellow",
+              fillOpacity = 0.7) %>%
+  addPolygons(group = "Districts",
+              data = ccdph_districts %>% dplyr::filter(name_district !="OOJ"),
+              weight = 2,
+              opacity = 0.5,
+              color = "black",
+              dashArray = "1",
+              fillColor = NULL,
+              fillOpacity = 0) %>%
+      addLayersControl(
+          overlayGroups =c("Cook County","CCDPH","SCC","Munis","Districts"),
+          options = layersControlOptions(collapsed=FALSE)
+          ) %>%
+  hideGroup(c("CCDPH","SCC","Munis","Districts"))
 
 ```
 
-## CCDPH districts 
-### District boundaries for municipality-level mapping
+## Cook County (aka Bellwood health region)
+Cook County is one of Illinois' 102 counties and is the largest county in Illinois in terms of population, comprising over 40 percent of the total population of Illinois. The Bellwood health region, which shares the same boundary as Cook County, is the smallest of the state’s health regions in terms of area  (1,635 square miles), although it has the most residents (5.2 million in 2020) and comprises over 40 percent of the total population of Illinois.
 
-```{r}
-# download latest data from ccdph-shapefiles GitHub 
-ccdph_district_boundaries_muni <- st_read("C:/Users/christopher.smith/OneDrive - Cook County Health/git_repos/justenvirons/ccdph-shapefiles/epsg-3435-illinois-stateplane-east/ccdph_districts_boundaries_muni_epsg3435.shp") %>%
-  mutate(district = if_else(district=="Outside", "OOJ", district),
-         area_sqmi = st_area(geometry),
-         area_sqmi = set_units(area_sqmi, ft^2),
-         area_sqmi = set_units(area_sqmi, mi^2))
+CCDPH is one of six local health departments (LHDs) within Cook County. The other five are the [Chicago Department of Public Health](https://www.chicago.gov/city/en/depts/cdph.html), the [City of Evanston Department of Health and Human Services](https://www.cityofevanston.org/government/departments/health-human-services), the [Village of Oak Park Department of Public Health](https://www.oak-park.us/village-services/department-public-health), the [Stickney Township Public Health District](http://stickneypublichealthdistrict.org/) and the [Village of Skokie Health Department](https://www.skokie.org/158/Health). The [latest contact information for local health departments in Illinois](https://idph.illinois.gov/IDPHPrograms/v_LHDDirectory/Show-V-LHDDirectory-Public.aspx?RegionServed=7) can be found on the Illinois Department of Public Health website.
 
-# write simple feature layer to database
-ccdph_district_boundaries_muni_db <- fx_spatial_layer_to_database(
-  sf_layer_name = ccdph_district_boundaries_muni,
-  schema_name = "ref",
-  db_table_name = "ccdph_district_boundaries_muni",
-  crs_id = 3435)
+## Suburban Cook County (SCC)
+Suburban Cook County or SCC refers to the entire area of Cook County excluding the city of Chicago. It has an area of approximately XX square miles. Suburban Cook County includes the CCDPH jurisdiction as well as the areas of the other four local health departments. According to the 2020 decennial census, SCC has a population of.
 
-```
+## CCDPH health districts
 
-### District boundaries for census tract-level mapping
+and four CCDPH public health districts: north, west, southwest and south. These four CCDPH public health districts are used by CCDPH largely to evaluate social and demographic patterns across its jurisdiction, as well as to enumerate and report the incidence and prevalence of disease and other health indicators.
 
-```{r}
-# download latest data from ccdph-shapefiles GitHub 
-ccdph_district_boundaries_tract <- st_read("C:/Users/christopher.smith/OneDrive - Cook County Health/git_repos/justenvirons/ccdph-shapefiles/epsg-3435-illinois-stateplane-east/ccdph_districts_boundaries_tracts_epsg3435.shp") %>%
-  select(-sqmi) %>%
-  rename(num_tracts_2020 = tracts,
-         name_district = district) %>%
-  mutate(name_district = str_to_title(name_district),
-         name_district = if_else(name_district=="Outside", "OOJ", name_district),
-         area_sqmi = st_area(geometry),
-         area_sqmi = set_units(area_sqmi, ft^2),
-         area_sqmi = set_units(area_sqmi, mi^2))
+## SCC municipalities 
+CCDPH’s jurisdiction includes 120 municipalities, 114 in their entirety and portions of six others. The unincorporated area population (i.e., the population residing outside of the 120 incorporated municipalities) within CCDPH is estimated to be about 104,874, or 4.6 percent of the jurisdiction’s total. 
 
-# write simple feature layer to database
-ccdph_district_boundaries_tract_db <- fx_spatial_layer_to_database(
-  sf_layer_name = ccdph_district_boundaries_tract,
-  schema_name = "ref",
-  db_table_name = "ccdph_district_boundaries_tract",
-  crs_id = 3435)
+## Cook County townships
 
-```
+## Cook County zip code tabulation reas (ZCTAs)
 
 ## Census tracts
-### 2010 census tracts in Cook County
 
-```{r}
-# download latest data from US Census TIGER/Line files
-tracts_2010_cook_county_census <- tracts(state="17", county="031", cb=TRUE, year=2010) %>%
-  st_drop_geometry() %>%
-  mutate(geoid_tract_2010 = paste0(STATE,COUNTY,TRACT),
-         name_tract_2010 = NAME,
-         area_sqmi = set_units(CENSUSAREA, mi^2)) %>%
-  select(geoid_tract_2010,
-         name_tract_2010,
-         area_sqmi)
+## Political boundaries
 
-# download latest data from ccdph-shapefiles GitHub 
-tracts_2010_cook_county <- st_read("C:/Users/christopher.smith/OneDrive - Cook County Health/git_repos/justenvirons/ccdph-shapefiles/epsg-3435-illinois-stateplane-east/cc_tracts_2010_epsg3435.shp") %>%
-  select(-sqmi) %>%
-  rename(geoid_tract_2010 = fips,
-         name_district = district) %>%
-  mutate(name_district = str_to_title(name_district),
-         name_district = if_else(name_district=="Outside", "OOJ", name_district),
-         location = str_to_upper(location),
-         location = if_else(location=="CHICAGO","Chicago",location)) %>%
-  left_join(tracts_2010_cook_county_census, by="geoid_tract_2010")
-
-# write simple feature layer to database
-tracts_2010_cook_county_db <- fx_spatial_layer_to_database(
-  sf_layer_name = tracts_2010_cook_county,
-  schema_name = "ref",
-  db_table_name = "tracts_2010_cook_county",
-  crs_id = 3435)
-
-```
-
-### 2020 census tracts in Cook County
-
-```{r}
-# download latest data from US Census TIGER/Line files
-tracts_2020_cook_county_census <- tracts(state="17", county="031", cb=TRUE, year=2020) %>%
-  st_drop_geometry() %>%
-  select(geoid_tract_2020 = GEOID,
-         name_tract_2020 = NAME,
-         area_land = ALAND,
-         area_water = AWATER) %>%
-  mutate(area_land = set_units(area_land,ft^2),
-         area_water = set_units(area_water,ft^2),
-         area_land_sqmi = set_units(area_land, mi^2),
-         area_water_sqmi = set_units(area_water,mi^2),
-         area_sqmi = area_land_sqmi + area_water_sqmi) %>%
-  select(geoid_tract_2020,
-         name_tract_2020,
-         area_land_sqmi:area_sqmi)
-
-# download latest data from ccdph-shapefiles GitHub 
-tracts_2020_cook_county <- st_read("C:/Users/christopher.smith/OneDrive - Cook County Health/git_repos/justenvirons/ccdph-shapefiles/epsg-3435-illinois-stateplane-east/cc_tracts_2020_epsg3435.shp") %>%
-  select(-sqmi) %>%
-  rename(geoid_tract_2020 = fips,
-         name_district = district) %>%
-  mutate(name_district = str_to_title(name_district),
-         name_district = if_else(name_district=="Outside", "OOJ", name_district),
-         location = str_to_upper(location),
-         location = if_else(location=="CHICAGO","Chicago",location)) %>%
-  left_join(tracts_2020_cook_county_census, by="geoid_tract_2020")
-
-# write simple feature layer to database
-tracts_2020_cook_county_db <- fx_spatial_layer_to_database(
-  sf_layer_name = tracts_2020_cook_county,
-  schema_name = "ref",
-  db_table_name = "tracts_2020_cook_county",
-  crs_id = 3435)
-
-```

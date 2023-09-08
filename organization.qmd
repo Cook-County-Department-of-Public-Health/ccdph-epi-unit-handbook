@@ -1,2 +1,21 @@
-# Organization
+# Organization {.unnumbered}
 
+## CCDPH Epidemiology Unit
+The Epidemiology Unit is one of CCDPH's four programs under the Public Health Programs area. The Unit is composed of a Director (non-union), Program Coordinator (non-union), five full-time epidemiologists (mostly union staff), and, on occasion, fellows funded through the Council of State and Territorial Epidemiologists (CSTE) Applied Epidemiology Fellowship (AEF) program. The current Epidemiology Unit organizational chart is shown in @fig-epi-org-chart, along with names (and relevant degrees) of position holders, position identification (PID) and job posting numbers.
+
+![Epidemiology Unit Organizational Chart](images/org_chart_ccdph_epi_unit.PNG){#fig-epi-org-chart fig-alt="CCDPH Epidemiology Unit Organizational Chart."}
+
+## Cook County Department of Public Health (CCDPH)
+The Cook County Department of Public Health (CCDPH) is the nationally accredited, state-certified local health department for suburban Cook County. CCDPH serves approximately 2.3 million residents with a jurisdiction covering 120 municipalities, 30 townships, and 147 school
+districts. CCDPH works closely with its public health counterparts at the
+City of Chicago, Skokie, Evanston, Oak Park, and Stickney. CCDPH is certified by the Illinois
+Department of Public Health (IDPH) and nationally accredited by the Public Health Accreditation Board
+(PHAB). CCDPH is an affiliate of [Cook County Health](https://cookcountyhealth.org), one of the largest public safety net health care systems in the country.
+
+A brief [CCDPH two-page fact sheet](https://cookcountypublichealth.org/wp-content/uploads/2019/02/ccdph_fact_sheet_090616_final.pdf)
+
+## Cook County Health & Hospital System
+
+
+
+## Resources

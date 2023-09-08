@@ -1,2 +1,2 @@
-# R, RStudio, Posit, Quarto
+# R, RStudio, Posit, Quarto {.unnumbered}
 

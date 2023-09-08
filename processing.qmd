@@ -1,16 +1,15 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-# Processing
-This section 
+# Processing {.unnumbered}
 
-## Vital Statistics
+Data processing refers to the manipulation and transformation of raw data into a more meaningful and usable format. This section provides general information concerning the processing of data commonly used by the Epidemiology Unit along with associated links to resources that provide step-by-step instructions for producing analysis-ready datasets. These pages are frequently updated given that Epidemiology Unit staff are continually developing and enhancing data processing code.
 
-### Mortality
+## Vital statistics
+The Epidemiology Unit maintains the GitHub repository, [ccdph-vital-statistics](https://github.com/Cook-County-Department-of-Public-Health/ccdph-vital-statistics) for managing code related the processing of vital statistics including mortality and natality datasets.
+
+### Mortality and leading causes of death coding
+Processing of mortality data using ICD-10 code.
 
 ### Natality
+Processing of natality data using ICD-10 codes.
 
 ## Hospitalization 
 The Illinois Department of Public Health (IDPH) makes available to CCDPH inpatient and outpatient (or emergency department visits) hospital discharge data. These data can exceed many million records per year and therefore requires substantial processing prior to data analysis. The first challenge concerns classification the discharges into meaningful categories. For this, we use the primary diagnosis information for each patient. The primary diagnosis is assigned using ICD-10 categorization schema. 
@@ -35,9 +34,9 @@ https://www.cms.gov/Medicare/Coding/ICD10/ICD-10-MS-DRG-Conversion-Project
 ### Major Diagnostic Categories (MDCs)
 A three-digit numeric code that groups beneficiary diagnosis codes into broad categories based on condition type and body region.
 
-#Spatial data
+##Spatial data
 
-## Adding spatial data to database
+### Adding spatial data to database
 Most of the foundational boundary layers used by the Epidemiology Unit are stored in the SQL Server *inter-spatial* database.
 
 ```{r}

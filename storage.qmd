@@ -1,10 +1,4 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-
-# Storage and Access
+# Storage and Access {.unnumbered}
 
 Data storage refers to the methods and technologies used to store, manage, and preserve digital data for the Epidemiology Unit. It involves the use of various hardware and software components that work together to ensure that data is organized, accessible, and secure.
 
@@ -52,11 +46,13 @@ Data stored in SQL Server tables are identified using schema. The particular sch
 
 Users may access server data via different platforms. Instructions for access via select protocols are provided below.
 
-### R via DBI package
+### Accessing and manipulating sQL Server tables in R
 
-To protect server security, it is advised that R users encrypt the server name using the [keyring](https://cran.r-project.org/web/packages/keyring/index.html) package. For example, the below code *key_set("ccdph_sql_server")* will prompt the user to type in and "set" the server name in keyring. Once set, the user may access the encrypted key using the command, *key_get("ccdph_sql_server")*.
+#### Encrypt SQL Server service name using keyring
+Prior to accessing SQL Server data in R, it is first necessary to encrypt the service name of the CCDPH SQL Server. We do this in order to remove explicit references to the server name in code that is saved in GitHub repositories. The standard practice for encrypting passwords in R is to use the [keyring](https://cran.r-project.org/web/packages/keyring/index.html) package. For example, the below code *key_set("ccdph_sql_server")* will prompt the user to type in and "set" the server name in keyring. Once set, the user may access the encrypted key in R code using the command, *key_get("ccdph_sql_server")*. Databases and tables to which you have been granted access will appear in the RStudio Connections tab. Refer to instructions in subsequent sections of this document to learn more about how to import, export, and edit objects on SQL Server.
 
 ```{r}
+#| collapse: false
 #| label: encrypt server name using keyring
 
 # activate keyring package
@@ -71,10 +67,12 @@ key_get("ccdph_sql_server")
 
 ```
 
-Use the following code to connect to the server using stored keyring password/secret. Databases and tables to which you have been granted access will appear in the RStudio Connections tab. Refer to instructions in subsequent sections in this document to go about importing, exporting, and editing objects on the server.
+#### Read/import SQL Server data tables into R
+There are numerous ways to read or import SQL Server data into R. The below code provides  
 
 ```{r}
 #| label: access and manipulate database content
+#| 
 
 # activate packages
 library(keyring)
@@ -132,6 +130,10 @@ dbWriteTable(conn =  con_epi_database,
              append = FALSE)
 
 ```
+
+### Accessing spatial data in R
+
+### Accessing spatial data in ArcGIS
 
 ### Microsoft applications via ODBC
 

@@ -1,2 +1,23 @@
-# Development
+# Online Resources {.unnumbered}
 
+There are many online opportunities for advancing epidemiological work. Below is a summary of professional development opportunities organized by topic.
+
+## R statistical program
+
+The Epidemiology Unit makes extensive use of R software for data management, including the processing and analysis of public health data. R is becoming the statistical application of choice within CCDPH in part because of its flexibility--e.g., it is widely used by epidemiologists for data manipulation, visualization, hypothesis testing, machine learning, and time series analysis--and because it has a rich ecosystem of user-contributed packages which expand the software's capabilities. The base software--which was developed by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, in the mid-1990s--is also open source, which means it is free to use, modify, and distribute.
+
+-   [R for applied epidemiology and public health](https://epirhandbook.com/en/)
+-   [LinkedIn Learning: R for data science](https://www.linkedin.com/learning/r-for-data-science-analysis-and-visualization/r-for-data-science)
+-   [Datacamp: Introduction to R](https://app.datacamp.com/learn/courses/free-introduction-to-r)
+
+## Spatial analysis
+
+-   
+
+## Mapping with GIS
+
+-   
+
+## Managing data with SQL Server
+
+-   

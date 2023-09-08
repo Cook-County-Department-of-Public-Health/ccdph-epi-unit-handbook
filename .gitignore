@@ -3,6 +3,9 @@ _book/*
 slide_decks/*
 resources/*
 
+# Project files
+*.Rproj
+
 # History files
 .Rhistory
 .Rapp.history

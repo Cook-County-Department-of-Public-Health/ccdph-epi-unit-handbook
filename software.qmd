@@ -1,4 +1,4 @@
-# Software {.unnumbered}
+# 6. Software
 
 Unit activities including data management (i.e., processing, analysis, visualization), report writing, and collaboration requires the use of multiple software applications. Below is a summary of software commonly used by Unit employees.
 

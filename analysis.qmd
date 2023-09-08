@@ -1,5 +1,3 @@
-# Analysis
+# Analysis {.unnumbered}
 
-
-
-
+Frequencies and rates by geographic unit are often summarized in data tables, plots, and/or maps. The Epidemiology Unit uses geographic information systems (GIS) and other spatial analysis tools to map and analyze health-related data, such as disease prevalence, health service utilization, and other social and environmental phenomena. Such analyses are used to help identify geographic patterns and disparities in health outcomes. By mapping the distribution of diseases, the Epidemiology Unit can detect clusters or hotspots of specific health conditions, which can be used to target interventions and guide resource allocation. For more information about GIS software and related procedures, refer to the [Geographic Information Systems (GIS) chapter](gis.qmd) under [Section 6 Software](software.qmd).

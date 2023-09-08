@@ -1,2 +1,3 @@
-# Manuscripts, Academic Articles
+# Manuscripts {.unnumbered}
 
+Developing academic manuscripts using epidemiology surveillance data involves conducting in-depth research, rigorous analysis, and clear communication of your findings. Creating academic manuscripts based on epidemiology surveillance data requires a thorough understanding of the research process, data analysis, and effective scientific communication

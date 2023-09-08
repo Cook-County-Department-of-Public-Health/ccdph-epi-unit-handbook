@@ -1,1 +1,26 @@
-# Strategy
+# Strategy {.unnumbered}
+
+## Epidemiology Unit's mission and vision statements
+
+While not formally adopted or externally recognized, the Epidemiology Unit has developed the following mission and vision statements in an attempt to inform current activities and future direction.
+
+-   The *mission* of the Epidemiology Unit is to advance public health surveillance, assessment, policy, initiatives, and programs using evidence-based epidemiology while leading and supporting the development of community health improvement plans.
+
+-   The unit's *vision* is to strengthen public health science and improve public health decision-making and practice to achieve positive health outcomes through transparent, timely, and accurate data.
+
+With that in mind, the Epidemiology Unit also engages in the following five core functions:
+
+1.  Design and implement primary data collection instruments (e.g., the Cook County Health Survey and Youth Risk Behavioral Survey) to gather timely information on behavioral risk and disease prevalence among suburban Cook County youths and adults;
+
+2.  Compile and evaluate secondary data such as population, housing, vital statistics, hospitalization, and other relevant public health-related data made available from local, regional, state and federal sources (e.g., US Census Bureau; CDC; IDPH);
+
+3.  Analyze data to identify geographic patterns, health inequities, disparities in public health outcomes and care provision within and across the CCDPH jurisdiction. Scope and magnitude of patterns are typically evaluated at different spatial units of analysis, (e.g., such as neighborhood, municipality, health district) across multiple subgroups of the population (e.g., age, race, ethnicity, gender, and socioeconomic status);
+
+4.  Develop and maintain datasets, reports, interactive dashboards, and other information objects for the purpose of sharing and communicating needed public health information with internal and external entities; and
+
+5.  Continually seek opportunities to learn, innovate and grow by collaborating with other Cook County departments, CCDPH units and staff as well as external community-based organizations and research institutions to secure grant funding and carry out meaningful, high-impact projects.
+
+## Cook County Health and Hospital Systems Strategic Plan, 2023-2025
+
+## Cook County Department of Public Health Strategic Plan, 2023-2025
+https://cookcountypublichealth.org/strategic-plan/
