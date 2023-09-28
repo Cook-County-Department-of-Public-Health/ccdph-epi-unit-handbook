@@ -1,8 +1,5 @@
 # Onboarding {.unnumbered}
- 
-Onboarding new employees is the process of integrating them into CCDPH's Epidemiology Unit and setting them up for success in their new roles. effective onboarding is important for ensuring that new Epidemiology Unit employees are able to quickly become productive and engaged members of the team. The Epidemiology Unit has different types of employees that vary in terms of (inter-institutional) responsibilities, information technology permissions, pay structure, contract scope, management, and employment period. The onboarding process differs in some ways for these roles. This chapter summarizes and outlines the key steps in the onboarding process for each position type:
-
-- Preparing for onboarding: Before the new employee's first day, the Epidemiology Unit works with CCH Human Resources to establish a plan. The plan typically includes scheduling a mandatory (1) health screening; (2) orientation schedule; (3) introductions to key team members; (4) provision of hardware (i.e., laptop, work phone) and software; (5) access to key to data platforms; and (6) any other necessary paperwork.
+Onboarding new employees is the process of integrating them into CCDPH's Epidemiology Unit and setting them up for success in their new roles. Effective onboarding is important for ensuring that new Epidemiology Unit employees are able to quickly become productive and engaged members of the team. The Epidemiology Unit has different types of employees that vary in terms of (inter-institutional) responsibilities, information technology permissions, pay structure, contract scope, management, and employment period. The onboarding process differs in some ways for these roles. This chapter summarizes each of these positions and provide links to the more detailed:
 
 - Health screening: Prior to formalizing employment, prospective employees must...
 
