@@ -28,9 +28,15 @@ book:
         - fellowships.qmd # hiring and mentorship of fellows
     - part: data_management.qmd # data management
       chapters:
-        - storage.qmd # epi unit datasets, storage, access (database)
-        - secondary_data.qmd # secondary data sources and datasets
+        - dm_plan_collect.qmd # data management section plan & design / collect & create 
+        - dm_analyze_store.qmd # data management section analyze & collaborate / store & manage
+        - dm_evaluate_share.qmd # data management section evaluate & Archive / Share & Disseminate
+        - dm_access.qmd # data management section Access & Reuse
+    - part: epi_data.qmd
+      chapters: 
         - primary_data.qmd # primary data collection
+        - secondary_data.qmd # secondary data sources and datasets
+        - storage.qmd # epi unit datasets, storage, access (database)
         - agreements.qmd # data use agreements (DUAs)
         - processing.qmd # data importing, processing and cleaning
         - analysis.qmd # data analysis; standard calculations/formulas

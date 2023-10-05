@@ -1,0 +1,177 @@
+# Evaluate & Archive / Share & Disseminate
+
+## Evaluate & Archive
+
+::: panel-tabset
+### Data Destruction
+
+#### Purpose
+
+To ensure that the proper data and/or information are safe to be disposed of after the project development has been concluded.
+
+#### Process
+
+-   Review related policies.
+
+-   Identify which data used in the project can be safely destroyed.
+
+-   Follow standard operating procedures and checklists.
+
+#### Forms and Procedures
+
+-   Data Destruction Guide
+
+-   Data Destruction Documentation Form
+
+### Data Retention
+
+#### Purpose
+
+To ensure the continuity, restoration, and recovery of data used in projects conducted by the Epidemiology Unit.
+
+#### Process
+
+-   Review related policies.
+
+-   Identify type of data and the related retention period.
+
+-   Follow standard operating procedures for data retention.
+
+#### Forms and Procedures
+
+-   Data Retention Guide
+
+### Intellectual Property
+
+#### Purpose
+
+Raw data are considered facts and therefore cannot be copyrighted. On the other hand, data that are collected in a unique and / or original method can be copyrighted or licensed.
+
+#### Process
+
+-   Identify whether the data is copyrighted or not.
+
+-   When sharing secondary data, clarify ownership, obtain permissions if needed, and recognize limits set by DUAs and / or licenses.
+
+-   Make sure to include appropriate attributions and citations.
+
+-   Documenting the procedure of obtaining the data (i.e., refer to Metadata) can help maintain reproducibility.
+
+#### Forms and Procedures
+
+-   [Sharing and republishing online content: 6 Tips for Copyright compliance](https://www.copyrightlaws.com/sharing-republishing-online-content/)
+
+### Archives and Records Management
+
+#### Purpose
+
+To ensure that the proper data is identified for permanent retention.
+
+#### Process
+
+-   Review related policies.
+
+-   Identify whether data is for permanent retention.
+
+-   Follow the standard operating procedures and review checklists.
+
+#### Forms and Procedures
+
+-   Data Archiving Guide
+:::
+
+## Share & Disseminate
+
+::: panel-tabset
+### Data Repositories
+
+[*Definition*](http://www.dlib.org/dlib/march17/kindling/03kindling.html#13): *A subtype of a sustainable information infrastructure which provides long term storage and access to research data.*
+
+#### Purpose
+
+To ensure that data, codes, and protocols are available, secure, and organized in a centralized place.
+
+#### Process
+
+-   Identify which repository best fits the project being developed.
+
+-   Carefully identify which components or material to be shared while taking into consideration the related policies.
+
+#### Forms and Procedures
+
+-   [Git Hub Guide](https://githubtraining.github.io/training-manual/#/01_getting_ready_for_class)
+
+- [Data Repositories Using GIT](https://phoenixnap.com/kb/how-to-use-git)
+
+- Epidemiology Unit Data Repositories
+
+### Data Sharing
+
+#### Purpose
+
+To ensure that data dissemination with internal or external stakeholders is compliant with related policies and that data is accessible, reusable and results are reproducible.
+
+#### Process
+
+-   Review related policies.
+
+-   Follow standard operating procedures for data sharing.
+
+#### Forms and Procedures
+
+- Data Sharing Guide
+
+-   [Freedom of Information Act Request Form](http://foia.cookcountyhhs.org/)
+
+-   [Internal Data Request Form](https://cookcountypublichealth.org/epidemiology-data-reports/internal-data-request-form/)
+
+-   [External Data Request Form](https://cookcountypublichealth.org/epidemiology-data-reports/external-data-request-form/)
+
+### Scholarly Products
+
+#### Purpose
+
+To ensure that the products of the Epidemiology Unit are correctly identified to be published in peer-reviewed journals or platforms, and such efforts are sustained beyond project completion.
+
+#### Process
+
+-   Identify whether the project is a scholarly product.
+
+-   Ensure that products have Digital Object Identifiers.
+
+-   Identify methods and platforms where products can be utilized by researchers and colleagues.
+
+-   Establish an ORCID ID.
+
+-   Safely share datasets to increase product exposure and visibility.
+
+-   Ensure reproducibility by securely sharing codes.
+
+-   Writing a clear project protocol and methods.
+
+-   Utilize the proper repositories for project organization and secure sharing.
+
+-   If training is required, ensure that educational material / guides are shared.
+
+#### Forms and Procedures
+
+-   [DOI Foundation](https://www.doi.org/)
+
+-   [Establishing ORCID ID Procedure](https://orcid.org/)
+
+### Preprints and Publishing
+
+#### Purpose
+
+To ensure that scholarly identified products are shared securely prior to journal submission or publication.
+
+#### Process
+
+-   Review related policies.
+
+-   Identify the proper platform for sharing preprints.
+
+#### Forms and Procedures
+
+-   Publishing Guide
+:::

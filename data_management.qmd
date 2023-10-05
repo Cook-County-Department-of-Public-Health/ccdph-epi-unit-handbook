@@ -1,40 +1,85 @@
 # Part 3. Data Management
 
-This part summarizes data management for the Epidemiology Unit. Data management involves organizing, storing, manipulating, and retrieving data in a way that allows efficient and effective use of the data. It includes tasks such as creating and maintaining databases, cleaning and preparing data for analysis, transforming data formats, and ensuring data quality and integrity. Effective data management is essential for accurate and reliable analysis results, as well as for efficient collaboration and sharing of data both within CCDPH and externally.
+Data management is an important asset in developing public health projects. Recently, many institutions and organizations have been developing data management tool-kits and plans in order to sustain their work and reproducibility. The following @fig-data-lifecycle shows the data life cycle, its sections, and subsections [@Harvard2023].
 
-## storage and access
-data storage practices and how to access data managed by the Epidemiology Unit.
+Data management involves organizing, storing, manipulating, and retrieving data in a way that allows efficient and effective use of the data. It includes tasks such as creating and maintaining databases, cleaning and preparing data for analysis, transforming data formats, and ensuring data quality and integrity. Effective data management is essential for accurate and reliable analysis results, as well as for efficient collaboration and sharing of data both within CCDPH and externally.
 
-## collection
-secondary datasets used by Epidemiology Unit includes:
+```{r}
+#| label: fig-data-lifecycle
+#| fig-cap: Data Life Cycle
+#| eval: true
+#| echo: false
+knitr::include_graphics('images/lifecyclewheel.png')
+```
 
-### hospitalization discharge
+There are seven main steps in a what appears to be a cycle:
 
-### vital statistics
+1- [Plan & Design / Collect & Create](dm_plan_collect.qmd)
 
-## surveys
-Primary data collection including
+3- [Analyze & Collaborate / Store & Manage](dm_analyze_store.qmd)
 
-### Youth Risk Behavioral Survey
-The CCDPH collects race and ethnicity data for younger populations via its [Youth Risk Behavior Survey (YRBS)](https://cookcountypublichealth.org/epidemiology-data-reports/yrbs-youth-risk-behavioral-survey/). Administered in 2010 and 2020 with plans to administer every two years going forward, the survey assesses health risk behaviors among students (grade 9-12) in participating high schools throughout suburban Cook County. The survey is used to monitor and evaluate a variety of health-related behaviors and conditions among adolescents, including physical activity, sexual behavior, nutrition, alcohol and drug use, and mental health. Survey results can be used to inform the development of health policies and programs that address the needs of adolescents. The Epidemiology Unit carried out this survey in 2020 and 2022 and, as of spring 2023, has plans to administer the survey on an annual basis.
+5- [Evaluate & Archive / Share & Disseminate](dm_evaluate_share.qmd)
 
-### Cook County Health Survey
-The [Cook County Health Survey (CCHS)](https://cookcountypublichealth.org/health-survey/) is a cross-sectional survey with a sample of approximately 32,000 randomly selected adults aged 18 and older suburban Cook County residents. The paper and web-based versions of the survey are available in English and Spanish. All data collected are self-reported and used to help the CCDPH assess the health-related needs of the county population and to guide the Department in planning programs to improve the health and well being of county residents. The design of the survey including question phrasing and structure closely follows [CDC's national Behavioral Risk Factor Surveillance System](https://www.cdc.gov/brfss/data_documentation/index.htm) (BRFSS) and the [Illinois County Behavioral Risk Factor Surveys](http://www.idph.state.il.us/brfss/countydata.asp?selTopicCounty=R6Overview&areaCounty=Cook_90.1&show=freq&yrCounty=6&form=county&yr=&area=&selTopic=) (ICBRFS) programs. The CCDPH has traditionally sought to align its survey with validated questions asked in the BRFSS, ICBRFS, as well as the similarly structured [Healthy Chicago Survey](https://www.chicago.gov/city/en/depts/cdph/supp_info/healthy-communities/healthy-chicago-survey.html) (HCS) via a broader collaborative effort with the Chicago Department of Public Health (CDPH).
+7- [Access & Reuse](dm_access.qmd)
 
-## data use agreements (DUAs)
-agreements with source agencies
+::: panel-tabset
+### Purpose
 
-## data processing
-data importing, processing and cleaning
+To ensure that data used in projects conducted by the Epidemiology Unit will be identifiable, accessible, and documented for deposit, sharing, and reuse.
 
-## data analysis
-standard calculations/formulas
+### Areas Affected
 
-## data suppression
-suppression
+All projects the Epidemiology Unit is involved in and/or going to conduct or develop. Also including short-term Projects that are deemed to be completed within 3 months, survey development, batch analysis, and map creation. This also includes internal and external data requests.
 
-## data dissemination
-health atlas; dashboards; requests; schedules
+### Forms and Procedures
 
-## indicators
-master list of indicators by category
+-   [Data Management Form](https://forms.office.com/r/XGcFs0sju3)
+:::
+
+## Policies and Procedures
+
+::: panel-tabset
+### Epidemiology Unit Policies
+
+The CDC developed and/or adopted multiple policies and standard operating procedures to guide Public Health Data Sharing, Archiving, and Destruction  and Project Management and Planning. The purpose of these policies to ensure the security of personal information, appropriate data communication with the public, and appropriate project management. The CDC has been committed to data modernization in order to maintain the proper development of policies simultaneously with modern technological innovation [@CDCmodern2022] . In addition, the HHS has developed many policies and procedures to help organizations build Information Technology Infrastructure [@HHSIT2021]. The policies listed in are the most relevant to the Epidemiology Unit scope of work.
+
+IDPH is dedicated to the health and disease prevention of Illinois State residents. The majority of *policies* or *Rules* listed by IDPH on the official website are not directly related to **Data Governance**. IDPH has listed general acts and/or federal (or State) laws that pertain to requesting data from the department by the public or external stakeholders. The IDPH Records have many policies that govern accessibility (*as shown in the resources section*) [@IDPH2023]. 
+
+The CCDPH serves Suburban Cook County with an estimated population over 2.5 million. The Epidemiology Unit has developed an **Epidemiology Unit Data Use Policies and Procedures Manual** to govern data security, collection, archiving and sharing with the public and both internal and external stakeholders. To reconcile the analysis and reporting functions of the Epidemiology Unit with the wider needs for data privacy and confidentiality by highlighting best practices for reporting public health data.
+
+### Resources
+
+Refer to [Data Governance Policies and Procedures Manual]().
+
+Refer to [Best Practices Manual]().
+
+Refer to [Access to Records of the Department of Public Health](https://www.ilga.gov/commission/jcar/admincode/002/00201127sections.html).
+
+Refer to [(5 ILCS 140/) Freedom of Information Act](https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=85&ChapAct=5%26nbsp%3BILCS%26nbsp%3B140/&ChapterID=2&ChapterName=GENERAL%20PROVISIONS&ActName=Freedom%20of%20Information%20Act.).
+
+Refer to [CCH Policies](http://cchintranet.cchhs.local/Intranet/Main.aspx?tid=847).
+:::
+
+## Roles and Responsibilities
+
+Before initiating any project and/or program, it is important to identify the **Roles & Responsibilities** of the member(s) that are going to be involved in project's / program's activities. Early identification of program's roles & responsibilities has several benefits such as *Accountability*, *Efficiency*, *Improved Planning*, *Enhanced Team Work*, *Risk Mitigation*, etc. [@indeed_roles2023; @Rose2021] 
+
+::: panel-tabset
+### Purpose
+
+To ensure high quality data stewardship by clearly defining and assigning roles and responsibilities early in the data management plan.
+
+### Process
+
+-   Identify members of the Unit that are involved in or can assist in the project according to their skills and needs of the project.
+
+-   Identify areas of workforce development and necessary training.
+
+-   Monitoring activities of the project and roles of the members involved.
+
+-   Review the Epidemiology Unit's organizational chart.
+
+### Resources
+
+Refer to [Epidemiology Organizational Chart](organization.qmd)
+:::

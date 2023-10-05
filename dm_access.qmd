@@ -1,0 +1,87 @@
+# Access & Reuse
+
+::: panel-tabset
+## Active and Short-term Projects
+
+### Purpose
+
+To ensure that projects of the Epidemiology Unit have sustainability while being active, after a member leaves the unit, and support the continued growth and development of these projects.
+
+### Process
+
+Steps to ensure sustainability while the project continues to grow and diverge:
+
+-   State the importance of the project and identify its purpose whenever applicable.
+
+-   Identify the type of project, and appropriate technologies and software that would facilitate the development of the project.
+
+-   Establish an estimated timeline to finish the project.
+
+-   Identify areas of collaboration with other members in the Epidemiology Unit, and/or other units and departments.
+
+-   Identify the flow of the data and resources before, during, and after current activities.
+
+-   Share the results of the project with appropriate members of the Epidemiology Unit.
+
+-   In case of leaving your work at the Epidemiology Unit, ensure that appropriate documentation for the work done is saved and available in the *knowledge transfer file*.
+
+## Reproducibility
+
+### Purpose
+
+To ensure the ability to duplicate the results of a prior project while utilizing the same materials and procedures as were used by the original member of the Epi-Unit. This is different from Replicability, which refers to the ability to duplicate the results of a prior project if the same procedures were used but with new data.
+
+### Process
+
+Steps to ensure that projects are reproducible:
+
+-   Plan for reproducibility before starting the project by writing a project plan or setting up an electronic notebook (e.g., MS OneNote).
+
+-   Ensure that changes are tracked while working on the project by utilizing version control software (one drive).
+
+-   Document the processes in a README file and contextual information (i.e., metadata).
+
+-   Identify the source(s) of the data and all relevant characteristics of the project's population.
+
+-   Follow the standardized procedures to import, clean, and make the data analysis ready.
+
+-   Identify the standardized formulas used by the Epidemiology Unit to calculate common rates.
+
+-   In the case of a novel project (i.e., never conducted or produced by the Epidemiology Unit before), document a detailed description of the protocols used in the process.
+
+-   Store and archive the files of the project in the appropriate database or shared platform.
+
+## Project Close-Out Checklist
+
+### Purpose
+
+To record essential information related to projects, data sets, directories, and points of contacts to ensure the success of future members of the Epidemiology Unit.
+
+### Process
+
+-   Review project's notes and workflow.
+
+-   Consult the Director of the Epidemiology Unit on who is the next member to receive the Knowledge Transfer File.
+
+-   The director of the Unit is to approve the process.
+
+### Forms and Procedures
+
+-   [Knowledge Transfer File](https://forms.office.com/r/Z1ygCfbbww)
+
+## Open Access
+
+### Purpose
+
+"Open access" refers to data that is available for free use, reuse, and redistributed by anyone. Multiple methods exist for publicly sharing data (e.g., government-sponsored repositories).
+
+### Process
+
+-   Identify if the data can be shared publicly (refer to guidelines).
+
+-   Identify the platform that is utilized by the Epidemiology Unit to share open access data.
+
+### Forms and Procedures
+
+-   [Open Data Handbook](https://opendatahandbook.org/guide/en/what-is-open-data/)
+:::

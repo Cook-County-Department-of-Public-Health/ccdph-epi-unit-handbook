@@ -1,0 +1,165 @@
+# Analyze & Collaborate / Store & Manage
+
+## Analyze & Collaborate
+
+::: {.panel-tabset}
+
+### Electronic Notebooks
+
+:::::: {.panel-tabset}
+
+#### Purpose
+
+To facilitate high quality data management practices, provides easy access to policies and necessary procedures including monitoring of project's operations and data handling.
+
+#### Process
+
+-   Use the standard Epidemiology Unit ELN tool.
+
+-   Review the established operating procedure of the Epidemiology Unit.
+
+#### Forms and Procedures
+
+- [Setting up a Microsoft OneNote user guide](https://userguiding.com/blog/how-to-use-microsoft-onenote/)
+
+-   [Setting up an R notebook in R Studio](https://bookdown.org/yihui/rmarkdown/notebook.html)
+
+-   [How to set up a project workflow using Microsoft Teams](https://learn.microsoft.com/en-us/power-automate/teams/overview) 
+
+::::::
+
+### Analysis Ready Datasets
+
+:::::: {.panel-tabset}
+
+#### Purpose
+
+To ensure that data analysis yields relevant, reliable, error-free, and consistent results.
+
+#### Process
+
+-   Identify which procedures of data handling are followed by the Epidemiology Unit regarding the project currently being conducted.
+
+-   In case there is no established protocol for data handling, document the protocols being used and share with members and modify according to feedback.
+
+#### Forms and Procedures
+
+-   [Data Analysis Guide](products/data_analysis_guide.pdf)
+
+::::::
+
+### Image Management
+
+:::::: {.panel-tabset}
+
+#### Purpose
+
+To ensure that images used in projects are properly handled and shared. 
+
+#### Process
+
+-   Identify the image(s) collection method best to used or used in projects.
+
+-   Follow the standardized image format and resolution.
+
+-   Identify the proper database used for storing images.
+
+#### Forms and Procedures
+
+-   [Image and Data Visualization Management Guide](products/data_visualization_guide.pdf)
+
+-   Image and Visualization Metadata Form
+
+::::::
+
+### Collaborative Tools and Software
+
+:::::: {.panel-tabset}
+
+#### Purpose
+
+To ensure the appropriate identification and utilization of the appropriate platforms, tools and software that would facilitate the development of projects.
+
+#### Process
+
+-   Identify the appropriate platform for sharing the project files and data.
+
+-   Identify which software and tools are required to develop and/or conduct the project.
+
+#### Forms and Procedures
+
+-   [Software Applications Installation Guide](software_guide.html)
+
+-   [RStudio training guide](https://epirhandbook.com/en/)
+
+- [SAS training guide](https://www.bu.edu/stat/bu-student-chapter-of-the-asa/sas-training/)
+
+-   [ArcGIS training guide](https://www.cdc.gov/gis/gis-training.htm)
+
+::::::
+
+:::
+
+## Store & Manage
+
+::: panel-tabset
+### Data Safety
+
+#### Purpose
+
+To ensure the protection of participants and the integrity of the data used in projects where the Epidemiology Unit is involved.
+
+#### Process
+
+-   Refer to the following policies.
+
+#### Forms and Procedures
+
+-   [Service Request Form](products/SERVICE_REQUEST.pdf)
+
+-   Data Safety Guide
+
+### Data Security
+
+#### Purpose
+
+To ensure that data and/or information critical to the project being developed are protected.
+
+#### Process
+
+-   Review related policies.
+
+-   Identify the type of data and which level of security does it belongs to.
+
+-   Review Epidemiology Unit organizational charts and roles and responsibilities to identify which personnel are allowed to gain access or not.
+
+-   Follow the guidelines and checklists implemented by the Epidemiology Unit.
+
+#### Forms and Procedures
+
+-   Data Types
+
+-   Data Security Guide
+
+### Storage Options
+
+#### Purpose
+
+To ensure that data is stored, maintained, and easily restored when needed.
+
+#### Process
+
+-   Review related policies.
+
+-   Identify which database to be utilized for data storage.
+
+-   Follow the standard operating procedures of storing data related to the project being developed or conducted.
+
+#### Forms and Procedures
+
+-   [Project Structure](products/project_structure_guide.pdf).
+
+-   [Data Repositories](https://github.com/Cook-County-Department-of-Public-Health)
+
+-   [Epidemiology Unit Data Storage Options](storage.qmd) 
+:::

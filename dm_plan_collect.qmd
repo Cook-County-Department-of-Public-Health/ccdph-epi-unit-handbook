@@ -1,0 +1,91 @@
+# Plan & Design / Collect & Create
+
+## Plan & Design
+
+The first step for any project is to *plan* and *design*. This involves two main activities which are setting up for *documentation* and exploring *data use agreements*. Planning and designing a project sets the foundations for later steps such as collection, storage, access, and dissemination. Proper planning and design increase efficiency, reduce costs, improve data quality, and increase alignment with rules and regulations [@project_design2012].
+
+::: panel-tabset
+### Documentation and Metadata
+
+#### Purpose
+
+To ensure easy access to data, and guarantee sustainability of Epidemiology unit projects.
+
+#### Process
+
+-   Determine which type of metadata is needed for the project.
+
+-   Document the methods used in the project and create a data dictionary.
+
+#### Forms and Procedures
+
+-   [README File](products/README_file.txt)
+
+-   [Metadata File Template](products/metadata_file_template.txt)
+
+### Data Use Agreements
+
+#### Purpose
+
+Refer to the binding contacts that govern data sharing between the Epidemiology Unit and any entity or organization(s).
+
+#### Process
+
+-   Review related policies.
+
+-   Identify whether a DUA is in place regarding the data used in the project.
+
+-   Follow standard operating procedures.
+
+#### Data Use Agreements
+
+The following Data Use Agreements (DUAs) were established between the Epidemiology Unit and multiple partners and Stakeholders. Refer to the specific DUA that is related to the project you are currently working on or going to work on. 
+
+The list below shows the DUAs that were signed and established for more details and review of these agreements, refer to [Epidemiology Unit DUAs](https://cchhs1.sharepoint.com/:f:/r/sites/Epi/Shared%20Documents/General/Admin/DUAs?csf=1&web=1&e=aJ8vSH):
+
+1.  CCDPH and IDPH Prehospital Data EMS 2021 to 2026
+
+2.  CCDPH and Alliance Chicago Risk Scape MENDS
+
+3.  CCDPH with ILPMP BAA
+
+4.  CCDPH with ILPMP DSA
+
+5.  CCDPH and IDPH Hospital Discharge 2016 to 2020
+
+6.  CCDPH and IDPH Vital Records 2016 to 2020
+
+7.  CCDPH and IDPH EMS 2016 to 2020
+:::
+
+## Collect & Create
+
+::: panel-tabset
+### File Naming Conventions
+
+#### Purpose
+
+To ensure that projects remain organized in a way that contents are easily identifiable. Standardized naming convention maximizes access to project files and data.
+
+#### Process
+
+-   Follow file naming convention standards.
+
+#### Forms and Procedures
+
+-   [File Naming Convention Guidelines](products/file_naming_convention_guide.pdf)
+
+### Directory Structures
+
+#### Purpose
+
+To ensure that projects' workflow and elements are organized and consistent which provide continuous record keeping.
+
+#### Process
+
+-   Follow the Epidemiology Unit organization strategies.
+
+#### Forms and Procedures
+
+-   [Directory Structure](products/directory_structure_guide.pdf)
+:::
