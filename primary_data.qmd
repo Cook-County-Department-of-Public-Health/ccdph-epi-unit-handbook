@@ -1,6 +1,6 @@
 # Primary Data {.unnumbered}
 
-Primary data refers to original data that is collected or generated directly from CCDPH for a particular purpose. CCDPH's Epidemiology Unit engages in two primary data collection efforts: (1) the Cook County Health Survey (CCHS), administered annually; and (2) the Youth Risk Behavior Survey (YRBS), administered every two years. The CCDPH has discretion over final design of these surveys, including questions concerning race and ethnicity.
+Primary data refers to original data that is collected or generated directly from CCDPH for a particular purpose. CCDPH's Epidemiology Unit engages in two primary data collection efforts: (1) the Cook County Health Survey (CCHS), administered annually; (2) the Youth Risk Behavior Survey (YRBS); and (3) School Health Profile Survey (SHPS), CCHS is deployed annually while the later two are administered every two years. The CCDPH has discretion over final design of these surveys, including questions concerning race and ethnicity. @tbl-primesvy shows the overall general purpose of each survey and its funding source.
 
 ## Cook County Health Survey (CCHS)
 
@@ -15,3 +15,15 @@ Results from the CCHS are shared on the Suburban Cook County Health Atlas and pu
 ## Youth Risk Behavior Survey (YRBS)
 
 The second primary data collection effort carried out by CCDPH is the [Youth Risk Behavior Survey (YRBS)](https://cookcountypublichealth.org/epidemiology-data-reports/yrbs-youth-risk-behavioral-survey/). Administered in 2010, 2020, and 2022 with plans to administer every two years going forward, the survey assesses health risk behaviors among students (grade 9-12) in participating high schools throughout suburban Cook County. The survey is used to monitor and evaluate a variety of health-related behaviors and conditions among adolescents, including physical activity, sexual behavior, nutrition, alcohol and drug use, and mental health. Survey results can be used to inform the development of health policies and programs that address the needs of adolescents.
+
+## School Health Profile Survey (SHPS)
+
+
+
+|Survey|Frequency|Funding Source|Purpose|
+|:-|:-|:-|:-|
+|School Health Profile Survey|Every other year|CDC Health Equity Grant|Schools' health education and health programs and policies assessment|
+|Youth Risk Behavioral Survey|Every other year|CDC Health Equity Grant|Assessment of youth risk behaviors that aims to improve health education|
+|Cook County Health Survey|Annually|CDC Health Equity Grant|Explore the health conditions, risk factors, and socioeconomic determinants of health|
+
+: Primary Surveys used by the Epidemiology Unit {#tbl-primesvy}

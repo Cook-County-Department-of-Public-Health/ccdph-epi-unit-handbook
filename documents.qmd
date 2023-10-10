@@ -1,23 +1,66 @@
 # Part 5. Documents
+
 The Epidemiology Unit creates different types of documents that vary in terms of purpose (e.g., analysis; awareness; prevention), audience (i.e., reading level), size/format, frequency, and dissemination platform. Documents should generally aim to: (1) utilize the latest datasets and indicators in order to convey timely information to stakeholders and bring attention to the Unit's recent data management efforts; and (2) speak to contemporary and emerging public health topics that are especially relevant to CCDPH leadership, units, elected officials, and other stakeholders. A summary of each type of document and their respective characteristics follows. Refer to the associated chapter for more in-depth document-specific information and resources.
 
-## Epi Insights
-Insights are relatively short, 1 to 2 page documents that summarize information on a single concept and are written at the 8th grade (or below) reading level to enable communication across a broad audience. Epi Insights typically include 2 to 3 interactive  figures (i.e., derived from tables, maps, and/or charts on the atlas) and are published monthly on the Cook County Health Atlas. These documents communicate public health recommendations and/or prevention programs that have been vetted through a systematic literature review, by public health professionals and partners. Development of an Epidemiology Insights document requires a thorough understanding of the topic, collaboration with experts, and a commitment to promoting evidence-based public health practices. 
+## Field Epidemiology Products
 
-## Epi Surveillance Briefs
-Surveillance briefs are concise, 5 to 10 page summaries of key findings and trends derived from analyses of public health surveillance data. These briefs provide important information to public health professionals, policymakers, and researchers, helping them understand the spread of diseases, identify risk factors, and develop effective interventions. These briefs are written at the 8th grade (or below) reading level to enable communication across a broad audience. They typically include 3 to 5 figures and are published quarterly in multiple formats (i.e., both interactive HTML and static PDF) on the CCDPH web pages. Surveillance briefs serve as important tools for evidence-based decision-making, policy formulation, and resource allocation in public health. They provide concise, actionable information to stakeholders involved in disease prevention, control, and health promotion efforts.
+Epidemiological products are generated to support public health efforts and guide decision-making abilities. These products assist in better understanding, monitoring, surveillance, controlling, and preventing diseases. The Epidemiology Unit creates different types of products that vary in terms of purpose (e.g., analysis; awareness; prevention), audience (i.e., reading level), size/format, frequency, and dissemination platform. Documents should generally aim to: (1) utilize the latest datasets and indicators in order to convey timely information to stakeholders and bring attention to the Unit's recent data management efforts; and (2) speak to contemporary and emerging public health topics that are especially relevant to CCDPH leadership, units, elected officials, and other stakeholders including, but not limited to, health equity. A summary of each type of document and their respective characteristics follows. Refer to the associated chapter for more in-depth document-specific information and resources.
 
-## Epi Special Reports
-Epidemiology special reports are longer, 10 to 20 page explorations into one or more related public health topics derived from analyses of public health surveillance data. They dive deeper into a health topic or condition and typically involve a brief introduction and methodology as well as a detailed quantitative and/or qualitative analysis with a summary of major findings. These reports are written at the 8th grade (or below) reading level to enable communication across a broad audience. They typically include 5 to 10 figures and are published in multiple formats (i.e., interactive HTML and static PDF) on the CCDPH web pages. Similar to Epi Surveillance Briefs, these reports should help inform decision-making, policy formulation, and resource allocation in public health and serve as actionable information to stakeholders involved in disease prevention, control, and health promotion efforts.
+### Epidemiological Reports and Bulletins (Epi Insights)
 
-## Journal manuscripts
-CCDPH's Epidemiology Unit is in a unique position to both independently and, through collaboration with academic partners, engage in scholarly epidemiological and public health research that can be shared via scientific journals. The purpose of the journal manuscripts is to communicate new findings, ideas, methodologies, or analyses to the broader epidemiology community and to contribute to the advancement of knowledge in public health. While the size, format, and structure of manuscripts vary by journal, typical manuscripts have several key components including a title, abstract, introduction, literature review, methodology, results, discussion, conclusion, and references. Manuscripts submitted by the Epidemiology Unit to academic journals also undergo a peer-review process, where other experts in the field evaluate the quality, validity, and significance of the research before it is accepted for publication. Given the time intensive nature of producing such manuscripts, approval from CCDPH leadership is needed prior to commencing any research activities.
+These products are regularly generated by the Epidemiology Unit that summarize key findings from epidemiological investigations. Bulletins usually include data and disease trends and shed light onto existing structural and systemic health inequities. The CCDPH - Epidemiology Unit's *Epi Insights* are relatively short, 1 to 2 page documents that summarize information on a single concept and are written at the 8th grade (or below) reading level to enable communication across a broad audience. Epi Insights typically include 2 to 3 interactive figures (i.e., derived from tables, maps, and/or charts on the Cook County Health Atlas) and are published monthly on the Cook County Health Atlas. These documents communicate public health recommendations and/or prevention programs that have been vetted through a systematic literature review, by public health professionals and partners. Development of an Epidemiology Insights document requires a thorough understanding of the topic, collaboration with experts, and a commitment to promoting evidence-based public health practices. 
 
-## Posters
+### Surveillance Reports (Epi Surveillance Briefs)
+
+These products focus on the ongoing monitoring of a specific diseases or a health condition. Such reports provide data on disease prevalence, incidence, and distribution patterns. The CCDPH - Epidemiology Unit's *Surveillance Briefs* are concise, 5 to 10 page summaries of key findings and trends derived from analyses of public health surveillance data. These briefs provide important information to public health professionals, policymakers, and researchers, helping them understand the spread of diseases, identify risk factors, and develop effective interventions. These briefs are written at the 8th grade (or below) reading level to enable communication across a broad audience. They typically include 3 to 5 figures and are published quarterly in multiple formats (i.e., both interactive HTML and static PDF) on the CCDPH web pages. Surveillance briefs serve as important tools for evidence-based decision-making, policy formulation, and resource allocation in public health. They provide concise, actionable information to stakeholders involved in disease prevention, control, and health promotion efforts.
+
+### Epidemiological Profiles (Epi Special Reports)
+
+These profiles are comprehensive documents that address a specific disease or health condition in details. Epidemiological profiles usually provide results and interpretation on demographics, risk factors, clinical features, and public health implications. Epidemiology special reports are longer, 10 to 20 page explorations into one or more related public health topics derived from analyses of public health surveillance data. They dive deeper into a health topic or condition and typically involve a brief introduction and methodology as well as a detailed quantitative and/or qualitative analysis with a summary of major findings. These reports are written at the 8th grade (or below) reading level to enable communication across a broad audience. They typically include 5 to 10 figures and are published in multiple formats (i.e., interactive HTML and static PDF) on the CCDPH web pages. Similar to Epi Surveillance Briefs, these reports should help inform decision-making, policy formulation, and resource allocation in public health and serve as actionable information to stakeholders involved in disease prevention, control, and health promotion efforts.
+
+### Analytic Studies and Research Papers (Journal manuscripts)
+
+These products are scientific publications that present results of epidemiological research. Such products follow the standard academic approach in document synthesis and structure. Therefore, they might be observational studies, case-control studies, cohort studies, and / or randomized clinical trails. CCDPH - Epidemiology Unit is in a unique position to both independently and, through collaboration with academic partners, engage in scholarly epidemiological and public health research that can be shared via scientific journals. The purpose of the journal manuscripts is to communicate new findings, ideas, methodologies, or analyses to the broader epidemiology community and to contribute to the advancement of knowledge in public health. While the size, format, and structure of manuscripts vary by journal, typical manuscripts have several key components including a title, abstract, introduction, literature review, methodology, results, discussion, conclusion, and references. Manuscripts submitted by the Epidemiology Unit to academic journals also undergo a peer-review process, where other experts in the field evaluate the quality, validity, and significance of the research before it is accepted for publication. Given the time intensive nature of producing such manuscripts, approval from CCDPH leadership is needed prior to commencing any research activities.
+
+#### Academic Posters
+
 The Epidemiology Unit regularly present posters at regional and national public health conferences or symposium, including the CSTE, Illinois Public Health Association (IPHA), and American Public Health Association (APHA) annual conferences. These large format (e.g., 4'x 8'), hard copy conference posters are typically displayed on boards or stands in a designated poster session of a conference and provide a way for staff to share a condensed overview of recent research, projects, or ideas with a larger audience. Similar to journal manuscripts, conference posters typically include some standard components, including a title, author names, introduction, methods, results, discussion, conclusion, and references.
 
-## Presentations and slide decks
+### Public Health Dashboards
+
+These products are usually interactive online tools that provide real-time or near-real-time data on disease or health condition trends. These products help different stakeholders to monitor the disease or health condition of concern which will aid in their decision-making ability. CCDPH - Epidemiology Unit utilized different web-development tools such as Shiny Applications, html-based Java Scripts, and the Cook County Health Atlas to develop and maintain such interactive online tools for several purposes and programs. Examples of such dashboards are the Population Health, Opioid Surveillance, and Youth Risk Behaviors Survey. The Epidemiology Unit aims to continue in developing such tools according to the needs of the public and stakeholders.
+
+### Educational Materials
+
+These products include posters, presentations, pamphlets, info-graphics, brochures, and online resources that aim to educate the public about different health-related topics including prevention measures of certain diseases or health outcomes. Educational materials usually include resources that are useful and easily accessible for the public. CCDPH - Epidemiology Unit produces educational materials in several forms including presentations, posters, and info-graphics.
+
+#### Presentations and slide decks
+
 The Epidemiology Unit prepares presentations and slide decks to communicate public health information and unit activities to internal employees and a wide range of external stakeholders. These slide decks typically follow a standard CCH template.
+
+#### Frequently Asked Questions (FAQs)
+
+Based on literature review and needs assessment, CCDPH - Epidemiology Unit develops an inventory of frequently asked questions (FAQs) and provides evidence-based answers. These products contain general information on resources available for the public and other stakeholders. The list of FAQs and their corresponding answers are written in a concise manner at the 8th grade level (or below). FAQs can be disease / health outcome specific or program specific (e.g., FAQs for the Opioid Surveillance Program).  
+
+### Training Modules and Workshops
+
+These are products generated to train other public health and healthcare professionals and stakeholders on different epidemiological topics and tools. Such resources can be used to train professionals on how to use a tool that was developed by epidemiologists to assist the professionals in their work and help them make decisions based on current evidence on disease trends and specific health outcomes. CCDPH - Epidemiology Unit holds training workshop for 
+
+### Miscellaneous Products
+
+These include various documents that divided into three subcategories which are: 1) Policy recommendations and guidelines, 2) Health risk communications, and 3) Media releases and Press statements. The purpose of these documents or products is to communicate results and interpretations of epidemiological data with the public and policy makers and advocates. 
+
+#### Policy Recommendations and Guidelines
+
+These products provide evidence-based guidelines for policy makers and advocates on strategies utilized in disease control and prevention.
+
+#### Health Risk Communications
+
+Materials generated to inform and educate the public and stakeholders on health risks, prevention measures, and recommended personal-level, relationship-level, and overall community-level actions.
+
+#### Media Releases and Press Statements
+
+Communication materials directed at the media that provide important information on significant epidemiological results, interpretations, outbreaks, or ongoing public health initiatives and programs.
 
 
 
