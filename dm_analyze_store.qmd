@@ -1,8 +1,6 @@
-# Analyze & Collaborate / Store & Manage
+# Analyze & Collaborate / Store & Manage {.unnumbered}
 
 ## Analyze & Collaborate
-
-::: {.panel-tabset}
 
 ### Electronic Notebooks
 
@@ -97,8 +95,6 @@ To ensure the appropriate identification and utilization of the appropriate plat
 -   [ArcGIS training guide](https://www.cdc.gov/gis/gis-training.htm)
 
 ::::::
-
-:::
 
 ## Store & Manage
 

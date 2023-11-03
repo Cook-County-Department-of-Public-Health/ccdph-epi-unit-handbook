@@ -1,8 +1,7 @@
-# Evaluate & Archive / Share & Disseminate
+# Evaluate & Archive / Share & Disseminate {.unnumbered}
 
 ## Evaluate & Archive
 
-::: panel-tabset
 ### Data Destruction
 
 #### Purpose
@@ -78,11 +77,9 @@ To ensure that the proper data is identified for permanent retention.
 #### Forms and Procedures
 
 -   Data Archiving Guide
-:::
 
 ## Share & Disseminate
 
-::: panel-tabset
 ### Data Repositories
 
 [*Definition*](http://www.dlib.org/dlib/march17/kindling/03kindling.html#13): *A subtype of a sustainable information infrastructure which provides long term storage and access to research data.*
@@ -174,4 +171,3 @@ To ensure that scholarly identified products are shared securely prior to journa
 #### Forms and Procedures
 
 -   Publishing Guide
-:::

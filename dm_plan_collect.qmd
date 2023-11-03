@@ -1,4 +1,4 @@
-# Plan & Design / Collect & Create
+# Plan & Design / Collect & Create {.unnumbered}
 
 ## Plan & Design
 
