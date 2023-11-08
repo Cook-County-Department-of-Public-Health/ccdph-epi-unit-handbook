@@ -24,7 +24,7 @@ The personal OneDrive is mainly used for managing individual project folders and
 
 SharePoint is a cloud-based Microsoft application that can syncronizes with OneDrive. used by CCH as a secure sharing platform, directory management tool, and version control software (along with One Drive). After completing the drafts of ongoing projects, Share Point serves as the collaborative platform where these projects can be shared with other team members, internal stakeholders, or external stakeholders (*in certain situations*). The sharing process is governed by the \textcolor{purple}{Sharing Policies} and \textcolor{purple}{Data Use Agreements}.
 
-## CCDPH SQL Server
+## CCDPH SQL Server {#sec-ccdph_sql_server_storage}
 
 SQL Server refers to a relational database management system (RDBMS) developed by Microsoft. It is designed to store and manage large amounts of data and is used by organizations of all sizes for a wide range of applications. SQL Server supports the Structured Query Language (SQL), which is a standard language used to manage relational databases. SQL Server provides a wide range of features and services, including: (1) Data storage and management: SQL Server provides efficient storage and retrieval of data, allowing for quick access to large amounts of data: (2) Security: SQL Server provides robust security features, including authentication, authorization, and encryption, to protect data from unauthorized access; (3) Integration with other Microsoft technologies: SQL Server integrates seamlessly with other Microsoft technologies such as Excel, OneDrive, and SharePoint. [@trick2021a]
 

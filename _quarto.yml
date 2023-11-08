@@ -7,7 +7,7 @@ book:
   subtitle: "Organizational information and standard procedures for Epidemiology Unit employees"
   cover-image: handbook_cover.png
   author: "CCDPH Epidemiology Unit"
-  date: "Last updated 8/15/2023"
+  date: "Last updated 11/2/2023"
   page-navigation: true # true by default (adds previous/next page at bottom of page)
   chapters:
     - index.qmd
@@ -15,9 +15,8 @@ book:
       chapters:
         - organization.qmd # cook county; cch; ccdph; epi unit
         - strategy.qmd # strategic plans, mission, vision
-        - people.qmd # ccdph org chart; job descriptions; cvs
+        - people.qmd # profiles/bios of epi unit personnel
         - geography.qmd # cook county; ccdph; scc
-        - partners.qmd # external partners, links and descriptions
     - part: administration.qmd # cch; ccdph
       chapters:
         - calendar.qmd # activity calendar, holidays

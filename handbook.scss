@@ -30,3 +30,10 @@ $code-block-bg: #e5e5e5 !default;
  color:#000000;
  background:#3bb2bb
 }
+
+// Map legends
+
+.info.legend.leaflet-control i {
+  float: left;
+}
+
