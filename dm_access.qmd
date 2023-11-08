@@ -1,6 +1,5 @@
 # Access & Reuse {.unnumbered}
 
-::: panel-tabset
 ## Active and Short-term Projects
 
 ### Purpose
@@ -84,4 +83,4 @@ To record essential information related to projects, data sets, directories, and
 ### Forms and Procedures
 
 -   [Open Data Handbook](https://opendatahandbook.org/guide/en/what-is-open-data/)
-:::
+
