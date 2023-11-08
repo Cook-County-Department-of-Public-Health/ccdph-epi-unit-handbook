@@ -4,7 +4,7 @@
 
 While not formally adopted or externally recognized, the Epidemiology Unit has developed the following mission and vision statements in an attempt to inform current activities and future direction.
 
-![Epidemiology Unit Vision, Mission, and Core Functions](mission_vision_core_fxs_ccdph_epi_unit.PNG){#fig-epi-vision-mission-fxs fig-alt="CCDPH Epidemiology Unit Vision, Mission, and Core Functions."}
+![Epidemiology Unit Vision, Mission, and Core Functions](images/mission_vision_core_fxs_ccdph_epi_unit.PNG){#fig-epi-vision-mission-fxs fig-alt="CCDPH Epidemiology Unit Vision, Mission, and Core Functions."}
 
 -   The unit's *vision* is to strengthen public health science and improve public health decision-making and practice to achieve positive health outcomes through transparent, timely, and accurate data.
 

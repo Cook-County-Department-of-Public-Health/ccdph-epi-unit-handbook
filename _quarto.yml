@@ -15,8 +15,9 @@ book:
       chapters:
         - organization.qmd # cook county; cch; ccdph; epi unit
         - strategy.qmd # strategic plans, mission, vision
-        - people.qmd # profiles/bios of epi unit personnel
+        # - people.qmd # profiles/bios of epi unit personnel
         - geography.qmd # cook county; ccdph; scc
+        # - partners.qmd # CCDPH providers, non-profits, community-based organizations, municipalities
     - part: administration.qmd # cch; ccdph
       chapters:
         - calendar.qmd # activity calendar, holidays
