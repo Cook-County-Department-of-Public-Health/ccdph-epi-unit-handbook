@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-# Plan, Design, Collect & Create {.unnumbered}
-=======
-# Plan & Design / Collect & Create {.unnumbered}
->>>>>>> 4d6e34883acd49833a7958bda9a9f81ecea302df
-
-## Plan & Design
+## Plan & Design {.unnumbered}
 
 The first step for any project is to *plan* and *design*. This involves two main activities which are setting up for *documentation* and exploring *data use agreements*. Planning and designing a project sets the foundations for later steps such as collection, storage, access, and dissemination. Proper planning and design increase efficiency, reduce costs, improve data quality, and increase alignment with rules and regulations [@project_design2012].
 
