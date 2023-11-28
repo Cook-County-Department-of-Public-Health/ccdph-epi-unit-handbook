@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Analyze, Collaborate, Store, and Manage {.unnumbered}
-=======
-# Analyze & Collaborate / Store & Manage {.unnumbered}
->>>>>>> 4d6e34883acd49833a7958bda9a9f81ecea302df
+# Analyze, Collaborate, Store, & Manage {.unnumbered}
 
 ## Analyze & Collaborate
 

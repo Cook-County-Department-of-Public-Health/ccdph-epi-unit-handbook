@@ -161,7 +161,6 @@ Suburban Cook County or SCC refers to the entire area of Cook County excluding t
 ## CCDPH health districts
 CCDPH's jurisdiction is also divided into four public health districts: north; west; southwest; and south. These four CCDPH public health districts are used by CCDPH largely to evaluate social and demographic patterns across its jurisdiction, as well as to enumerate and report the incidence and prevalence of disease and other health indicators.
 
-
 ```{r}
 #| label: fig-ccdphdistricts
 #| fig-cap: CCDPH health districts by area and population
@@ -233,7 +232,7 @@ munis_cook_county_frm <- munis_cook_county %>%
          geoid = geoid_place,
          partial = partial_ccdph,
          sqmi = area_sqmi) %>%
-  select(-c(area_land_sqmi:area_water_sqmi, geom))
+  select(-c(area_land_sqmi:area_water_sqmi, geom, partial, exclude))
 
 munis_cook_county_frm %>%
   arrange(name) %>%
