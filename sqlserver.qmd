@@ -77,14 +77,40 @@ To access server data using Microsoft applications, it is necessary to first ins
 
 Third parties outside of the Cook County Health & Hospitals System (CCHHS) do not have access to the service. Access to the service, databases, tables and particular table columns are granted to employees on a must-need basis. The server name and IP address are shared with staff upon access approval. Data are managed by designated data owners and editors.
 
-## Importing data
 
+::: {.callout-note collapse="false"}
+## Code for reading and writing geographic layers from/to CCDPH SQL Server via R
 
-```{r}
+To import the read and write spatial layer to database functions into your R script, copy, paste, then run the following code in R. 
 
+```{verbatim}
+source("https://raw.githubusercontent.com/Cook-County-Department-of-Public-Health/ccdph-functions/master/spatial-database-functions.R")
+```
 
+To read spatial data into R use the *fx_read_spatial_layer_fr_database* function. Parameters for this function include: *schema_name* or name of the schema that the spatial database table is assigned to (defaults to "ref"); *db_table_name* or name of spatial table in inter-spatial database (refer to @fig-spatialtables above); and *crs_id* or the desired coordinate reference system  (defaults to 3435 but set to 4326 when mapping in leaflet). The example code below imports the clipped municipalities in Cook County data layer into R as a *munis_cook_county_clipped* simple feature dataframe, reprojected into geographic coordinate system 4326.
+
+```{verbatim}
+
+munis_cook_county_clipped <- fx_read_spatial_layer_fr_database(
+  db_table_name = "munis_cook_county_clipped", 
+  crs_id = 4326
+  )
 
 ```
 
+To write spatial data into R use the *fx_read_spatial_layer_to_database* function, which has the following parameters: *sf_layer_df* or the simple feature data frame you wish to write to the database; *schema_name* or name of the schema that the spatial database table will be assigned to (defaults to "ref"); *db_table_name* or name of spatial table that will be written to the database (WARNING: this will overwrite any existing table with the same name); and *crs_id* or the desired coordinate reference system for the spatial table to be written to the database (defaults to 3435). The example code below writes the counties in Illinois simple feature dataframe in R to a spatial table in the spatial database with name *counties_illinois* assigned to schema, *ref*.
 
-## Exporting data
+```{verbatim}
+
+fx_write_spatial_layer_to_database(
+  sf_layer_name = counties_il_sf,
+  schema_name = "ref",
+  db_table_name = "counties_illinois",
+  crs_id = 3435
+)
+
+```
+
+Be sure to update the *00_table_dictionary* reference table in R when writing new spatial layers to the database.
+
+:::

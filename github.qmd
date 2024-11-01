@@ -2,7 +2,7 @@
 [GitHub](https://github.com/) is a web-based platform that provides a collaborative environment for CCDPH employees and potentially others to work on and manage files using the [Git version control system](https://git-scm.com/). The CCDPH Epidemiology and Communicable Disease Units typically organize collaborative projects through GitHub repositories, which are essentially collections of files and their complete version histories. Each repository is associated with a project. For example, code used to create this Epidemiology Unit Employee Handbook is managed via the [ccdph-epi_unit_handbook](https://github.com/Cook-County-Department-of-Public-Health/ccdph-epi_unit_handbook)  GitHub repository. Repositories can be made either public or private, depending on how the information is to be shared.
 
 ## CCDPH organization GitHub account
-CCDPH GitHub repositories are typically stored under the [CCDPH organization account](https://github.com/Cook-County-Department-of-Public-Health), of which [Kelley Bemis](kbemis@cookcountyhhs.org) and [Scott Smith](christopher.smith@cookcountyhealth.org) are owners. If you need access to the CCDPH GitHub account, email a request to either Kelley [kbemis@cookcountyhhs.org](kbemis@cookcountyhhs.org) or [Scott](christopher.smith@cookcountyhealth.org).
+CCDPH GitHub repositories are typically stored under the [CCDPH organization account](https://github.com/Cook-County-Department-of-Public-Health), of which [Kelley Bemis](kbemis@cookcountyhhs.org) and [Scott Smith](christopher.smith@cookcountyhealth.org) are owners. If you need access to the CCDPH GitHub account, email a request to either Kelley [kbemis@cookcountyhhs.org](kbemis@cookcountyhhs.org) or [christopher.smith@cookcountyhealth.org](christopher.smith@cookcountyhealth.org).
 
 ## Active GitHub repositories
 The [complete list of CCDPH GitHub repositories](https://github.com/orgs/Cook-County-Department-of-Public-Health/repositories) represents a wide range of projects. Some projects concern dashboards (e.g., [ccdph-population-shiny](https://github.com/Cook-County-Department-of-Public-Health/ccdph-population-shiny)) while others pertain to datasets (e.g., [ccdph-hospital-discharge](https://github.com/Cook-County-Department-of-Public-Health/ccdph-hospital-discharge)) or specific documents or platforms (e.g., (nssp-opioid-report)[https://github.com/Cook-County-Department-of-Public-Health/nssp-opioid-report]). Brief summaries of repositories that are particularly relevant to the Epidemiology Unit follows. Refer to the repository-specific readme files for for up-to-date information concerning each repository.
@@ -33,6 +33,44 @@ It is critical that protected health information (PHI) *never be stored* in GitH
 + Server names (e.g., the SQL Server service name) and locations should be masked in code managed on GitHub
 + External repositories are only downloaded from vetted GitHub accounts representing credible institutions (e.g., CCDPH, CDC)
 + All newly created CCDPH repositories should be assigned to "Private" mode by default
+
+## Using GitHub repositories in RStudio
+Managing GitHub repositories in RStudio involves using RStudio’s built-in Git tools or running Git commands directly in the R console or terminal. Here’s a quick guide:
+
+1. **Set Up Git in RStudio**:
+    i) Install Git and configure it in RStudio by going to Tools > Global Options > Git/SVN.
+    i) Set the Git executable path if it’s not auto-detected, and set up your GitHub user credentials if needed.
+
+2. **Create a New Repository**:
+    i) In RStudio, create a new project using File > New Project and select Version Control > Git.
+    i) Clone a GitHub repository by providing the repository URL in the clone dialog box.
+    i) RStudio will create a local Git repository linked to the GitHub repository.
+
+3. **Staging and Committing Changes**:
+    i) Use the Git tab in RStudio to see tracked files, where you can stage files by checking them in the “Staged” column.
+    i) Write a commit message and press Commit to save changes to the local repository.
+
+4. **Push and Pull Changes**:
+    i) Use the Push button in the Git tab to upload your local commits to GitHub.
+    i) Use Pull to sync changes from GitHub to your local repository, merging updates made by collaborators.
+
+5. **Working with Branches**:
+    i) Create new branches by clicking New Branch in the Git tab or running git branch <branch_name> in the terminal.
+    i) Switch branches via the Git tab or with git checkout <branch_name> in the terminal.
+    i) Merge branches using the Merge button or git merge <branch_name> in the terminal.
+
+6. **Viewing History and Reverting Changes**:
+    i) Check commit history with the History button in the Git tab, allowing you to view previous commits and diffs.
+    i) Undo or revert changes by right-clicking a file in the Git tab or using Git commands like git reset and git revert.
+
+**Example Workflow**
+
+* Open or clone a repository in RStudio.
+* Edit files, then stage and commit changes in the Git tab.
+* Push the changes to GitHub when ready.
+* Pull frequently to stay in sync with collaborators.
+
+With these steps, you can manage your GitHub repositories directly in RStudio, making it easier to work within an integrated environment.
 
 ## Additional training
 LinkedIn Learning has several courses about GitHub. For example, [Learning GitHub](https://www.linkedin.com/learning/learning-github-18719601/getting-started-with-github?u=2228698) introduces GitHub and Git, the version control system that GitHub is built upon. The instructor shows how GitHub can create collaborative workflows and how version control enables teams to track changes in files. The course gives some advice to work better with open-source projects.

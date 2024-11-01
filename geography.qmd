@@ -285,43 +285,6 @@ For convenience, the Epidemiology Unit's base or reference geographic layers are
 
 1. [CCDPH SQL Server](storage.qmd#sec-ccdph_sql_server_storage) *inter-spatial* database: Geographic data stored on the SQL Server are considered to be the definitive source of spatial data. They are continually updated and accessed by the Epidemiology and Communicable Disease units. SQL Server, due to its robust querying functionality, also offers the most flexible and efficient means to manage, write, store, and retrieve geographic data. The inter-spatial data can also be easily imported into SAS, R, ArcGIS Pro, and Microsoft applications such as Excel and Access.
 
-::: {.callout-note collapse="false"}
-## Code for reading and writing geographic layers from/to CCDPH SQL Server via R
-
-To import the read and write spatial layer to database functions into your R script, copy, paste, then run the following code in R. 
-
-```{verbatim}
-source("https://raw.githubusercontent.com/Cook-County-Department-of-Public-Health/ccdph-functions/master/spatial-database-functions.R")
-```
-
-To read spatial data into R use the *fx_read_spatial_layer_fr_database* function. Parameters for this function include: *schema_name* or name of the schema that the spatial database table is assigned to (defaults to "ref"); *db_table_name* or name of spatial table in inter-spatial database (refer to @fig-spatialtables above); and *crs_id* or the desired coordinate reference system  (defaults to 3435 but set to 4326 when mapping in leaflet). The example code below imports the clipped municipalities in Cook County data layer into R as a *munis_cook_county_clipped* simple feature dataframe, reprojected into geographic coordinate system 4326.
-
-```{verbatim}
-
-munis_cook_county_clipped <- fx_read_spatial_layer_fr_database(
-  db_table_name = "munis_cook_county_clipped", 
-  crs_id = 4326
-  )
-
-```
-
-To write spatial data into R use the *fx_read_spatial_layer_to_database* function, which has the following parameters: *sf_layer_df* or the simple feature data frame you wish to write to the database; *schema_name* or name of the schema that the spatial database table will be assigned to (defaults to "ref"); *db_table_name* or name of spatial table that will be written to the database (WARNING: this will overwrite any existing table with the same name); and *crs_id* or the desired coordinate reference system for the spatial table to be written to the database (defaults to 3435). The example code below writes the counties in Illinois simple feature dataframe in R to a spatial table in the spatial database with name *counties_illinois* assigned to schema, *ref*.
-
-```{verbatim}
-
-fx_write_spatial_layer_to_database(
-  sf_layer_name = counties_il_sf,
-  schema_name = "ref",
-  db_table_name = "counties_illinois",
-  crs_id = 3435
-)
-
-```
-
-Be sure to update the *00_table_dictionary* reference table in R when writing new spatial layers to the database.
-
-:::
-
 2. [ccdph-shapefiles GitHub repository](https://github.com/Cook-County-Department-of-Public-Health/ccdph-shapefiles): The geographic layers stored on SQL Server are also exported to the *ccdph-shapefiles* GitHub repository as zip files. These zip files are used for importing spatial data into ArcGIS Online and also for sharing with other internal and external entities.
 
 3. [ArcGIS Online in the CCDPH Epidemiology (Internal) group content area](https://cookcountyil.maps.arcgis.com/home/group.html?id=762568106bd341f0a14c942dcca890e7#overview): Feature layers stored on Cook County's ArcGIS Online can be easily imported into ArcGIS Pro for mapping. The same feature layers are used to create map templates. At this time, Cook County's ArcGIS Online is not able to read directly from the CCDPH SQL Server, so data stored here were imported from zipped shapefiles stored on the *ccdph-shapefiles* GitHub repository. 
