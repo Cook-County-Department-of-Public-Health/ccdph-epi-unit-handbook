@@ -1,8 +1,8 @@
 # Online Resources {.unnumbered}
 
-There are many online opportunities for advancing epidemiological work. Below is a summary of professional development opportunities organized by topic.
+There are many online opportunities for advancing epidemiological work. Below is a summary of professional development opportunities organized by topic and platform.
 
-## R statistical program
+## RStudio
 
 The Epidemiology Unit makes extensive use of R software for data management, including the processing and analysis of public health data. R is becoming the statistical application of choice within CCDPH in part because of its flexibility--e.g., it is widely used by epidemiologists for data manipulation, visualization, hypothesis testing, machine learning, and time series analysis--and because it has a rich ecosystem of user-contributed packages which expand the software's capabilities. The base software--which was developed by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, in the mid-1990s--is also open source, which means it is free to use, modify, and distribute.
 
@@ -12,12 +12,16 @@ The Epidemiology Unit makes extensive use of R software for data management, inc
 
 ## Spatial analysis
 
--   
+The following public health-related online exercises are available for staff. They are drawn from course material developed by Scott Smith, Program Coordinator for CCDPH's Epidemiology Unit, for a *GIS Analysis for Environmental and Public Health* class he teaches at DePaul University.
 
-## Mapping with GIS
+* [Examining Relationships Between Transportation and Health Outcomes Across Public Health Jurisdictions](https://justenvirons.org/pedagogy/GEO330/Exercise_04/Exercise_04.html). This exercise utilizes the suburban Cook County Health Atlas and Chicago Health Atlas indicators to evaluate select public health outcomes relative to transportation access and quality across Cook County. The exercise will make use of indicators derived from local surveys (i.e., Cook County Health Survey and the Healthy Chicago Survey) that are administered annually by the two local health departments. Both surveys are designed to collect neighborhood-level information from residents on such things as health status, risk behaviors, and access to health care to inform and monitor the health status of communities.
 
--   
+* [Measuring Access to Public Health Facilities Using Multiple Approaches](https://justenvirons.org/pedagogy/GEO346/Exercise_03/exercise03.html). This project operationalizes a variety of accessibility measures to explore relationships between origins (i.e., hexagon-derived centroids) and destinations (i.e., health facilities) within a student-selected county in the United States.
 
-## Managing data with SQL Server
+* [Bivariate Choropleth Mapping in R using CDC PLACES and SVI Data](https://justenvirons.org/pedagogy/GEO346/Exercise_01/exercise01.html). This exercise uses Centers for Disease Control PLACES and Social Vulnerability Index (SVI) data in RStudio and ArcGIS Pro to create a series of bivariate choropleth maps and related figures and tables to explore select public health and sociodemographic relationships.
 
--   
+* [Air Dispersion Modeling and Visualization](https://justenvirons.org/pedagogy/GEO346/Exercise_02/exercise02.html). This exercise involves the evaluation of ambient air concentrations of criteria and toxic pollutants within a student-specified area in California. Students will model concentrations using regularly updated, facility-level emissions made available from the EPA (i.e., AirData National Emmissions Inventory and Toxic Release Inventory), hourly meteorological data from local weather stations and AERMOD, an air dispersion model developed by the EPA.
+
+
+
+

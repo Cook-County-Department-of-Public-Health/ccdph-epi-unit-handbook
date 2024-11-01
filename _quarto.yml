@@ -7,7 +7,7 @@ book:
   subtitle: "Organizational information and standard procedures for Epidemiology Unit employees"
   cover-image: handbook_cover.png
   author: "CCDPH Epidemiology Unit"
-  date: "Last updated 12/6/2023"
+  date: "Last updated 10/17/2024"
   page-navigation: true # true by default (adds previous/next page at bottom of page)
   chapters:
     - index.qmd
@@ -17,15 +17,14 @@ book:
         - strategy.qmd # strategic plans, mission, vision
         # - people.qmd # profiles/bios of epi unit personnel
         - geography.qmd # cook county; ccdph; scc
+        # - population.qmd # population of cook county; ccdph; scc; munis; zctas; tracts
         # - partners.qmd # CCDPH providers, non-profits, community-based organizations, municipalities
     - part: administration.qmd # cch; ccdph
       chapters:
-        - calendar.qmd # activity calendar, holidays
+        - employees.qmd # resources for current staff
         - onboarding.qmd # resources/guide for incoming staff
         - offboarding.qmd # resources/guide for outgoing staff
-        - employees.qmd # resources for current staff
         - grants.qmd # application and administration of grants
-        - fellowships.qmd # hiring and mentorship of fellows
     - part: data_management.qmd # data management
       chapters:
         - dm_plan_collect.qmd # data management section plan & design / collect & create 
@@ -38,11 +37,11 @@ book:
         - secondary_data.qmd # secondary data sources and datasets
         - storage.qmd # epi unit datasets, storage, access (database)
         - agreements.qmd # data use agreements (DUAs)
-        - processing.qmd # data importing, processing and cleaning
-        - analysis.qmd # data analysis; standard calculations/formulas
+        - processing.qmd # data importing, processing, cleaning, indicator development
+        - analysis.qmd # statistical analysis of indicators
         - suppression.qmd # data privacy, suppression, rules for reporting
         - dissemination.qmd # health atlas; dashboards; requests; documents
-        - indicators.qmd # standard indicators
+        - indicators.qmd # standard indicators shared on atlas
     - part: project_management.qmd # regular projects
       chapters:
         - programs.qmd # regular/mandated programs (i.e., PHAB reporting; CHA-CHIP)

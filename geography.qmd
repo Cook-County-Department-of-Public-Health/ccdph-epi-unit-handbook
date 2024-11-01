@@ -1,5 +1,7 @@
-# Geography {#geography .unnumbered}
-This chapter describes basic characteristics of CCDPH's jurisdiction and other geographies that are used by CCDPH's Epidemiology Unit. The chapter also describes how CCDPH's reference geographic layers are stored and how to access (or import) them via different applications, including R, SAS, and ArcGIS Pro. Note that many of the boundaries discussed in this section change over time due to a variety of reasons including: annexations by cities, re-delineation of administrative and political districts, accuracy updates. A list of the key reference (or base) layers are listed in @fig-spatialtables below.
+# Geography and Population {#geography .unnumbered}
+This chapter defines and provides basic characteristics of geographies and populations that are important for CCDPH's public health work. The chapter is organized with respect to the principal geographic areas arranged from largest (Cook County) to smallest (census tract).  
+
+begins with a list of key geographies CCDPH's jurisdiction and other geographies that are used by the Epidemiology Unit. The chapter also describes how CCDPH's geographic data are stored and how to access (or import) them via different applications, including R, SAS, and ArcGIS Pro. Note that many of the boundaries discussed in this section change over time due to a variety of reasons including: annexations by cities, re-delineation of administrative and political districts, accuracy updates. 
 
 ```{r}
 #| eval: true
@@ -23,52 +25,11 @@ library(openxlsx)
 source("https://raw.githubusercontent.com/Cook-County-Department-of-Public-Health/ccdph-functions/master/spatial-database-functions.R")
 ```
 
-```{r}
-#| label: fig-spatialtables
-#| fig-cap: Geography Tables in inter-spatial SQL Server Database
-#| warning: false
-#| eval: true
+## Cook County
+Cook County, Illinois has 944.9 square miles of land area and is the 6th largest county in Illinois by total area and the second largest county in the United States in terms of total population (5,275,541 according to the 2020 decennial census) @census2020dhc. The county is located in the northeastern part of the state, bordered by Lake Michigan to the east and encompassing a diverse range of landscapes, including urban areas, suburbs, and natural spaces. The county is home to Chicago, the third-largest city in the United States, and 137 other municipalities. This mix of urban and suburban environments fosters a rich cultural diversity and a complex socioeconomic landscape.
 
-con_inter_spatial <- dbConnect(
-  odbc::odbc(),
-  Driver   = "SQL Server",
-  Server   = key_get("ccdph_sql_server"),
-  Database = "inter-spatial"
-)
-
-`00_table_dictionary` <- dbReadTable(conn = con_inter_spatial,
-                               Id(schema = "ref", 
-                                  table = "00_table_dictionary"))
-
-`00_table_dictionary` <- `00_table_dictionary` %>%
-  select(name,
-         description,
-         source,
-         vintage)
-
-`00_table_dictionary` %>%
-  arrange(name) %>%
-    datatable(class = 'cell-border stripe',
-            rownames = FALSE,
-            options = list(pageLength = 5)) %>%
-  formatStyle(columns = c(1:4),
-              
-              fontSize = '75%')
-```
-
-::: {.callout-note collapse="false"}
-## Other geography-related resources
-
-### Code for managing geographic layers
-The Epidemiology and Communicable Disease units develop and share code used to develop and manage geographic layers via the [ccdph-shapefiles](https://github.com/Cook-County-Department-of-Public-Health/ccdph-shapefiles) GitHub repository.
-[This Quarto document](https://github.com/Cook-County-Department-of-Public-Health/ccdph-shapefiles/blob/main/shapefile-creation-code/spatial_data_creation_latest.qmd) provides code for developing and writing spatial datasets to the inter-spatial SQL Server database. 
-
-### Code for managing geographic correspondence tables
-The Epidemiology Unit develops and shares code used to develop and manage geography correspondence tables via the [ccdph-documents](https://github.com/Cook-County-Department-of-Public-Health/ccdph-documents) GitHub repository.
-[This Quarto document](https://github.com/Cook-County-Department-of-Public-Health/ccdph-documents/blob/main/documents/handbook_indepth/dm_geography/geography_correspondence_table_creation.qmd) provides code for developing and writing correspondence tables to the inter-spatial SQL Server database. An html version of this [geography correspondence document is available on this web page](https://cookcountypublichealth.org/documents/handbook/in_depth/geography_correspondence_table_creation.html).
-
-For more information on how to access geographic data, refer to the [Storage and Access](storage.qmd) section of the handbook.
-:::
+## Suburban Cook County
+Suburban Cook County refers to the area of Cook County 
 
 ## CCDPH jurisdiction
 Cook County Department of Public Health (CCDPH) was established in 1945 and is the state-certified public health agency for most of suburban Cook County (SCC). CCDPH’s jurisdiction is within the largely urban Bellwood health region, one of [seven health regions within the state of Illinois](https://dph.illinois.gov/contact-us/regional-health-departments.html). CCDPH has an approximate area of 693 square miles and serves 2,288,429 million residents @census2020dhc.
@@ -182,6 +143,13 @@ con_inter_census <- dbConnect(
   Database = "inter-census"
 )
 
+con_inter_spatial <- dbConnect(
+  odbc::odbc(),
+  Driver   = "SQL Server",
+  Server   = key_get("ccdph_sql_server"),
+  Database = "inter-spatial"
+)
+
 pop_districts_cook_county <- dbReadTable(conn = con_inter_census,
                                Id(schema = "ref", 
                                   table = "decennial-2020-total-by-ccdph-scc-addition"))
@@ -229,6 +197,13 @@ pop_munis_cook_county <- dbReadTable(conn = con_inter_census,
                                Id(schema = "ref", 
                                   table = "decennial-2020-total-by-muni"))
 
+con_inter_spatial <- dbConnect(
+  odbc::odbc(),
+  Driver   = "SQL Server",
+  Server   = key_get("ccdph_sql_server"),
+  Database = "inter-spatial"
+)
+
 munis_cook_county <- dbReadTable(conn = con_inter_spatial,
                                Id(schema = "ref", 
                                   table = "munis_cook_county"))
@@ -249,13 +224,62 @@ munis_cook_county_frm %>%
             options = list(pageLength = 5),
             filter = "top") %>%
   formatRound('sqmi',1) %>%
-  formatRound(c(8:9),0, interval = 3, mark =  ",") %>%
-  formatStyle(columns = c(1:9),
+  formatStyle(columns = c(1:7),
               fontSize = '75%')
 
 ```
 
 # Accessing geographic data
+
+## Geographic data tables in SQL Server
+@fig-spatialtables provides the table name and a brief description of the primary geographic layers used by both the Epidemiology and Communicable Disease Units for mapmaking and analysis. Layers include Cook County, suburban Cook County, CCDPH's jurisdiction, CCDPH's health districts, municipalities and zip code tabulation area boundaries.
+
+```{r}
+#| label: fig-spatialtables
+#| fig-cap: Geography Tables in inter-spatial SQL Server Database
+#| warning: false
+#| eval: true
+
+con_inter_spatial <- dbConnect(
+  odbc::odbc(),
+  Driver   = "SQL Server",
+  Server   = key_get("ccdph_sql_server"),
+  Database = "inter-spatial"
+)
+
+`00_table_dictionary` <- dbReadTable(conn = con_inter_spatial,
+                               Id(schema = "ref", 
+                                  table = "00_tables_dictionary"))
+
+`00_table_dictionary` <- `00_table_dictionary` %>%
+  select(name,
+         description,
+         source,
+         vintage)
+
+`00_table_dictionary` %>%
+  arrange(name) %>%
+    datatable(class = 'cell-border stripe',
+            rownames = FALSE,
+            options = list(pageLength = 5)) %>%
+  formatStyle(columns = c(1:4),
+              
+              fontSize = '75%')
+```
+
+::: {.callout-note collapse="false"}
+## Other geography-related resources
+
+### Code for managing geographic layers
+The Epidemiology and Communicable Disease units develop and share code used to develop and manage geographic layers via the [ccdph-shapefiles](https://github.com/Cook-County-Department-of-Public-Health/ccdph-shapefiles) GitHub repository.
+[This Quarto document](https://github.com/Cook-County-Department-of-Public-Health/ccdph-shapefiles/blob/main/shapefile-creation-code/spatial_data_creation_latest.qmd) provides code for developing and writing spatial datasets to the inter-spatial SQL Server database. 
+
+### Code for managing geographic correspondence tables
+The Epidemiology Unit develops and shares code used to develop and manage geography correspondence tables via the [ccdph-documents](https://github.com/Cook-County-Department-of-Public-Health/ccdph-documents) GitHub repository.
+[This Quarto document](https://github.com/Cook-County-Department-of-Public-Health/ccdph-documents/blob/main/documents/handbook_indepth/dm_geography/geography_correspondence_table_creation.qmd) provides code for developing and writing correspondence tables to the inter-spatial SQL Server database. An html version of this [geography correspondence document is available on this web page](https://cookcountypublichealth.org/documents/handbook/in_depth/geography_correspondence_table_creation.html).
+
+For more information on how to access geographic data, refer to the [Storage and Access](storage.qmd) section of the handbook.
+:::
 
 For convenience, the Epidemiology Unit's base or reference geographic layers are stored in three locations using the same naming convention.
 

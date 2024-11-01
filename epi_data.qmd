@@ -1,59 +1,18 @@
-# Part 4. Epidemiological Data {.unnumbered}
+# Part 4. Epidemiology Unit Data {.unnumbered}
 
-## Data Types Used by the Epidemiology Unit
+## What is epidemiological data?
+Epidemiological data refers to information collected and analyzed to understand the patterns, causes, and effects of health and disease conditions in populations. This data is critical to the operations of Cook County Department of Public Health (CCDPH) as it helps various units within the department in identifying risk factors for diseases, targeting prevention efforts, and guiding healthcare policies. The Epidemiology Unit is primarily concerned with chronic disease and social determinants of health, whereas Information related to the occurrence, spread, and control of infectious diseases (e.g., COVID-19) within suburban Cook County is monitored and reported by CCDPH's Communicable Disease Unit.
 
-The Epidemiology Unit uses two types of data: **1- Quantitative** & **2- Qualitative**. Each of these data types can be further divided into several categories, such as *Nominal*, *Ordinal*, *Discrete*, and *Continuous*. The main collection methodologies used in epidemiology are:
+Epidemiological data tend to communicate the incidence (i.e., The number of new cases that develop in a population over a specific time period) and prevalence (i.e., The total number of existing cases in a population over a specified period) of health outcomes, behaviors, and risk factors within a population and across population subgroups (e.g., by race/ethnicity, sex, and age).
 
-1- Cross-sectional studies.
+## What types of data are used by the Epidemiology Unit?
+The data used by the Epidemiology Unit are gathered through both [primary](https://justenvirons.org/epihandbook/primary_data.html) (e.g., surveys administered by the department) and [secondary](https://justenvirons.org/epihandbook/secondary_data.html) (e.g., information collected by external entities) data collection. Epidemiological data are collected at different cadences, depending on program funding and data availability.  @fig-epidatacategories presents the key types of epidemiological data reported by the Epidemiology Unit:
 
-2- Case-Control Studies.
+-   *Health surveys (primary data)*:  Surveys of SCC youths (e.g., Youth Risk Behavioral Survey) and adults (e.g., Cook County Health Survey) concerning their self-reported health status, health care access and health behaviors.
+-   *Vital statistics (secondary data)*: Line (i.e., patient-) level mortality and natality records of residents within CCDPH’s jurisdiction.
+-   *Hospitalization (secondary data)*: Inpatient and outpatient hospital discharge records of CCDPH residents.
+-   *Emergency Management System (secondary data)*:  Information collected, processed, and used by organizations involved in managing emergency situations. This data supports the preparation for, response to, recovery from, and mitigation of emergencies such as natural disasters, public health crises, accidents, or terrorist attacks. The goal is to ensure timely, effective, and coordinated actions in emergencies.
+-   *Social Ecological (secondary and tertiary data)*: Socioeconomic, environmental, other data and indices used to evaluate neighborhood context and social determinants of health.
 
-3- Cohort Studies.
 
-4- Randomized Clinical trials.
-
-### Description
-
-The difference between the two types of data is that; Quantitative data can be measured, while Qualitative is not counted (i.e., non-numerical) (@NIHdatatypes2023).
-
-#### Quantitative
-
--   It is often used for comparisons which involves population counting, behaviors, conditions, and/or other discrete events.
-
--   These counts are used to determine the *What*, *Who*, *When*, and *Where* of the related-health conditions.
-
-#### Qualitative
-
--   In this type of data, words are used to describe health-related events instead of numbers (i.e., counts).
-
--   It can be observed but not measured or counted. This involves observing the population in predetermined areas and during specific times.
-
--   All of Qualitative data are nominal such as male / female, educational attainment, questionnaire answers (e.g., Likert scale).
-
--   In descriptive analysis, percentages and mode are used to measure frequencies and central dispersion (*certain data handling procedures must be conducted to be able to produce such results*).
-
-## Data Sources
-
-Sources for data can be **Primary**, **Secondary**, or **Tertiary** (*describe below*).The Epidemiology Unit has multiple sources for data, most of which are secondary (a list of data sources and their descriptions can be found [HERE](https://cchhs1-my.sharepoint.com/:w:/r/personal/alfreda_holloway_cookcountyhhs_org/_layouts/15/Doc.aspx?sourcedoc=%7BF789086B-BD90-4C89-A59A-6373B3AEE1B0%7D&file=Data%20Sources%20Description%20draft.docx&action=default&mobileredirect=true)).
-
-#### Primary Data
-
-The Epidemiology Unit deploys multiple surveys (listed below). The surveys screens the health status, health access, and behaviors of Suburban Cook County residents. The data collected helps the Epidemiology Unit understands the common trends across the county.
-
-|**Survey**|**Frequency**|**Funding Source**|**Purpose**|
-|:-|:-|:-|:-|
-|School health profile survey|every other year|CDC Health Equity Grant|Schools' health education and health programs and policies assessment|
-|Youth Risk Behavioral survey|every other year|CDC Health Equity Grant|Assessment of youth risk behaviors that aims to improve health education|
-|Cook county health survey|Annually|CDC Health Equity Grant|Explore the health conditions, risk factors, and socioeconomic determinants of health|
-
-: Primary Surveys Used by the Epidemiology Unit. {#label: tbl-primary-data}
-
-#### Secondary Data
-
-The Epidemiology Unit relies mainly on *secondary data* in order to assess multiple aspects of Suburban Cook County population health, behaviors, risk factors, disease trends, and many others. The main secondary data source is the **Illinois Department of Public Health (IDPH)**. Examples of secondary data used by the unit are Adverse Pregnancy Outcomes Reporting System (*which includes information on infants with birth defects and other abnormal conditions*), Electronic Emergency Management Service (*which includes Trauma, head and spinal cord injury, and violent injury*), and Hospital Discharge Data (*which includes demographic information and hospitalization cases of patients in Cook County*).
-
-Organizational data collected and shared by and with the Epidemiology Unit can be *Primary* or *Secondary*. This type of data includes (but not limited to) Human Resources (HR) documents, CCDPH organizational documents, and Epidemiology Unit's specific organizational documents. Such documents can be organizational charts, structure, strategy, and / or internal memos and announcements.
-
-#### Tertiary Data
-
-The Epidemiology Unit receives *tertiary data* from **Metopio** (a company that aims to make tools which facilitate data sharing, interpretation, and visualization to better guide decision making) [@metopio2023]. The tertiary data consist of the **Hardship Index**, **Child Opportunity Index**, and **Area of Deprivation Index** of Cook County. These indices are integrated with the data that the Epidemiology Unit shares and disseminate.
+![Types of Epidemiological Data](images/epi_data_categories.png){#fig-epidatacategories}

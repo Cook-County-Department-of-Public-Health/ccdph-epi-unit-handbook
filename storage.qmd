@@ -10,7 +10,7 @@ Each employee receives a personal laptop or desktop machine. The local hard driv
 
 ## CCDPH network storage
 
-CCH has an internal network that was originally designed for sharing data across the organization. Epidemiology Unit staff can request access to the *ArcGIS* network folder. Content of this folder is securely stored in a HIPAA-compliant fashion and is useful for archiving raw datasets that have protected health information (e.g., vital statistics, hospital discharge, survey results), related documentation and conventional spatial datasets (e.g., CCDPH jurisdiction, zip code, census tract and municipal boundary files) as well as ArcGIS maps and templates. File storage capacity on this network is relatively large.
+CCH has an internal network that was originally designed for sharing data across the organization. Epidemiology Unit staff can request access to the *ArcGIS* network folder ("//fileshare/shared/ArcGIS"). Content of this folder is securely stored in a HIPAA-compliant fashion and is useful for archiving raw datasets that have protected health information (e.g., vital statistics, hospital discharge, survey results), related documentation and conventional spatial datasets (e.g., CCDPH jurisdiction, zip code, census tract and municipal boundary files) as well as ArcGIS maps and templates. File storage capacity on this network is relatively large.
 
 Access to the network drive is limited to CCH staff who have Windows authenticated access to the Cook County Health and Hospital System (CCHHS) network domain (i.e., staff who have a CCHHS user name and password). The network drive can only be accessed via a computer that is either directly connected to the network via a LAN or ethernet cable or through a virtual or VPN-based remote desktop service. Files and folders stored exclusively on the network drive cannot be shared directly with external partners.
 
@@ -54,6 +54,7 @@ Prior to accessing SQL Server data in R, it is first necessary to encrypt the se
 ```{r}
 #| collapse: false
 #| label: encrypt server name using keyring
+#| code-fold: false
 
 # activate keyring package
 library(keyring)
@@ -72,7 +73,7 @@ There are numerous ways to read or import SQL Server data into R. The below code
 
 ```{r}
 #| label: access and manipulate database content
-#| 
+#| code-fold: false
 
 # activate packages
 library(keyring)

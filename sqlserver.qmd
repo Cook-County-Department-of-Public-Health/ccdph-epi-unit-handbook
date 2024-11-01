@@ -27,8 +27,11 @@ To protect server security, it is advised that R users encrypt the server name u
 ```{r}
 #| label: encrypt server name using keyring
 #| eval: false
+#| code-fold: false
 
-# activate keyring package
+# activate packages
+library(DBI)
+library(odbc)
 library(keyring)
 
 # set server name "password" as "ccdph_sql_server"
@@ -45,6 +48,12 @@ Use the following code to connect to the server using stored keyring password/se
 ```{r}
 #| label: access database content
 #| eval: false
+#| code-fold: false
+
+# activate packages
+library(DBI)
+library(odbc)
+library(keyring)
 
 con_ccdph_sql_server <- dbConnect(odbc::odbc(),
                         Driver   = "SQL Server",
@@ -69,5 +78,13 @@ To access server data using Microsoft applications, it is necessary to first ins
 Third parties outside of the Cook County Health & Hospitals System (CCHHS) do not have access to the service. Access to the service, databases, tables and particular table columns are granted to employees on a must-need basis. The server name and IP address are shared with staff upon access approval. Data are managed by designated data owners and editors.
 
 ## Importing data
+
+
+```{r}
+
+
+
+```
+
 
 ## Exporting data

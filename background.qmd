@@ -6,8 +6,6 @@ This section provides a basic introduction to key aspects of the Epidemiology Un
 
 -   *[Strategy](strategy.qmd)*: Briefly summarizes and provides links to the missions and strategies of CCDPH and CCHS that are particularly relevant to the Epidemiology Unit.
 
--   *[People](people.qmd)*: This section highlights the backgrounds, roles, and specializations of Epidemiology Unit staff (both past and present).
-
 -   *[Geography](geography.qmd)*: Describes the population, environmental, and political geographies of suburban Cook County and CCDPH's jurisdiction.
 
 -   *[Partners](partners.qmd)*: Summarizes the institutional entities and individuals who partner with the Epidemiology Unit.

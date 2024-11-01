@@ -1,5 +1,5 @@
 # Onboarding {.unnumbered}
-Onboarding new employees is the process of integrating them into CCDPH's Epidemiology Unit and setting them up for success in their new roles. Effective onboarding is important for ensuring that new Epidemiology Unit employees are able to quickly become productive and engaged members of the team. The Epidemiology Unit has different types of employees that vary in terms of (inter-institutional) responsibilities, information technology permissions, pay structure, contract scope, management, and employment period. The onboarding process differs in some ways for these roles. This chapter summarizes each of these positions and provide links to the more detailed:
+Onboarding is the process of integrating new employees into CCDPH's Epidemiology Unit and setting them up for success in their new roles. Effective onboarding is important for ensuring that new Epidemiology Unit employees are able to quickly become productive and engaged members of the team. The Epidemiology Unit has different types of employees that vary in terms of (inter-institutional) responsibilities, information technology permissions, pay structure, contract scope, management, and employment period. The onboarding process differs in some ways for these roles. This chapter summarizes each of these positions and provide links to the more detailed:
 
 - Health screening: Prior to formalizing employment, prospective employees must...
 
@@ -15,4 +15,7 @@ Overall, effective onboarding helps new Epidemiology Unit employees feel welcome
 
 Follow the links below to view additional onboarding information by employee category.
 
-- [CSTE AEF onboarding](https://cookcountypublichealth.org/documents/handbook/in_depth/onboarding_cste_aef.html) 
+- [CSTE AEF onboarding](https://justenvirons.org/epihandbook/in_depth/onboarding_cste_aef.html) 
+- [Epidemiology Unit Staff](#) 
+- [University Intern](#) 
+- [Preventative Medicine Resident](#) 

@@ -1,4 +1,4 @@
-# Part 3. Data Management
+# Part 3. Data management
 
 Data management is an important asset in developing public health projects. Recently, many institutions and organizations have been developing data management tool-kits and plans in order to sustain their work and reproducibility. The following @fig-data-lifecycle shows the data life cycle, its sections, and subsections [@Harvard2023].
 

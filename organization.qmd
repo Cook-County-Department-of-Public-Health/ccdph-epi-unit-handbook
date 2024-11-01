@@ -1,20 +1,20 @@
 # Organization {.unnumbered}
 
 ## CCDPH Epidemiology
-Cook County Department of Public Health's Epidemiology program is one of four *public health programs* operated by the department . The Unit is composed of a Director (non-union), Program Coordinator (non-union), five full-time epidemiologists (mostly union staff), and, on occasion, fellows funded through the Council of State and Territorial Epidemiologists (CSTE) Applied Epidemiology Fellowship (AEF) program. The current Epidemiology Unit organizational chart is shown in @fig-epi-org-chart, along with names (and relevant degrees) of position holders, position identification (PID) and job posting numbers.
+Cook County Department of Public Health's Epidemiology program is one of four *public health programs* operated by the department . The Unit is composed of a Director (non-union), Program Coordinator (non-union), five full-time epidemiologists (mostly union staff), and, on occasion, fellows funded through the Council of State and Territorial Epidemiologists (CSTE) Applied Epidemiology Fellowship (AEF) program. The current Epidemiology Unit organizational chart is shown in @fig-epiorgchart, along with names and relevant degrees of position holders.
 
-![Epidemiology Unit Organizational Chart](images/org_chart_ccdph_epi_unit.PNG){#fig-epi-org-chart fig-alt="CCDPH Epidemiology Unit Organizational Chart."}
+![Epidemiology Unit Organizational Chart](images/org_chart_ccdph_epi_unit.PNG){#fig-epiorgchart fig-alt="CCDPH Epidemiology Unit Organizational Chart."}
 
 The [Epidemiology Unit's web page](https://cookcountypublichealth.org/epidemiology-data-reports/) provides information about unit activities and products including [community health status assessments](https://cookcountypublichealth.org/epidemiology-data-reports/community-health-status-assessments/), data briefs, and [vital statistics](https://cookcountypublichealth.org/epidemiology-data-reports/vital-statistics/). 
 
 ## Cook County Department of Public Health (CCDPH)
-The [Cook County Department of Public Health](https://cookcountypublichealth.org) (CCDPH) is the nationally accredited, state-certified local health department for suburban Cook County. CCDPH serves approximately 2.3 million residents with a jurisdiction covering 120 municipalities, 30 townships, and 147 school districts. 
+The [Cook County Department of Public Health](https://cookcountypublichealth.org) (CCDPH) is the nationally accredited, state-certified local health department for suburban Cook County. CCDPH serves approximately 2.3 million residents with a jurisdiction covering 120 municipalities, 30 townships, and 147 school districts. The organization of the 
 
 CCDPH is one of six local health departments (LHDs) within Cook County. The other five are the [Chicago Department of Public Health](https://www.chicago.gov/city/en/depts/cdph.html), the [City of Evanston Department of Health and Human Services](https://www.cityofevanston.org/government/departments/health-human-services), the [Village of Oak Park Department of Public Health](https://www.oak-park.us/village-services/department-public-health), the [Stickney Township Public Health District](http://stickneypublichealthdistrict.org/) and the [Village of Skokie Health Department](https://www.skokie.org/158/Health). The [latest contact information for local health departments in Illinois](https://idph.illinois.gov/IDPHPrograms/v_LHDDirectory/Show-V-LHDDirectory-Public.aspx?RegionServed=7) can be found on the Illinois Department of Public Health website.
 
 The Department is certified by the [Illinois Department of Public Health](https://dph.illinois.gov/) (IDPH) and is nationally accredited by the Public Health Accreditation Boar (PHAB). The department is an affiliate of [Cook County Health](https://cookcountyhealth.org), one of the largest public safety net health care systems in the country. A brief [CCDPH two-page fact sheet](https://cookcountypublichealth.org/wp-content/uploads/2019/02/ccdph_fact_sheet_090616_final.pdf) is available via the CCDPH web page. The web page also includes information on upcoming events, 
 
-The [CCDPH Intranet pages](https://cchhs1.sharepoint.com/sites/Department-of-Public-Health) provides a [department-wide organizational chart](https://cchhs1.sharepoint.com/sites/Department-of-Public-Health/Shared%20Documents/All%20Staff%20Meetings/Documents/CCDPH_Org%20Chart_July%202023rev8b.pdf).
+The [CCDPH Intranet pages](https://cchhs1.sharepoint.com/sites/Department-of-Public-Health) provides information about the department's [divisions, units, programs, initiatives and work areas](https://cchhs1.sharepoint.com/sites/Department-of-Public-Health/SitePages/Our-teams.aspx).
 
 ## Cook County Health & Hospital System
 

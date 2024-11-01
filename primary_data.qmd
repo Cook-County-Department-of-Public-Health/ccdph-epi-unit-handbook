@@ -18,8 +18,6 @@ The second primary data collection effort carried out by CCDPH is the [Youth Ris
 
 ## School Health Profile Survey (SHPS)
 
-
-
 |Survey|Frequency|Funding Source|Purpose|
 |:-|:-|:-|:-|
 |School Health Profile Survey|Every other year|CDC Health Equity Grant|Schools' health education and health programs and policies assessment|
