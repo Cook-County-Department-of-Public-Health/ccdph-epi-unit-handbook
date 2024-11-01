@@ -267,20 +267,6 @@ con_inter_spatial <- dbConnect(
               fontSize = '75%')
 ```
 
-::: {.callout-note collapse="false"}
-## Other geography-related resources
-
-### Code for managing geographic layers
-The Epidemiology and Communicable Disease units develop and share code used to develop and manage geographic layers via the [ccdph-shapefiles](https://github.com/Cook-County-Department-of-Public-Health/ccdph-shapefiles) GitHub repository.
-[This Quarto document](https://github.com/Cook-County-Department-of-Public-Health/ccdph-shapefiles/blob/main/shapefile-creation-code/spatial_data_creation_latest.qmd) provides code for developing and writing spatial datasets to the inter-spatial SQL Server database. 
-
-### Code for managing geographic correspondence tables
-The Epidemiology Unit develops and shares code used to develop and manage geography correspondence tables via the [ccdph-documents](https://github.com/Cook-County-Department-of-Public-Health/ccdph-documents) GitHub repository.
-[This Quarto document](https://github.com/Cook-County-Department-of-Public-Health/ccdph-documents/blob/main/documents/handbook_indepth/dm_geography/geography_correspondence_table_creation.qmd) provides code for developing and writing correspondence tables to the inter-spatial SQL Server database. An html version of this [geography correspondence document is available on this web page](https://cookcountypublichealth.org/documents/handbook/in_depth/geography_correspondence_table_creation.html).
-
-For more information on how to access geographic data, refer to the [Storage and Access](storage.qmd) section of the handbook.
-:::
-
 For convenience, the Epidemiology Unit's base or reference geographic layers are stored in three locations using the same naming convention.
 
 1. [CCDPH SQL Server](storage.qmd#sec-ccdph_sql_server_storage) *inter-spatial* database: Geographic data stored on the SQL Server are considered to be the definitive source of spatial data. They are continually updated and accessed by the Epidemiology and Communicable Disease units. SQL Server, due to its robust querying functionality, also offers the most flexible and efficient means to manage, write, store, and retrieve geographic data. The inter-spatial data can also be easily imported into SAS, R, ArcGIS Pro, and Microsoft applications such as Excel and Access.
