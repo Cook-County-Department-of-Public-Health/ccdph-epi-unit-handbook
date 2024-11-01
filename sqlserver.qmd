@@ -115,7 +115,6 @@ Be sure to update the *00_table_dictionary* reference table in R when writing ne
 
 :::
 
-
 ::: {.callout-note collapse="false"}
 ## Other geography-related resources
 
