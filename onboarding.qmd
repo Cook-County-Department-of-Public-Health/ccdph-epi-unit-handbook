@@ -11,11 +11,8 @@ Onboarding is the process of integrating new employees into CCDPH's Epidemiology
 
 Overall, effective onboarding helps new Epidemiology Unit employees feel welcomed, supported, and prepared to succeed in their new roles, which ultimately benefits CCDPH and CCHHS as a whole.
 
-# Onboarding by employee category
-
-Follow the links below to view additional onboarding information by employee category.
+# Onboarding resources
 
 - [CSTE AEF onboarding](https://justenvirons.org/epihandbook/in_depth/onboarding_cste_aef.html) 
-- [Epidemiology Unit Staff](#) 
-- [University Intern](#) 
-- [Preventative Medicine Resident](#) 
+- [Training, GitHub repositories](https://justenvirons.org/epihandbook/in_depth/training_githubrepos.html)
+- [Training, Cook County Health Atlas](https://cook-county-department-of-public-health.github.io/documents/epi/dap/dap_atlas_workshop.html)
