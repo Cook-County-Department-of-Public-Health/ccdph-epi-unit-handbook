@@ -8,13 +8,15 @@ The [Cook County Health Survey (CCHS)](https://cookcountypublichealth.org/health
 
 ### survey design and implementation
 
-In July 2022, CCDPH sent out 32,000 survey invitations to obtain municipal-level, demographic subgroup, and geographic subgroup information that will be used to inform and monitor the health status of suburban Cook County communities. The CCHS data can be used to provide health, exposure, and health behavior indicator data that can help identify where health disparities exist in suburban Cook County. These indicators will inform policy, program development, community health education initiatives, and public awareness campaigns to address them.
+In July 2022, CCDPH sent out 32,000 survey invitations to obtain municipal-level, demographic subgroup, and geographic subgroup information that will be used to inform and monitor the health status of suburban Cook County communities. The CCHS data can be used to provide health, exposure, and health behavior indicator data that can help identify where health disparities exist in suburban Cook County. These indicators will inform policy, program development, community health education initiatives, and public awareness campaigns to address them. Results from the CCHS are shared on the Suburban Cook County Health Atlas and published in reports and briefs. Data are provided for suburban Cook County overall and the over 120 municipalities within CCDPH jurisdiction.
 
-Results from the CCHS are shared on the Suburban Cook County Health Atlas and published in reports and briefs. Data are provided for suburban Cook County overall and the over 120 municipalities within CCDPH jurisdiction.
+* [Steps for managing, processing and calculating indicators for Cook County Health Survey data](https://justenvirons.org/epihandbook/in_depth/cchs_data_processing.html)
 
 ## Youth Risk Behavior Survey (YRBS)
 
 The second primary data collection effort carried out by CCDPH is the [Youth Risk Behavior Survey (YRBS)](https://cookcountypublichealth.org/epidemiology-data-reports/yrbs-youth-risk-behavioral-survey/). Administered in 2010, 2020, and 2022 with plans to administer every two years going forward, the survey assesses health risk behaviors among students (grade 9-12) in participating high schools throughout suburban Cook County. The survey is used to monitor and evaluate a variety of health-related behaviors and conditions among adolescents, including physical activity, sexual behavior, nutrition, alcohol and drug use, and mental health. Survey results can be used to inform the development of health policies and programs that address the needs of adolescents.
+
+* [Steps for managing, processing and calculating indicators for Youth Risk Behavioral Survey data](https://justenvirons.org/epihandbook/in_depth/process_yrbs_data.html)
 
 ## School Health Profile Survey (SHPS)
 

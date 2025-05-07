@@ -7,7 +7,7 @@ book:
   subtitle: "Organizational information and standard procedures for Epidemiology Unit employees"
   cover-image: handbook_cover.png
   author: "CCDPH Epidemiology Unit"
-  date: "Last updated 10/17/2024"
+  date: "Last updated 3/17/2025"
   page-navigation: true # true by default (adds previous/next page at bottom of page)
   chapters:
     - index.qmd

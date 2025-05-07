@@ -1,8 +1,19 @@
 # Data Dissemination {.unnumbered}
+CCDPH engages in a variety of data dissemination efforts to ensure that accurate, timely, and relevant health information is made accessible to a wide range of stakeholders, including CCDPH staff, the general public, policymakers, researchers, and healthcare professionals. By sharing data on topics like disease trends, vaccination rates, environmental hazards, and health disparities, public health departments empower communities to make informed decisions, promote transparency, and enable evidence-based interventions. Effective dissemination fosters public awareness, supports policy development, enhances community health initiatives, and facilitates collaboration between public health agencies, healthcare providers, and other organizations to address health challenges and improve population well-being. @fig-datadissemination presents the key platforms used by the Epidemiological Unit to disseminate data:
 
+-   *Suburban Cook County Health Atlas*: The suburban [Cook County Health Atlas](https://cookcountyhealthatlas.org/) is a comprehensive, online health indicator data exploration and visualization platform created for the broadest range of suburban Cook County public health and social determinants of health data users. The data analytics platform is designed by Chicago-based [Metopio](https://metopio.com/). 
+-   *GitHub Public Repositories*: The Epidemiology and Communicable Disease Units make available reference population and geographic  datasets in a variety of formats for expert data users via public GitHub repositories.
+-   *Dashboards, Story Maps and Reports*: Immersive, topic-specific public health information presented using a combination of multimedia content including text, and interactive charts and maps. 
+-   *Open Data Portal*: CCDPH makes available public health datasets on the [Cook County Government Open Data portal](https://datacatalog.cookcountyil.gov/), a cloud-based Socrata software platform that makes data and some limited visualizations and analytical tools available to online users. 
+
+![CCDPH Data Dissemination Platforms](images/ccdph_data_sharing.png){#fig-datadissemination}
 
 ## Cook County Health Atlas
-The Cook County Health Atlas provides
+The Cook County Health Atlas makes available search, visualization, and public health data acquisition tools for stakeholders across suburban Cook County. The system supports the mapping, tabulating, and downloading of counts and rates from multiple CCDPH surveillance efforts including communicable disease, opioid, and chronic disease drawn from a variety of primary and secondary data sources including vital statistics, hospital discharge, syndromic, and resident survey data. The health atlas also draws from a wide variety of secondary datasets including the US Census Bureau, US Environmental Protection Agency and Centers for Disease Control (CDC) to explore and communicate environmental, neighborhood and other social determinants of health.
 
-### Adding indicators to Cook County Health Atlas
- 
+Counts and rates are summarized at multiple geographic levels (e.g., suburban Cook County, CCDPH's jurisdiction, municipality, zip code and census tract), over time (annually and aggregated over multiple years), and across critical population subgroups (e.g., race, ethnicity, age, and sex) to track trends and identify health disparities.
+
+Data uploaded to the atlas follow [instructions provided by Metopio](https://cookcountyhealthatlas.org/manage/data/upload/instructions/). Data files must be in CSV (comma-separated values) format. Its extension should be ".csv". Excel documents need to be saved as CSV prior to upload. Tab-separated format is accepted as well.
+
+The [ccdph-health-atlas GitHub repository](https://github.com/Cook-County-Department-of-Public-Health/ccdph-health-atlas) includes code and some formatted data used by CCDPH to manage indicators on the [Cook County Health Atlas](https://cookcountyhealthatlas.org/). 
+
