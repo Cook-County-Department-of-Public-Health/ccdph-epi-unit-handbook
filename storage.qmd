@@ -46,8 +46,7 @@ Data stored in SQL Server tables are identified using schema. The particular sch
 
 Users may access server data via different platforms. Instructions for access via select protocols are provided below.
 
-### Accessing and manipulating sQL Server tables in R
-
+### Accessing and manipulating SQL Server tables in R
 #### Encrypt SQL Server service name using keyring
 Prior to accessing SQL Server data in R, it is first necessary to encrypt the service name of the CCDPH SQL Server. We do this in order to remove explicit references to the server name in code that is saved in GitHub repositories. The standard practice for encrypting passwords in R is to use the [keyring](https://cran.r-project.org/web/packages/keyring/index.html) package. For example, the below code *key_set("ccdph_sql_server")* will prompt the user to type in and "set" the server name in keyring. Once set, the user may access the encrypted key in R code using the command, *key_get("ccdph_sql_server")*. Databases and tables to which you have been granted access will appear in the RStudio Connections tab. Refer to instructions in subsequent sections of this document to learn more about how to import, export, and edit objects on SQL Server.
 
@@ -69,7 +68,7 @@ key_get("ccdph_sql_server")
 ```
 
 #### Read/import SQL Server data tables into R
-There are numerous ways to read or import SQL Server data into R. The below code provides  
+There are numerous ways to read or import SQL Server data into R. This code demonstrates how to connect to a SQL Server from R, execute SQL statements, transfer data between SQL Server and R, and write R data frames back to the database. It establishes secure connections using stored credentials, runs SQL scripts and ad-hoc queries, reads both tabular and spatial data into R, and saves processed R data back to a specified schema and table in SQL Server.
 
 ```{r}
 #| label: access and manipulate database content
@@ -132,9 +131,94 @@ dbWriteTable(conn =  con_epi_database,
 
 ```
 
-### Accessing spatial data in R
+### Accessing (reading and writing) SQL Server spatial data in R
+
+
+```{r}
+#| label: accessing spatial data in R
+#| code-fold: false
+#| 
+# activate required libraries
+library(sf)
+library(DBI)
+library(odbc)
+library(dplyr)
+library(dbplyr)
+library(tidyverse)
+library(keyring)
+library(tigris)
+
+# Name of CCDPH SQL Server service is encrypted. Set name using keyring's key_set function.
+# key_set("ccdph_sql_server")
+
+# import spatial database functions from CCDPH GitHub
+# this imports two functions for both reading and writing spatial data to/from SQL Server
+source("https://raw.githubusercontent.com/Cook-County-Department-of-Public-Health/ccdph-functions/master/spatial-database-functions.R")
+
+# fx_read_spatial_layer_fr_database() parameters: 
+# schema_name = name of schema spatial database table is assigned to (defaults to "ref")
+# db_table_name = name of spatial table in inter-spatial database
+# crs_id = coordinate reference system identification (defaults to 3435)
+# Note that schema defaults to "ref" and crs defaults to 3435. 
+# All data in inter-spatial are in crs 3435. Sending read function with crs_id=4326 
+# automatically transforms the data into 4326 for leaflet mapping
+
+# read spatial data example:
+counties_illinois_sf <- fx_read_spatial_layer_fr_database(db_table_name = "counties_illinois", crs_id = 4326)
+
+# fx_write_spatial_layer_to_database() parameters: 
+# sf_layer_name = simple feature file in R to write to database
+# schema_name = name of schema new spatial database table is assigned to (defaults to "ref")
+# db_table_name = name of new spatial table in inter-spatial database (default is to overwrite any existing table)
+# crs_id = coordinate reference system identification (defaults to 3435)
+
+# Write spatial data example
+# Note that schema defaults to "ref" and crs defaults to 3435
+counties_il_db <- fx_write_spatial_layer_to_database(
+  sf_layer_name = counties_illinois_sf,
+  schema_name = "ref",
+  db_table_name = "counties_illinois_DELETE",
+  crs_id = 3435)
+
+```
 
 ### Accessing spatial data in ArcGIS
+
+Spatial data tables on the inter-spatial SQL Server can be imported directly into ArcGIS Pro for mapping. Follow the steps below.
+
+#### Step 1: Connect to the Cook County ArcGIS Portal
+
+Log into the Cook County ArcGIS portal at <https://cookcountyil.maps.arcgis.com> using your standard Cook County credentials. In ArcGIS Pro, confirm that Cook County is set as the active portal. If it does not appear, click **Add Portal**, sign in with your Cook County email credentials, and set it as the active portal.
+
+#### Step 2: Create a New Database Connection
+
+From the **Insert** menu, select **Connections**, then choose **Database > New Database Connection**. In the dialog box, configure the following settings:
+
+| Setting | Value |
+|---|---|
+| Database Platform | SQL Server |
+| Instance | *(enter the SQL Server instance name)* |
+| Authentication Type | Operating System Authentication |
+| Database | inter-spatial |
+
+Click **OK**. The connection will appear under **Databases** in the Catalog Pane.
+
+![Create SQL Server Database Connection](images/add_database_connection_arcgis.jpg){#fig-mortalitydataprocess}
+
+#### Step 3: Add a Spatial Data Layer to the Map
+
+In the Catalog Pane, expand the new SQL Server connection to browse available spatial data layers. Right-click a layer and select **Add to Current Map**.
+
+#### Notes & Limitations
+
+::: {.callout-note}
+SQL Server feature layers are **read-only** and cannot be edited directly.
+:::
+
+- You can modify **symbology** and apply **definition queries** to control what is displayed.
+- **Attribute joins** can be added to the spatial data.
+- To make an attribute join permanent, **export the feature layer** and save it locally or to the cloud.
+
 
 ### Microsoft applications via ODBC
 
