@@ -107,11 +107,6 @@ dbExecute(conn = con_epi_database,
 imported_data <- dbGetQuery(conn = con_epi_database,
                             statement =  "SELECT TOP 10 * FROM [schema_name].[table_name]")
 
-# import/read geometry table from server
-# execute using dbGetQuery and simple feature package
-imported_data <- st_read(dsn = con_epi_database,
-                         query =  "SELECT [geometry column name].STAsBinary() as geometry FROM [schema_name].[table_name]")
-
 # read table from server using dbplyr
 imported_data <- con_epi_database %>%
   tbl(in_schema("schema_name","table_name")) %>%
@@ -133,12 +128,117 @@ dbWriteTable(conn =  con_epi_database,
 
 ### Accessing (reading and writing) SQL Server spatial data in R
 
+This section establishes a reusable workflow for reading and writing spatial data between R
+and the CCDPH **inter-spatial SQL Server database**. It loads the required R libraries,
+configures secure database authentication, and imports two custom functions from the
+[CCDPH GitHub repository](https://raw.githubusercontent.com/Cook-County-Department-of-Public-Health/ccdph-functions/master/spatial-database-functions.R)
+that abstract the complexity of spatial database interactions into simple, repeatable function calls.
 
-```{r}
-#| label: accessing spatial data in R
-#| code-fold: false
-#| 
-# activate required libraries
+#### Library Dependencies
+
+The following R packages are required:
+
+| Package | Role |
+|---|---|
+| `sf` | Reading, writing, and transforming spatial (simple feature) data |
+| `DBI` / `odbc` | Database connectivity to SQL Server |
+| `dplyr` / `dbplyr` / `tidyverse` | Data manipulation |
+| `keyring` | Secure, encrypted storage of the SQL Server credentials |
+| `tigris` | Access to U.S. Census Bureau spatial data (supplemental) |
+
+#### Secure Authentication
+
+The SQL Server instance name is stored as an encrypted credential using the `keyring` package.
+This avoids hardcoding sensitive server information in scripts. Before using these functions
+for the first time, run the following once to register your credentials:
+
+```r
+keyring::key_set("ccdph_sql_server")
+```
+
+This prompts you to enter the server name, which is then stored securely in the system
+credential store and retrieved automatically in subsequent sessions.
+
+#### Importing the Functions
+
+The two core functions are sourced directly from the CCDPH GitHub repository at runtime,
+ensuring access to the latest version without managing local copies:
+
+```r
+source("https://raw.githubusercontent.com/Cook-County-Department-of-Public-Health/ccdph-functions/master/spatial-database-functions.R")
+```
+
+#### Function Reference
+
+##### `fx_read_spatial_layer_fr_database()`
+
+Reads a spatial table from the inter-spatial database and returns it as an `sf` object in R.
+
+| Parameter | Description | Default |
+|---|---|---|
+| `schema_name` | Database schema containing the table | `"ref"` |
+| `db_table_name` | Name of the spatial table to read | *(required)* |
+| `crs_id` | Coordinate Reference System (EPSG code) | `3435` |
+
+::: {.callout-note}
+All layers in inter-spatial are stored in **CRS 3435** (Illinois State Plane). Specifying
+`crs_id = 4326` will automatically reproject the data to WGS 84, which is required for
+interactive mapping with `leaflet`.
+:::
+
+**Example:**
+
+```r
+counties_illinois_sf <- fx_read_spatial_layer_fr_database(
+  db_table_name = "counties_illinois",
+  crs_id = 4326
+)
+```
+
+##### `fx_write_spatial_layer_to_database()`
+
+Writes an `sf` object from R to the inter-spatial database. The function handles geometry
+conversion, table creation, and cleanup automatically. By default, it overwrites any existing
+table with the same name.
+
+| Parameter | Description | Default |
+|---|---|---|
+| `sf_layer_name` | The `sf` object in R to write | *(required)* |
+| `schema_name` | Target database schema | `"ref"` |
+| `db_table_name` | Name for the new database table | *(required)* |
+| `crs_id` | CRS to store the data in (EPSG code) | `3435` |
+
+**Example:**
+
+```r
+counties_il_db <- fx_write_spatial_layer_to_database(
+  sf_layer_name = counties_illinois_sf,
+  schema_name   = "ref",
+  db_table_name = "counties_illinois_DELETE",
+  crs_id        = 3435
+)
+```
+
+#### Using These Functions in Other Scripts
+
+To leverage these functions in any other R or Quarto script, follow these steps.
+
+**Step 1 — Install required packages** *(one time only)*:
+
+```r
+install.packages(c("sf", "DBI", "odbc", "dplyr", "dbplyr",
+                   "tidyverse", "keyring", "tigris"))
+```
+
+**Step 2 — Store your credentials** *(one time only)*:
+
+```r
+keyring::key_set("ccdph_sql_server")
+```
+
+**Step 3 — Load libraries and source the functions at the top of your script**:
+
+```r
 library(sf)
 library(DBI)
 library(odbc)
@@ -148,38 +248,70 @@ library(tidyverse)
 library(keyring)
 library(tigris)
 
-# Name of CCDPH SQL Server service is encrypted. Set name using keyring's key_set function.
+source("https://raw.githubusercontent.com/Cook-County-Department-of-Public-Health/ccdph-functions/master/spatial-database-functions.R")
+```
+
+**Step 4 — Call the functions as needed**:
+
+```r
+# Read a layer from the database
+my_layer <- fx_read_spatial_layer_fr_database(
+  db_table_name = "your_table_name",
+  crs_id = 3435
+)
+
+# Write a layer to the database
+fx_write_spatial_layer_to_database(
+  sf_layer_name = my_layer,
+  schema_name   = "ref",
+  db_table_name = "your_new_table_name",
+  crs_id        = 3435
+)
+```
+
+::: {.callout-warning}
+You must be connected to the CCDPH network or VPN to access the inter-spatial SQL Server.
+:::
+
+#### Full Code
+
+```{r}
+#| label: accessing-spatial-data-in-r
+#| code-fold: true
+#| code-summary: "Show code"
+#| eval: false
+
+# Activate required libraries
+library(sf)
+library(DBI)
+library(odbc)
+library(dplyr)
+library(dbplyr)
+library(tidyverse)
+library(keyring)
+library(tigris)
+
+# The name of the CCDPH SQL Server service is encrypted.
+# Set the name using keyring's key_set function (one time only):
 # key_set("ccdph_sql_server")
 
-# import spatial database functions from CCDPH GitHub
-# this imports two functions for both reading and writing spatial data to/from SQL Server
+# Import spatial database functions from CCDPH GitHub.
+# This imports two functions for reading and writing spatial data to/from SQL Server.
 source("https://raw.githubusercontent.com/Cook-County-Department-of-Public-Health/ccdph-functions/master/spatial-database-functions.R")
 
-# fx_read_spatial_layer_fr_database() parameters: 
-# schema_name = name of schema spatial database table is assigned to (defaults to "ref")
-# db_table_name = name of spatial table in inter-spatial database
-# crs_id = coordinate reference system identification (defaults to 3435)
-# Note that schema defaults to "ref" and crs defaults to 3435. 
-# All data in inter-spatial are in crs 3435. Sending read function with crs_id=4326 
-# automatically transforms the data into 4326 for leaflet mapping
-
-# read spatial data example:
-counties_illinois_sf <- fx_read_spatial_layer_fr_database(db_table_name = "counties_illinois", crs_id = 4326)
-
-# fx_write_spatial_layer_to_database() parameters: 
-# sf_layer_name = simple feature file in R to write to database
-# schema_name = name of schema new spatial database table is assigned to (defaults to "ref")
-# db_table_name = name of new spatial table in inter-spatial database (default is to overwrite any existing table)
-# crs_id = coordinate reference system identification (defaults to 3435)
+# Read spatial data example
+counties_illinois_sf <- fx_read_spatial_layer_fr_database(
+  db_table_name = "counties_illinois",
+  crs_id = 4326
+)
 
 # Write spatial data example
-# Note that schema defaults to "ref" and crs defaults to 3435
 counties_il_db <- fx_write_spatial_layer_to_database(
   sf_layer_name = counties_illinois_sf,
-  schema_name = "ref",
+  schema_name   = "ref",
   db_table_name = "counties_illinois_DELETE",
-  crs_id = 3435)
-
+  crs_id        = 3435
+)
 ```
 
 ### Accessing spatial data in ArcGIS
@@ -239,5 +371,3 @@ To access server data using Microsoft applications, it is necessary to first ins
 Microsoft SQL Server Management Studio (SSMS) is a software application developed by Microsoft that is used for configuring, managing, and administering all components within Microsoft SQL Server. CCDPH uses the . If you don't have the latest SQL Management Studio general availability (GA) version installed on your CCDPH machine, request installation by submitting a ticket through [Cook County's online help system](https://help.cookcountyhealth.org/support/home).
 
 Once installed, open SQL Management Studio on a laptop or tower computer that is directly connected (via LAN not WIFI) to the CCHHS network. It is possible to use a remote desktop connection to log into a computer that is lined into the CCHHS network. The tower machines at Bridgeview, for example, are connected directly to the network via LAN cables. Refer to the [Epi Handbook](#) for information concerning how to log in remotely to an office computer.
-
-## CCDPH GitHub
