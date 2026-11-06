@@ -1,0 +1,152 @@
+# Contributing to and Publishing the Handbook {.unnumbered}
+This chapter describes how Epidemiology Unit staff contribute changes to this handbook and how those changes are published to the web. The handbook source files are managed in the private [ccdph-epi-unit-handbook](https://github.com/Cook-County-Department-of-Public-Health/ccdph-epi-unit-handbook) GitHub repository, to which unit staff have edit access. The rendered book is hosted at [justenvirons.org/epihandbook/](https://justenvirons.org/epihandbook/) and is protected by a shared username and password.
+
+## Overview
+Contributors do **not** need access to the web server. Instead, GitHub does the publishing:
+
++ Contributors only push to the GitHub repository, typically from RStudio.
++ A GitHub Actions workflow renders the book and copies it to the web server using a single deploy key that only the repository holds.
++ The live site updates only when a reviewed change is merged into the `main` branch.
++ Pushes to any other branch publish to a password-protected *preview* folder so that reviewers can see the change before it goes live.
+
+```
+RStudio (feature branch) ──push──▶ GitHub
+                                     │
+     any non-main branch ────────────┼──▶ Actions renders ──rsync──▶ /epihandbook/preview/<branch>/
+                                     │
+     Pull request → review → merge ──┴──▶ Actions renders ──rsync──▶ /epihandbook/   (live)
+```
+
+This approach is preferable to giving each contributor FTP or SSH access to the server because:
+
++ Server credentials are never shared with individuals; they are stored only as encrypted GitHub secrets.
++ When someone leaves the unit, removing their GitHub access is all that is required (see [Offboarding](offboarding.qmd)).
++ Every change to the live site traces back to a reviewed commit.
++ Nobody needs to install SFTP tools or remember a server path.
+
+## Day-to-day workflow for contributors
+### One-time setup
+Each contributor completes the following steps once in RStudio. See also [Using GitHub repositories in RStudio](github.qmd#using-github-repositories-in-rstudio).
+
+```r
+install.packages(c("usethis", "gitcreds"))
+usethis::create_github_token()   # create a personal access token (PAT); authorize SSO for the CCDPH org if prompted
+gitcreds::gitcreds_set()         # paste the PAT
+usethis::create_from_github("Cook-County-Department-of-Public-Health/ccdph-epi-unit-handbook")
+```
+
+### Making a change
+For each change to the handbook:
+
+```r
+usethis::pr_init("update-case-definitions")  # creates a new branch from the latest main
+# ...edit .qmd files...
+quarto::quarto_render()                      # or use the Render button to check the result locally
+# Stage and commit changes in the RStudio Git pane
+usethis::pr_push()                           # pushes the branch and opens the pull request page in the browser
+```
+
+1. About a minute after the push, a preview of the book is available at `justenvirons.org/epihandbook/preview/<branch-name>/` (e.g., `preview/update-case-definitions/`). Branch names containing `/` are converted to `-`.
+2. A reviewer looks at the preview and approves the pull request (PR), which is then merged on GitHub. The live site updates automatically.
+3. After the merge, run `usethis::pr_finish()` to clean up the local branch.
+
+::: {.callout-note}
+Do not commit the `_book/` folder. Rendered files are produced by GitHub Actions and are excluded from the repository via `.gitignore`.
+:::
+
+## One-time setup for the repository administrator
+The steps below are completed once by the repository and web server administrator.
+
+### 1. Rendering and code execution
+The handbook currently sets `eval: false` in `_quarto.yml`, so code chunks are displayed but never run, and GitHub can render the book without any R setup. If code execution is ever enabled, add Quarto's *freeze* option so that GitHub does not run R code:
+
+```yaml
+execute:
+  freeze: auto
+```
+
+Contributors would then render locally in RStudio and commit the `_freeze/` folder; GitHub would only assemble the HTML. This keeps CCDPH data off GitHub's build machines. In that case, reviewers should confirm that `_freeze/` files were updated whenever a code chunk was edited, otherwise the site will show stale output.
+
+### 2. Create a deploy-only SSH key
+On the administrator's own computer:
+
+```bash
+ssh-keygen -t ed25519 -f epihandbook_deploy -C "github-actions epihandbook" -N ""
+```
+
+On the web server, add the public key to `~/.ssh/authorized_keys`, restricted to the handbook folder:
+
+```
+command="rrsync /home/<user>/public_html/epihandbook",restrict ssh-ed25519 AAAA... github-actions epihandbook
+```
+
+`rrsync` is distributed with rsync. With this restriction, even a leaked key could only write inside `epihandbook/`. If the host only supports FTP (no SSH), replace the rsync step below with [SamKirkland/FTP-Deploy-Action](https://github.com/SamKirkland/FTP-Deploy-Action), using an FTP account restricted to that folder.
+
+### 3. Add repository secrets
+In the GitHub repository, go to **Settings → Secrets and variables → Actions** and add:
+
++ `DEPLOY_KEY`: the private key (contents of `epihandbook_deploy`)
++ `DEPLOY_HOST`: `justenvirons.org`
++ `DEPLOY_USER`: the SSH user on the server
++ `DEPLOY_KNOWN_HOSTS`: the output of `ssh-keyscan justenvirons.org`
+
+### 4. Add the publishing workflow
+Create `.github/workflows/publish.yml`:
+
+```yaml
+name: Render and deploy handbook
+on:
+  push:
+    branches: ['**']
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render
+        run: quarto render
+
+      - name: Choose target folder
+        run: |
+          if [ "$GITHUB_REF_NAME" = "main" ]; then
+            echo "TARGET=./" >> $GITHUB_ENV
+            echo "EXCLUDES=--exclude=preview/ --exclude=.htaccess --exclude=.htpasswd" >> $GITHUB_ENV
+          else
+            SAFE=$(echo "$GITHUB_REF_NAME" | tr '/' '-')
+            echo "TARGET=preview/$SAFE/" >> $GITHUB_ENV
+            echo "EXCLUDES=" >> $GITHUB_ENV
+          fi
+
+      - name: Deploy via rsync
+        env:
+          KEY: ${{ secrets.DEPLOY_KEY }}
+          KNOWN: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$KEY" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
+          echo "$KNOWN" > ~/.ssh/known_hosts
+          rsync -rlvz --delete $EXCLUDES _book/ \
+            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:$TARGET"
+```
+
+The `--exclude` flags on the `main` deploy prevent `--delete` from removing the previews and the `.htaccess`/`.htpasswd` files. Because previews sit inside `epihandbook/`, the existing password protection covers them automatically. Optionally, a second small workflow triggered on branch `delete` can remove `preview/<branch>/` when a branch is deleted.
+
+### 5. Protect the main branch
+In **Settings → Rules** (or **Branches**), require a pull request with at least one approving review and block direct pushes to `main`. This is how "once reviewed" is enforced.
+
+::: {.callout-important}
+GitHub generally limits branch protection on private repositories to paid organization plans (Team or Enterprise). If the CCDPH organization is on the free plan, the unit should agree to always use pull requests for changes to `main`, or use a GitHub Environments approval step if the plan includes it.
+:::
+
+## Security considerations
++ Basic (htaccess) authentication over HTTPS is light protection. The site should be served over HTTPS only, and line-level or otherwise sensitive data must never be included in the handbook (see [GitHub file management and security](github.qmd#github-file-management-and-security)).
++ Confirm with CCH Health Information Systems (HIS) whether hosting staff material on a non-county server is acceptable long term. If it is not, a county-managed host can use this same workflow with only the repository secrets changed.
++ When changing code chunks (if execution is enabled), include a reminder in the PR description so that reviewers check for stale rendered output.

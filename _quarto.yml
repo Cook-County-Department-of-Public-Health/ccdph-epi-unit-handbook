@@ -58,6 +58,7 @@ book:
     - part: software.qmd # software types, descriptions, installation process
       chapters:
         - github.qmd # github repositories
+        - handbook_publishing.qmd # contributing to and publishing this handbook
         - sqlserver.qmd # sql server resources
         - posit.qmd # rstudio resources; code
         - gis.qmd # ArcGIS data, resources; templates
