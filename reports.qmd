@@ -1,2 +1,201 @@
 # Surveillance Reports {.unnumbered}
 
+## 1. Executive Summary & Purpose
+
+The purpose of this section is to establish a uniform tracking dictionary for monitoring Substance Use Disorders (SUD), acute drug toxicities, chronic alcohol-induced conditions, and critical mental health metrics within our jurisdiction.
+Standardizing these metrics allows our epidemiology team to accurately track longitudinal trends, isolate geographic hot-spots, evaluate community-level interventions, and provide actionable evidence to public health leadership.
+
+## 2. Methodological Framework & Origin
+
+The core metrics implemented in this surveillance chapter are derived from the foundational framework established by the Council of State and Territorial Epidemiologists (CSTE) and the Centers for Disease Control and Prevention (CDC).
+As detailed in the benchmark publication, *"Development of Indicators for Public Health Surveillance of Substance Use and Mental Health"* (Hopkins, Landen, & Toe, 2018), these indicators address a historic public health gap by creating a shared vocabulary for behavioral health tracking.
+
+The workgroup selected these specific metrics using a modified Delphi methodology based on three strict criteria: 1.
+**Universal Availability:** Data inputs must be accessible across state and local lines (e.g., Vital Statistics, BRFSS, hospital registries).
+2.
+**Methodological Validity:** Case definitions must rely on clear, reproducible clinical mapping (such as standardized ICD-9-CM, ICD-10, or ICD-10-CM codes).
+3.
+**Public Health Actionability:** The data must directly inform policy, resource allocation, or harm reduction strategies.
+
+## 3. Comprehensive Surveillance Indicators Table
+
+The table below outlines the full set of 18 standardized consensus indicators utilized by our division to monitor substance use and mental health domains uniformly across data systems (@tbl-cste-comprehensive).
+
+```{r}
+#| id: tbl-cste-comprehensive
+#| tbl-cap: "Descriptions of substance abuse and mental health surveillance indicators adopted by Council of State and Territorial Epidemiologists"
+
+# 1. Dynamically check and install the gt package if it isn't present
+if (!requireNamespace("gt", quietly = TRUE)) install.packages("gt")
+library(gt)
+
+# 2. Build the complete structural data frame containing all 18 indicators
+cste_full_data <- data.frame(
+  Indicator = c(
+    "1. Adult binge drinking", 
+    "2. Youth binge drinking", 
+    "3. Alcohol-related crash deaths", 
+    "4. Mortality from liver disease and cirrhosis", 
+    "5. State excise taxes on alcohol", 
+    "6. Drug overdose mortality, all drugs",
+    "7. Hospitalizations attributable to or associated with drugs with potential for abuse and dependence; all drugs together and each specified drug",
+    "8. Prescription opioid sales per capita",
+    "9. Drug or alcohol dependence or abuse in the last year: summary",
+    "10. Prevalence of use of selected prescription and illicit drugs",
+    "11. Suicide rate",
+    "12. Hospitalizations for mental disorders",
+    "13. Emergency department visits for intentional self-harm",
+    "14. Self-reported youth suicide attempts",
+    "15. Depressive episodes in the past year",
+    "16. Serious adult mental illness in the past year",
+    "17. Any adult mental illness in the past year",
+    "18. Frequent mental distress"
+  ),
+  Subindicators = c(
+    "None", 
+    "None", 
+    "None", 
+    "None", 
+    "Tabulate separately for tax rates on beer, wine, or distilled spirits", 
+    "Tabulate for all drugs together and by drug type: opium, heroin, other opioids, methadone, other synthetic narcotics, cocaine, other and unspecified narcotics, cannabis, lysergide, other unspecified psychodysleptics, benzodiazepine, and psychostimulants with abuse potential; tabulate also by ICD-10 code T50.9, other, and unspecified if it is present and none of the other listed T codes are present.",
+    "Calculate separately for heroin poisoning, cocaine poisoning, prescription opioid poisoning, benzodiazepine-based tranquilizer poisoning, amphetamine poisoning, cocaine abuse and dependence, and opioid abuse and dependence. Each hospital admission should be counted in the tabulations for each mentioned drug.",
+    "None",
+    "None",
+    "Tabulate data separately for illicit drug use in the past month, marijuana use in the past year, marijuana use in the past month, illicit drug use other than marijuana use in the past month, cocaine use in the past year, and nonmedical use of pain relievers in the past year.",
+    "None",
+    "Tabulate data for overall indicator and separately for (1) mood and depressive disorders, (2) schizophrenic disorders, and (3) all mental health disorders except drug- and alcohol-induced mental health disorders.",
+    "None",
+    "None",
+    "None",
+    "None",
+    "None",
+    "None (Threshold: >= 14 of 30 days)"
+  ),
+  Data_Source = c(
+    "Behavioral Risk Factor Surveillance System (BRFSS)", 
+    "Youth Risk Behavior Surveillance System (YRBSS)", 
+    "NHTSA Fatality Analysis Reporting System (FARS)", 
+    "State-specific vital statistics death files", 
+    "Alcohol Policy Information System", 
+    "State-specific vital statistics death files",
+    "Hospital discharge database maintained by jurisdiction agency",
+    "US DEA Automation of Reports and Consolidated Orders System (ARCOS) database",
+    "National Survey on Drug Use and Health (NSDUH)",
+    "NSDUH",
+    "State-specific vital statistics files",
+    "Hospital discharge database maintained by jurisdiction agency",
+    "Emergency department visit data maintained by jurisdiction agency",
+    "YRBSS",
+    "NSDUH",
+    "NSDUH",
+    "NSDUH",
+    "BRFSS"
+  ),
+  Age_Group = c(
+    "18+", 
+    "Young people in grades 9-12", 
+    "All residents", 
+    "All residents", 
+    "All residents", 
+    "All residents",
+    "All residents of the state or jurisdiction",
+    "Total population",
+    "12+",
+    "12+",
+    "All residents",
+    "All residents",
+    "All residents",
+    "Young people enrolled in public school, grades 9-12",
+    "Jurisdiction residents aged 18+",
+    "Jurisdiction residents aged 18+",
+    "Jurisdiction residents aged 18+",
+    "Jurisdiction residents aged 18+"
+  ),
+  Definition_Brief = c(
+    "Crude- and age-adjusted percentage of adults having 5 drinks (men) or 4 drinks (women) on 1 occasion in previous 30 days, calculated annually.",
+    "Crude- and age-adjusted percentage of students in grades 9-12 who report having 5 drinks of alcohol within a couple of hours on 1 day during the past 30 days, calculated annually.",
+    "Crude and age-adjusted alcohol-related annual mortality rate of people involved in crash of a motor vehicle traveling on a public roadway and occurring within 30 days of the crash (blood alcohol content >= 0.01 g/dL).",
+    "Crude and age-adjusted number and rate of deaths during a calendar year with ICD-10 codes (K70 or K73-K74) (alcoholic liver disease, chronic persistent hepatitis, or fibrosis and cirrhosis of the liver) as the underlying cause of death.",
+    "State taxes levied per gallon of beverage at the wholesale or retail level, by beverage type, in most recent year.",
+    "Crude and age-adjusted death rate per 100,000 population with any of the following ICD-10 codes as an underlying cause of death: X40-X44 (accidental poisoning by drugs); X60-X64 (intentional self-poisoning by drugs); X85 (assault by drug poisoning); Y10-Y14 (drug poisoning of undetermined intent).",
+    "Method A: crude and age-adjusted number and rate of hospital discharges of jurisdiction residents per 10,000 population per year attributable to drugs with potential for abuse and dependence, excluding alcohol and substances that cause adverse effects in therapeutic use. A case may be identified by using certain principal (first-listed) ICD-9-CM codes or certain first-listed, valid cause-of-injury codes. Records with a first-listed ICD-9-CM code of E930-E949 are excluded. All hospitalizations occurring in acute-care, nonfederal, in-state hospital settings are included. Excluded are those with unknown age, out-of-jurisdiction residence, unknown state of residence, non-acute-care or federal hospital admission, and admission only for short stays or observation visits. Method B (if method A is complete) is the same as method A, except that records are included if any of certain ICD-9-CM diagnosis codes, or E-codes, for drug-related events are present, in the fields of either the primary or any secondary diagnoses. Note that if more than one drug code is present for an admission, that event will be counted once for each drug code.",
+    "Per-capita state sales of prescription opioids, expressed in morphine milligram equivalents sold per 10,000 population per year, calculated once per year.",
+    "Number and percentage of respondents answering selected NSDUH items positively for dependence on or abuse of alcohol or drugs (including prescription drugs), calculated annually. Drugs for this measure include marijuana/hashish, cocaine (including crack), heroin, hallucinogens, inhalants, methamphetamines, and nonmedical use of prescription pain relievers, tranquilizers, stimulants, or sedatives.",
+    "Percentage of jurisdiction residents indicating use of a specific substance of interest in the indicated time frame in the NSDUH, and use of any of these substances taken together, calculated annually.",
+#Use code with caution.
+"Crude and age-adjusted annual number and rate per 100,000 population of suicides by jurisdiction residents, in total and by age group, with underlying cause indicated by any of the following ICD-10 codes: X60-X84 (intentional self-harm); Y87.0 (sequelae of intentional self-harm); U03 (terrorism-intentional self-harm).",
+"Crude and age-adjusted number and rate per 100,000 population of jurisdiction residents discharged from civilian, nonfederal acute-care hospitals with a primary diagnosis of a mental disorder (ICD-9-CM codes 290-319, ICD-10-CM codes F10-F48); in total, and separately for 3 subindicators.",
+"Number and crude and age-adjusted rates per 10,000 person-years of visits to civilian, acute-care, nonfederal hospital emergency departments by jurisdiction residents with any primary diagnosis of intentional self-injury (ICD-9-CM codes E950-E958) or first listed valid E-code in secondary diagnosis field (ICD-10-CM codes T36-T65 inclusive, where 6th digit is 2, and X71-X83 inclusive, as first-listed diagnosis).",
+"Percentage of high school students who reported attempted suicide at least once in the past 12 months in the YRBSS, as defined by the percentage who answered 1 time, 2 or 3 times, 4 or 5 times, or 6 or more times to the question, 'During the past 12 months, how many times did you actually attempt suicide?'",
+"Number and percentage of NSDUH respondents aged 18+ meeting inclusion criteria defined in the 4th edition of the Diagnostic and Statistical Manual of Mental Disorders (i.e., period of at least 2 weeks in the past year when a person had a depressed mood or loss of interest or pleasure in daily activities and had a majority of specified depression symptoms).",
+"Number and percentage of NSDUH respondents aged 18+ meeting inclusion criteria defined as currently or at any time in the past year having had a diagnosable mental, behavioral, or emotional disorder (excluding developmental and substance use disorders) of sufficient duration to meet diagnostic criteria specified in the DSM-4, and that resulted in serious functional impairment substantially interfering with or limiting one or more major life activities.",
+"Number and percentage of NSDUH respondents aged 18+ meeting inclusion criteria for any mental illness in the past year.",
+"Crude annual prevalence of respondents who reported that their mental health was not good for 14 or more days in the past month, with 95% confidence intervals and weighted using the BRFSS method."
+),
+Stratification = c(
+"Age group, sex, race, ethnicity, and geographic sub-area",
+"Age group, sex, race, ethnicity, and geographic sub-area",
+"Age group, sex, race, ethnicity, and geographic sub-area",
+"Age group, sex, race, ethnicity, and geographic sub-area",
+"None",
+"Age group, sex, race, ethnicity, and geographic sub-area",
+"Age group, sex, race, ethnicity, and geographic sub-area; also by admission to hospital (with or without emergency department visit) vs emergency department visit only",
+"None",
+"Standard NSDUH age groups (12, 12-17, 18-25, 26+, and 18+)",
+"Standard NSDUH age groups: 12, 12-17, 18-25, 26+, and 18+",
+"Age group, sex, race, ethnicity, and geographic sub-area; age groups should include 10-24, 25-64, and 65+",
+"Age group (12-24, 25-44, and 45+ years), race, ethnicity, and geographic sub-area",
+"Age group, sex, race, ethnicity, and geographic sub-area; age groups should include 10-24, 25-64, and 65+",
+"Grade level, sex, and race/ethnicity",
+"Standard NSDUH age groups (12, 12-17, 18-25, 18+, and 26+)",
+"Standard NSDUH age groups (18+, 18-25, and 26+)",
+"Standard NSDUH age groups (18+, 18-25, and 26+)",
+"Age group, sex, race/ethnicity, and geographic area"
+)
+)
+
+#3. Render the complete, robust table architecture
+
+cste_full_data |>
+gt() |>
+tab_header(
+title = "CSTE Substance Use & Mental Health Surveillance Framework",
+subtitle = "Complete 18-Indicator Matrix (2016 Guidelines)"
+) |>
+cols_label(
+Indicator = "Core Indicator",
+Subindicators = "Subindicators / Coding Instructions",
+Data_Source = "Data Source",
+Age_Group = "Age Profile",
+Definition_Brief = "Indicator Definition & Case Logic",
+Stratification = "Stratification Variables"
+) |>
+tab_options(
+table.width = pct(100),
+heading.title.font.size = px(14),
+heading.subtitle.font.size = px(11),
+column_labels.font.weight = "bold",
+table.font.size = px(10)
+) |>
+cols_width(
+Indicator ~ pct(15),
+Subindicators ~ pct(23),
+Data_Source ~ pct(12),
+Age_Group ~ pct(8),
+Definition_Brief ~ pct(28),
+Stratification ~ pct(14)
+)
+```
+
+::: callout-important
+## Privacy and Data Suppression Thresholds
+
+When executing analysis scripts for small geographic divisions (such as zip-code or sub-county cohorts), analysts must apply cell-suppression rules.
+If any numerator or case count falls below below ten for hospital discharge ($n < 10$), and for death certificate data ($n < 5$), the cell value must be suppressed to guarantee confidentiality and avoid deductive identification of individuals in administrative datasets.
+:::
+
+## 4. Key Data Source Logistics
+
+-   **Vital Statistics (Birth and death certificate):** Serves as the stable denominator for calculating overall population mortality metrics (Indicators 4 and 6). Requires continuous cross-referencing with underlying cause-of-death ICD codes.
+-   **Behavioral Risk Factor Surveillance System (SCCHS and YRBS):** Provides self-reported population behavioral data for chronic and acute drinking metrics. Analysts must apply complex survey weights (`_LLCPWT`) when computing prevalence estimates.
+-   **Administrative Billing Data (Hospital/ED):** Essential for identifying the near-miss morbidity burden of the illicit drug supply line. Relies on the precision of clinical coding teams at local healthcare facilities.
